@@ -17,7 +17,11 @@
 </head>
 
 <body>
-  <div id="root_data_container">Сохраните это: <textarea id="root_data" style="width: 80%"></textarea></div>
+  <div id="root_data_container">Сохранить:
+    <input id="root_name" value="без имени"/>
+    <input type="button" id="root_save_button" value="сохранить"/>
+    Загрузить: <input type='file' id='file_path'/>
+  </div>
   <div id="root_canvas_container">
     <canvas id="root_canvas" class="layer">
       <p>html5 canvas unsupported :(</p>

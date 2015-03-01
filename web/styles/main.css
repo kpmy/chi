@@ -37,5 +37,5 @@ html, body {
   height: 100%;
   position: relative;
   top: 20px;
-  /* cursor: none; */
+  cursor: none;
 }

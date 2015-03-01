@@ -3,6 +3,9 @@
 
 import 'dart:html';
 import 'package:color/color.dart';
+import 'dart:convert';
+import 'dart:async';
+import 'dart:typed_data';
 
 final Color BG_COLOR = new Color.hex("ced6b5");
 final Color SHADE_COLOR = new Color.hex("bac1a3");
@@ -48,7 +51,20 @@ class Point {
   Color col = BLACK;
 
   Point(this.x, this.y);
-  String toString() => '{x: $x, y: $y, col: $col}';
+  String toString() => '{x: $x, y: $y, col: "$col"}';
+  Map<String, Object> toMap(){
+    Map<String, Object> ret = new Map();
+    ret["x"]=x;
+    ret["y"]=y;
+    ret["col"]=col.toString();
+    return ret;
+  }
+
+  Point.fromMap(Map<String, Object> m){
+    this.x = m["x"];
+    this.y = m["y"];
+    this.col = new Color.hex(m["col"]);
+  }
 }
 
 class Port {
@@ -58,6 +74,8 @@ class Port {
 
   int width;
   int height;
+
+  Color lastPen;
 
   Map<Tuple2<int, int>, Point> data = new Map();
 
@@ -159,18 +177,33 @@ class Port {
     via.clearRect(0, 0, width, height);
   }
 
-  void put(int x, int y){
+  void put(int x, int y, [Color col = null]){
     var p = new Tuple2<int, int>(x, y);
     Point tp = data[p];
     if (tp == null){
       data[p]=new Point(x, y);
-    }else{
+      if(col != null){
+        data[p].col = col;
+      }else{
+        data[p].col = BLACK;
+      }
+      lastPen = data[p].col;
+    }else if (col!=null){
+      lastPen = col;
+      if (col == SHADE_COLOR){
+        clear(x, y);
+      }else{
+        tp.col = col;
+      }
+    }else if (col==null){
       if(tp.col == BLACK){
         tp.col = GREY50;
+        lastPen = tp.col;
       }else if(tp.col == GREY50){
         tp.col = GREY25;
+        lastPen = tp.col;
       }else{
-        data.remove(p);
+        clear(x, y);
       }
     }
   }
@@ -178,14 +211,48 @@ class Port {
   void clear(int x, int y){
       var p = new Tuple2<int, int>(x, y);
       data.remove(p);
+      lastPen = SHADE_COLOR;
   }
 
   String export(){
     if (data.values!=null){
-      return data.values.toString();
+      Map<String, Object> r = new Map();
+      List<Map<String, Object>> ret = new List();
+      data.values.forEach((Point p){
+        ret.add(p.toMap());
+      });
+      String name = (querySelector("#root_name") as InputElement).value;
+      if(name==null || name==""){
+        name="noname";
+      }
+      r["name"]=name;
+      r["data"]=ret;
+      return JSON.encode(r);
     }else{
-      return "";
+      return "{}";
     }
+  }
+
+  void import(String js){
+    Map<String, Object> r;
+    r = JSON.decode(js);
+    String name = r["name"];
+    if(name == null || name == ""){
+      name = "noname";
+    }
+    (querySelector("#root_name") as InputElement).value = name;
+    data.clear();
+    List<Map<String, Object>> pl = r["data"];
+    if(pl!=null){
+      pl.forEach((Map<String, Object>m){
+        Point p = new Point.fromMap(m);
+        data[new Tuple2(p.x, p.y)]=p;
+      });
+    }
+  }
+
+  Tuple2<int, int> mapCoord(int x, int y){
+    return new Tuple2((x+1) ~/ DOT, (y+1) ~/DOT);
   }
 }
 
@@ -217,21 +284,69 @@ void main() {
   window.onResize.listen(draw);
   div
       ..onMouseMove.listen((MouseEvent e){
-    port.move((e.offset.x+1) ~/ DOT, (e.offset.y+1) ~/DOT);
+    var c = port.mapCoord(e.offset.x, e.offset.y);
+    port.move(c.i1, c.i2);
+    if(port.lastPen!=null){
+      port.put(c.i1, c.i2, port.lastPen);
+      port.front();
+    }
   })
       ..onMouseOut.listen((MouseEvent e){
     port.leave();
+    port.lastPen = null;
+  })
+      ..onMouseUp.listen((MouseEvent e){
+      port.lastPen = null;
   })
       ..onMouseDown.listen((MouseEvent e){
+    var c = port.mapCoord(e.offset.x, e.offset.y);
     if(e.button==0){
-      port.put((e.offset.x+1) ~/ DOT, (e.offset.y+1) ~/DOT);
+      port.put(c.i1, c.i2);
     }else{
-      port.clear((e.offset.x+1) ~/ DOT, (e.offset.y+1) ~/DOT);
+      port.clear(c.i1, c.i2);
     }
     port.front();
-    (querySelector("#root_data") as TextAreaElement).value = port.export();
     e.preventDefault();
   });
+
   via.onContextMenu.listen((e){e.preventDefault();});
+  querySelector("#root_save_button").onClick.listen((e){
+    List<String> data = new List();
+    data.add(port.export());
+    window.open(Url.createObjectUrlFromBlob(new Blob(data, "application/octet-stream")), "");
+  });
+
+  querySelector('#file_path')
+      ..onChange.listen((e){
+    File fi;
+    FileUploadInputElement fo = querySelector('#file_path');
+      if((fo != null) && (fo.files.length>0)){
+        print("get file");
+        FileSystem fs;
+        fi = fo.files.first;
+        Future future = window.requestFileSystem(fi.size).then((fs){
+          print("get fs");
+          FileEntry fe;
+          Future future = fs.root.createFile(fi.name);
+          future.then((fe){
+            print("get writer");
+            FileWriter wr;
+            Future future = fe.createWriter();
+            future.then((wr){
+              print("writer");
+              FileReader rd;
+              wr.write(fi);
+              Future future = HttpRequest.request(fe.toUrl(), mimeType: 'application/octet-stream', responseType: 'arraybuffer').then((req){
+                 print("read");
+                 Uint8List ul = (req.response as ByteBuffer).asUint8List();
+                 String js = UTF8.decode(ul);
+                 port.import(js);
+                 draw(null);
+              });
+            });
+          });
+        });
+      }
+  });
   draw(null);
 }
