@@ -1,0 +1,41 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.layer{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+#root_canvas{
+  z-order: 0;
+}
+
+#img_canvas{
+  z-order: 1;
+}
+
+#via_canvas{
+  z-order: 2;
+}
+
+#root_data_container{
+  width: 100%;
+}
+
+#root_canvas_container{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  top: 20px;
+  cursor: none;
+}
