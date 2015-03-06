@@ -20,7 +20,7 @@ void init(){
   go
     ..onClick.listen((MouseEvent e){
     window.sessionStorage[SESSION]=name.value;
-    window.location.assign("/app");
+    window.location.assign("app");
   });
 }
 
