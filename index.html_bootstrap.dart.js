@@ -16230,7 +16230,7 @@ var $$ = Object.create(null);
     "^": "Closure:107;name_2",
     call$1: [function(e) {
       window.sessionStorage.setItem("chi:app:session", J.get$value$x(this.name_2));
-      window.location.assign("/app");
+      window.location.assign("app");
     }, "call$1", null, 2, 0, null, 2, "call"]
   },
   main_closure: {
