@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<!--
+  Copyright (c) 2015, <your name>. All rights reserved. Use of this source code
+  is governed by a BSD-style license that can be found in the LICENSE file.
+-->
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="scaffolded-by" content="https://github.com/google/stagehand">
+    <title>chi</title>
+
+    <link rel="stylesheet" href="styles/edit.css">
+</head>
+
+<body>
+  <div id="root_data_container">Сохранить:
+    <input id="root_name" value="без имени"/>
+    <input type="button" id="root_save_button" value="сохранить"/>
+    Загрузить: <input type='file' id='file_path'/>
+  </div>
+  <div id="root_canvas_container">
+    <canvas id="root_canvas" class="layer">
+    </canvas>
+    <canvas id="img_canvas" class="layer">
+    </canvas>
+    <canvas id="via_canvas" class="layer">
+    </canvas>
+  </div>
+
+<script type="application/dart" src="edit.dart"></script>
+<script data-pub-inline src="packages/browser/dart.js"></script>
+</body>
+</html>
