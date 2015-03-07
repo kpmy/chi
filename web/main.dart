@@ -1,7 +1,9 @@
 // Copyright (c) 2015, <kpmy>. All rights reserved. Use of this source code
 // is governed by a BSD-style license that can be found in the LICENSE file.
-import 'package:polymer/polymer.dart';
+
 import "dart:html";
+
+import 'package:polymer/polymer.dart';
 import "package:chi/storage.dart";
 import "package:chi/tools.dart";
 
@@ -13,7 +15,7 @@ void init(){
     name.value = window.sessionStorage[SESSION];
 
   name
-  ..onChange.listen((Event e){
+  ..onInput.listen((Event e){
       go.disabled = (name.value == "");
   });
 

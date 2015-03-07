@@ -5,11 +5,14 @@
   	<meta charset="utf-8">
   	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>chi :: pet</title>
-
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="import" href="packages/chi/poly/chi_canvas.html">
 </head>
-
   <body unresolved>
-    <p id="text"></p>
+    <div id="pane">
+      <div class="layer"><chi-canvas base="6" transparent="false"></chi-canvas></div>
+      <div class="layer"><chi-canvas base="6" transparent="true" href="/img/eye0.json"></chi-canvas></div>
+    </div>
     <script type="application/dart" src="app.dart"></script>
     <!-- for this next line to work, your pubspec.yaml file must have a dependency on 'browser' -->
     <script src="packages/browser/dart.js"></script>

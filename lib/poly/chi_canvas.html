@@ -1,0 +1,25 @@
+<link rel="import" href="../../../packages/polymer/polymer.html">
+<polymer-element name="chi-canvas" attributes="base transparent href">
+  <template>
+     <style>
+      :host{
+        width: 100%;
+        height: 100%;
+      }
+      #root_canvas_bg{
+        width: 100%;
+        height: 100%;
+      }
+      #root_canvas_container {
+        width: calc(100% - 40px);
+        height: calc(100% - 5px);
+        margin-left: 20px;
+        margin-right: 20px;
+      }
+    </style>
+    <div id="root_canvas_bg">
+      <div id="root_canvas_container"><canvas id="root_canvas"></canvas></div>
+    </div>
+  </template>
+  <script type="application/dart" src="chi_canvas.dart"></script>
+</polymer-element>
