@@ -11968,30 +11968,6 @@ var $$ = Object.create(null);
     H.setRuntimeTypeInfo(new W._EventStreamSubscription(0, t1._target, t1._eventType, W._wrapZone(new T.run_closure6(draw)), t1._useCapture), [H.getTypeArgumentByIndex(t1, 0)])._tryResume$0();
     draw.call$1(null);
   },
-  Tuple2: {
-    "^": "Object;i1,i2",
-    toString$0: function(_) {
-      return "[" + H.S(this.i1) + ", " + H.S(this.i2) + "]";
-    },
-    get$hashCode: function(_) {
-      var t1, t2;
-      t1 = J.get$hashCode$(this.i1);
-      if (typeof t1 !== "number")
-        return H.iae(t1);
-      t2 = J.get$hashCode$(this.i2);
-      if (typeof t2 !== "number")
-        return H.iae(t2);
-      return 37 * (629 + t1) + t2;
-    },
-    $eq: function(_, other) {
-      if (other == null)
-        return false;
-      if (!J.getInterceptor(other).$isTuple2)
-        return false;
-      return J.$eq(other.i1, this.i1) && J.$eq(other.i2, this.i2);
-    },
-    $isTuple2: true
-  },
   Point: {
     "^": "Object;x>,y>,col@",
     toString$0: function(_) {
@@ -12090,7 +12066,7 @@ var $$ = Object.create(null);
             return H.iae(t3);
           if (!(x < t3))
             break;
-          p = new T.Tuple2(w, h);
+          p = new U.Tuple2(w, h);
           p.$builtinTypeInfo = [P.$int, P.$int];
           tp = t1.$index(0, p);
           if (tp != null) {
@@ -12121,10 +12097,10 @@ var $$ = Object.create(null);
     },
     put$3: function(x, y, col) {
       var p, t1, tp, t2;
-      p = H.setRuntimeTypeInfo(new T.Tuple2(x, y), [P.$int, P.$int]);
+      p = H.setRuntimeTypeInfo(new U.Tuple2(x, y), [P.$int, P.$int]);
       t1 = this.data;
       tp = t1.$index(0, p);
-      if (tp == null) {
+      if (tp == null && !J.$eq(col, $.get$SHADE_COLOR())) {
         t2 = $.get$BLACK();
         t1.$indexSet(0, p, new T.Point(x, y, t2));
         if (col != null)
@@ -12151,7 +12127,7 @@ var $$ = Object.create(null);
       return this.put$3(x, y, null);
     },
     clear$2: function(_, x, y) {
-      this.data.remove$1(0, H.setRuntimeTypeInfo(new T.Tuple2(x, y), [P.$int, P.$int]));
+      this.data.remove$1(0, H.setRuntimeTypeInfo(new U.Tuple2(x, y), [P.$int, P.$int]));
       this.lastPen = $.get$SHADE_COLOR();
     },
     export$0: function() {
@@ -12180,7 +12156,7 @@ var $$ = Object.create(null);
         J.forEach$1$ax(pl, new T.Port_import_closure(this));
     },
     mapCoord$2: function(x, y) {
-      return H.setRuntimeTypeInfo(new T.Tuple2(J.$tdiv$n(J.$add$ns(x, 1), 13), J.$tdiv$n(J.$add$ns(y, 1), 13)), [null, null]);
+      return H.setRuntimeTypeInfo(new U.Tuple2(J.$tdiv$n(J.$add$ns(x, 1), 13), J.$tdiv$n(J.$add$ns(y, 1), 13)), [null, null]);
     }
   },
   Port_export_closure: {
@@ -12194,7 +12170,7 @@ var $$ = Object.create(null);
     call$1: [function(m) {
       var p = new T.Point(0, 0, $.get$BLACK());
       p.Point$fromMap$1(m);
-      this.this_0.data.$indexSet(0, H.setRuntimeTypeInfo(new T.Tuple2(p.x, p.y), [null, null]), p);
+      this.this_0.data.$indexSet(0, H.setRuntimeTypeInfo(new U.Tuple2(p.x, p.y), [null, null]), p);
     }, "call$1", null, 2, 0, null, 64, "call"]
   },
   run_closure: {
@@ -13619,6 +13595,33 @@ var $$ = Object.create(null);
       return t1 + ("<" + H.S(new H.TypeImpl(H.getRuntimeTypeString(t2), null)) + ": " + H.S(t2.offset) + " " + t2.get$toolString() + ">") + " to " + ("<" + H.S(new H.TypeImpl(H.getRuntimeTypeString(t3), null)) + ": " + H.S(t3.offset) + " " + t3.get$toolString() + ">") + " \"" + H.S(this.text) + "\">";
     },
     $isSourceSpan: true
+  }
+}],
+["tools", "package:chi/tools.dart", , U, {
+  "^": "",
+  Tuple2: {
+    "^": "Object;i1,i2",
+    toString$0: function(_) {
+      return "[" + H.S(this.i1) + ", " + H.S(this.i2) + "]";
+    },
+    get$hashCode: function(_) {
+      var t1, t2;
+      t1 = J.get$hashCode$(this.i1);
+      if (typeof t1 !== "number")
+        return H.iae(t1);
+      t2 = J.get$hashCode$(this.i2);
+      if (typeof t2 !== "number")
+        return H.iae(t2);
+      return 37 * (629 + t1) + t2;
+    },
+    $eq: function(_, other) {
+      if (other == null)
+        return false;
+      if (!J.getInterceptor(other).$isTuple2)
+        return false;
+      return J.$eq(other.i1, this.i1) && J.$eq(other.i2, this.i2);
+    },
+    $isTuple2: true
   }
 }],
 ]);

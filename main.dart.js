@@ -11237,11 +11237,11 @@ var $$ = Object.create(null);
     querySelector$1: function(receiver, selectors) {
       return receiver.querySelector(selectors);
     },
-    get$onChange: function(receiver) {
-      return H.setRuntimeTypeInfo(new W._EventStream(receiver, "change", false), [null]);
-    },
     get$onClick: function(receiver) {
       return H.setRuntimeTypeInfo(new W._EventStream(receiver, "click", false), [null]);
+    },
+    get$onInput: function(receiver) {
+      return H.setRuntimeTypeInfo(new W._EventStream(receiver, "input", false), [null]);
     },
     querySelectorAll$1: function(receiver, selectors) {
       return W._FrozenElementList$_wrap(receiver.querySelectorAll(selectors), null);
@@ -11380,11 +11380,11 @@ var $$ = Object.create(null);
     querySelector$1: function(receiver, selectors) {
       return receiver.querySelector(selectors);
     },
-    get$onChange: function(receiver) {
-      return H.setRuntimeTypeInfo(new W._ElementEventStreamImpl(receiver, "change", false), [null]);
-    },
     get$onClick: function(receiver) {
       return H.setRuntimeTypeInfo(new W._ElementEventStreamImpl(receiver, "click", false), [null]);
+    },
+    get$onInput: function(receiver) {
+      return H.setRuntimeTypeInfo(new W._ElementEventStreamImpl(receiver, "input", false), [null]);
     },
     Element$created$0: function(receiver) {
     },
@@ -11835,11 +11835,11 @@ var $$ = Object.create(null);
     close$0: function(receiver) {
       return receiver.close();
     },
-    get$onChange: function(receiver) {
-      return H.setRuntimeTypeInfo(new W._EventStream(receiver, "change", false), [null]);
-    },
     get$onClick: function(receiver) {
       return H.setRuntimeTypeInfo(new W._EventStream(receiver, "click", false), [null]);
+    },
+    get$onInput: function(receiver) {
+      return H.setRuntimeTypeInfo(new W._EventStream(receiver, "input", false), [null]);
     },
     $isWindow: true,
     $isEventTarget: true,
@@ -12104,11 +12104,11 @@ var $$ = Object.create(null);
     get$last: function(_) {
       return C.NodeList_methods.get$last(this._nodeList);
     },
-    get$onChange: function(_) {
-      return H.setRuntimeTypeInfo(new W._ElementListEventStreamImpl(this, false, "change"), [null]);
-    },
     get$onClick: function(_) {
       return H.setRuntimeTypeInfo(new W._ElementListEventStreamImpl(this, false, "click"), [null]);
+    },
+    get$onInput: function(_) {
+      return H.setRuntimeTypeInfo(new W._ElementListEventStreamImpl(this, false, "input"), [null]);
     },
     _html$_FrozenElementList$_wrap$1: function(_nodeList, $T) {
       var t1 = C.NodeList_methods.where$1(this._nodeList, new W._FrozenElementList$_wrap_closure());
@@ -12678,11 +12678,11 @@ var $$ = Object.create(null);
   },
   SvgElement: {
     "^": "Element;",
-    get$onChange: function(receiver) {
-      return H.setRuntimeTypeInfo(new W._ElementEventStreamImpl(receiver, "change", false), [null]);
-    },
     get$onClick: function(receiver) {
       return H.setRuntimeTypeInfo(new W._ElementEventStreamImpl(receiver, "click", false), [null]);
+    },
+    get$onInput: function(receiver) {
+      return H.setRuntimeTypeInfo(new W._ElementEventStreamImpl(receiver, "input", false), [null]);
     },
     $isEventTarget: true,
     "%": "SVGAltGlyphDefElement|SVGAltGlyphItemElement|SVGAnimateElement|SVGAnimateMotionElement|SVGAnimateTransformElement|SVGAnimationElement|SVGComponentTransferFunctionElement|SVGCursorElement|SVGDescElement|SVGDiscardElement|SVGFEDistantLightElement|SVGFEDropShadowElement|SVGFEFuncAElement|SVGFEFuncBElement|SVGFEFuncGElement|SVGFEFuncRElement|SVGFEMergeNodeElement|SVGFEPointLightElement|SVGFESpotLightElement|SVGFontElement|SVGFontFaceElement|SVGFontFaceFormatElement|SVGFontFaceNameElement|SVGFontFaceSrcElement|SVGFontFaceUriElement|SVGGlyphElement|SVGGlyphRefElement|SVGHKernElement|SVGMPathElement|SVGMarkerElement|SVGMaskElement|SVGMetadataElement|SVGMissingGlyphElement|SVGSetElement|SVGStopElement|SVGSymbolElement|SVGTitleElement|SVGVKernElement|SVGViewElement;SVGElement"
@@ -13776,7 +13776,7 @@ var $$ = Object.create(null);
     $name = W.querySelector$closure().call$1("#chi_name_new");
     if (window.sessionStorage.getItem("chi:app:session") != null)
       J.set$value$x($name, window.sessionStorage.getItem("chi:app:session"));
-    J.get$onChange$x($name).listen$1(new F.init_closure(go, $name));
+    J.get$onInput$x($name).listen$1(new F.init_closure(go, $name));
     J.get$onClick$x(go).listen$1(new F.init_closure0($name));
   },
   main: [function() {
@@ -20799,11 +20799,11 @@ J.get$nextElementSibling$x = function(receiver) {
 J.get$nextNode$x = function(receiver) {
   return J.getInterceptor$x(receiver).get$nextNode(receiver);
 };
-J.get$onChange$x = function(receiver) {
-  return J.getInterceptor$x(receiver).get$onChange(receiver);
-};
 J.get$onClick$x = function(receiver) {
   return J.getInterceptor$x(receiver).get$onClick(receiver);
+};
+J.get$onInput$x = function(receiver) {
+  return J.getInterceptor$x(receiver).get$onInput(receiver);
 };
 J.get$ownerDocument$x = function(receiver) {
   return J.getInterceptor$x(receiver).get$ownerDocument(receiver);

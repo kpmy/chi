@@ -7419,30 +7419,6 @@ var $$ = Object.create(null);
     H.setRuntimeTypeInfo(new W._EventStreamSubscription(0, t1._target, t1._eventType, W._wrapZone(new T.run_closure6(draw)), t1._useCapture), [H.getTypeArgumentByIndex(t1, 0)])._tryResume$0();
     draw.call$1(null);
   },
-  Tuple2: {
-    "^": "Object;i1,i2",
-    toString$0: function(_) {
-      return "[" + H.S(this.i1) + ", " + H.S(this.i2) + "]";
-    },
-    get$hashCode: function(_) {
-      var t1, t2;
-      t1 = J.get$hashCode$(this.i1);
-      if (typeof t1 !== "number")
-        return H.iae(t1);
-      t2 = J.get$hashCode$(this.i2);
-      if (typeof t2 !== "number")
-        return H.iae(t2);
-      return 37 * (629 + t1) + t2;
-    },
-    $eq: function(_, other) {
-      if (other == null)
-        return false;
-      if (!J.getInterceptor(other).$isTuple2)
-        return false;
-      return J.$eq(other.i1, this.i1) && J.$eq(other.i2, this.i2);
-    },
-    $isTuple2: true
-  },
   Point: {
     "^": "Object;x,y,col@",
     toString$0: function(_) {
@@ -7541,7 +7517,7 @@ var $$ = Object.create(null);
             return H.iae(t3);
           if (!(x < t3))
             break;
-          tp = t1.$index(0, new T.Tuple2(w, h));
+          tp = t1.$index(0, new U.Tuple2(w, h));
           if (tp != null) {
             color = tp.get$col();
             t3 = this.img;
@@ -7570,10 +7546,10 @@ var $$ = Object.create(null);
     },
     put$3: function(x, y, col) {
       var p, t1, tp, t2;
-      p = new T.Tuple2(x, y);
+      p = new U.Tuple2(x, y);
       t1 = this.data;
       tp = t1.$index(0, p);
-      if (tp == null) {
+      if (tp == null && !J.$eq(col, $.get$SHADE_COLOR())) {
         t2 = $.get$BLACK();
         t1.$indexSet(0, p, new T.Point(x, y, t2));
         if (col != null)
@@ -7602,7 +7578,7 @@ var $$ = Object.create(null);
       return this.put$3(x, y, null);
     },
     clear$2: function(_, x, y) {
-      this.data.remove$1(0, new T.Tuple2(x, y));
+      this.data.remove$1(0, new U.Tuple2(x, y));
       this.lastPen = $.get$SHADE_COLOR();
     },
     export$0: function() {
@@ -7637,7 +7613,7 @@ var $$ = Object.create(null);
       t1 = C.JSNumber_methods._tdivFast$1(x + 1, 13);
       if (typeof y !== "number")
         return y.$add();
-      return new T.Tuple2(t1, C.JSNumber_methods._tdivFast$1(y + 1, 13));
+      return new U.Tuple2(t1, C.JSNumber_methods._tdivFast$1(y + 1, 13));
     }
   },
   Port_export_closure: {
@@ -7651,7 +7627,7 @@ var $$ = Object.create(null);
     call$1: function(m) {
       var p = new T.Point(0, 0, $.get$BLACK());
       p.Point$fromMap$1(m);
-      this.this_0.data.$indexSet(0, new T.Tuple2(p.x, p.y), p);
+      this.this_0.data.$indexSet(0, new U.Tuple2(p.x, p.y), p);
     }
   },
   run_closure: {
@@ -7751,13 +7727,13 @@ var $$ = Object.create(null);
       t4 = t2.get$offset(e);
       c = t1.mapCoord$2(t3, t4.get$y(t4));
       t1 = t2.get$button(e);
-      t2 = c.i1;
-      t3 = $.port;
+      t2 = $.port;
+      t3 = c.i1;
       t4 = c.i2;
       if (t1 === 0)
-        t3.put$2(t2, t4);
+        t2.put$2(t3, t4);
       else
-        t3.clear$2(0, t2, t4);
+        t2.clear$2(0, t3, t4);
       $.port.front$0();
       e.preventDefault();
     }
@@ -7938,6 +7914,33 @@ var $$ = Object.create(null);
       }
       return e;
     }
+  }
+}],
+["tools", "package:chi/tools.dart", , U, {
+  "^": "",
+  Tuple2: {
+    "^": "Object;i1,i2",
+    toString$0: function(_) {
+      return "[" + H.S(this.i1) + ", " + H.S(this.i2) + "]";
+    },
+    get$hashCode: function(_) {
+      var t1, t2;
+      t1 = J.get$hashCode$(this.i1);
+      if (typeof t1 !== "number")
+        return H.iae(t1);
+      t2 = J.get$hashCode$(this.i2);
+      if (typeof t2 !== "number")
+        return H.iae(t2);
+      return 37 * (629 + t1) + t2;
+    },
+    $eq: function(_, other) {
+      if (other == null)
+        return false;
+      if (!J.getInterceptor(other).$isTuple2)
+        return false;
+      return J.$eq(other.i1, this.i1) && J.$eq(other.i2, this.i2);
+    },
+    $isTuple2: true
   }
 }],
 ]);

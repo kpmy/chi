@@ -1,1 +1,1 @@
-{"experimental_bootstrap":false,"script_ids":[["chi","web/app/app.dart"]]}
+{"experimental_bootstrap":false,"script_ids":[["chi","lib/poly/chi_canvas.dart"],["chi","web/app/app.dart"]]}

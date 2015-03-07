@@ -2,6 +2,7 @@ library edit;
 
 import 'dart:html';
 import 'package:color/color.dart';
+import 'package:chi/tools.dart';
 import 'dart:convert';
 import 'dart:async';
 import 'dart:typed_data';
@@ -18,31 +19,6 @@ const int INNER_MARGIN = 1;
 const int OUTER_MARGIN = 1;
 const int OUTER_STROKE = 1;
 const DOT = OUTER_SIDE+2*OUTER_MARGIN;
-
-class Tuple2<T1, T2> {
-  T1 i1;
-  T2 i2;
-
-  Tuple2(this.i1, this.i2);
-
-  String toString() => '[$i1, $i2]';
-
-  int get hashCode {
-      int result = 17;
-      result = 37 * result + i1.hashCode;
-      result = 37 * result + i2.hashCode;
-      return result;
-    }
-
-    // You should generally implement operator == if you
-    // override hashCode.
-    bool operator ==(other) {
-      if (other is! Tuple2) return false;
-      Tuple2 t = other;
-      return (t.i1 == i1 &&
-          t.i2 == i2);
-    }
-}
 
 class Point {
   int x = 0;
@@ -179,7 +155,7 @@ class Port {
   void put(int x, int y, [Color col = null]){
     var p = new Tuple2<int, int>(x, y);
     Point tp = data[p];
-    if (tp == null){
+    if ((tp == null) && (col != SHADE_COLOR)){
       data[p]=new Point(x, y);
       if(col != null){
         data[p].col = col;
