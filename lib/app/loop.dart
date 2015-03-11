@@ -1,11 +1,13 @@
 library loop;
 
 import 'dart:html';
+import 'dart:math';
 import 'package:chi/storage.dart';
 import 'package:dartson/dartson.dart';
 import 'package:dartson/transformers/date_time.dart';
 
 part 'model.dart';
+part 'demo_updater.dart';
 
 final codec = new Dartson.JSON();
 
@@ -21,7 +23,7 @@ Model load(){
 }
 
 Model process(Model m){
-  print(m.age);
+  update(m);
   return m;
 }
 
