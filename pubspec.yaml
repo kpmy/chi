@@ -7,9 +7,10 @@ dependencies:
   browser: any
   color: any
   dartson: any
+  event_bus: any
   paper_elements: any
   polymer: '>=0.15.1 <0.16.0'
+  uuid: any
 transformers:
 - polymer
 - dartson
-

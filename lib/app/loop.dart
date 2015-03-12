@@ -3,13 +3,22 @@ library loop;
 import 'dart:html';
 import 'dart:math';
 import 'package:chi/storage.dart';
+import 'package:chi/tools.dart';
 import 'package:dartson/dartson.dart';
-import 'package:dartson/transformers/date_time.dart';
+import 'package:uuid/uuid.dart';
 
 part 'model.dart';
 part 'demo_updater.dart';
 
-final codec = new Dartson.JSON();
+class ModelComponentInit{
+  Model _m;
+  Model get model => _m;
+  ModelComponentInit(this._m);
+}
+
+class ModelComponentRegister{}
+
+class AppStart{}
 
 Model load(){
     var name = window.sessionStorage[SESSION];
@@ -18,12 +27,20 @@ Model load(){
     print(obj);
     if (obj != null)
       return codec.decode(obj, new Model());
-    else
-      return new Model.born(name);
+    else{
+      Model m = new Model.born(name);
+      save(m);
+      return m;
+    }
 }
 
 Model process(Model m){
   update(m);
+  return m;
+}
+
+Model notify(Model m){
+  bus.fire(new ModelUpdated(m));
   return m;
 }
 
@@ -34,7 +51,15 @@ void save(Model m){
 }
 
 run(){
-  codec.addTransformer(new DateTimeParser(), DateTime);
-  save(process(load()));
+  save(notify(process(load())));
   return true;
+}
+
+void handle(event){
+  if(event is ModelComponentRegister){
+    bus.fire(new ModelComponentInit(load()));
+  }else if(event is ModelUpdateRequest){
+    assert(event.upd != null);
+    save(notify(event.upd(load())));
+  }
 }

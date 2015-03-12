@@ -12,3 +12,10 @@ void update(Model m){
 
   m.lastUpdate = new DateTime.now();
 }
+
+typedef Model UpdateFunction(Model m);
+
+class ModelUpdateRequest{
+  UpdateFunction upd;
+  ModelUpdateRequest(this.upd);
+}

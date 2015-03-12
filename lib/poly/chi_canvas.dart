@@ -7,6 +7,7 @@ import 'dart:async';
 import 'package:polymer/polymer.dart';
 import 'package:color/color.dart';
 import 'package:chi/tools.dart';
+import 'package:chi/app/loop.dart';
 
 final Color BG_COLOR = new Color.hex("ced6b5");
 final Color SHADE_COLOR = new Color.hex("bac1a3");
@@ -91,7 +92,7 @@ class Image {
 }
 
 @CustomTag("chi-canvas")
-class ChiCanvas extends PolymerElement{
+class ChiCanvas extends PolymerElement implements ChiEventListener{
   @published int base = DEFAULT_INNER_SIDE;
   @published bool transparent = true;
   @published String href = "";
@@ -207,9 +208,15 @@ class ChiCanvas extends PolymerElement{
       front();
   }
 
+  @override
+  void listen(event){
+
+  }
+
   ChiCanvas.created() : super.created(){
     _div = ($['root_canvas_container'] as DivElement);
     _root = ($['root_canvas'] as CanvasElement);
     _ctx = _root.context2D;
+    listenTo(this);
   }
 }
