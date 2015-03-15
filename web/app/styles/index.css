@@ -1,4 +1,4 @@
-.layer{
+.layer {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -6,10 +6,26 @@
   left: 0px;
 }
 
-#pane{
+#pane {
   width: 800px;
   height: 600px;
   border: 1px solid black;
   background-color: #ced6b5;
   position: relative;
+}
+
+.meter {
+  width: 250px;
+  height: 16px;
+}
+
+.meter-label{
+  font-family: pixel;
+  font-size: 12pt;
+  color: #000000;
+}
+
+@font-face {
+     font-family: pixel;
+     src: url('../fonts/FreePixel.ttf');
 }
