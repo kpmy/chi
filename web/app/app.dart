@@ -12,6 +12,8 @@ main() {
       Polymer.onReady.then((_) {
         bus.on().listen(loop.handle);
         bus.fire(new loop.AppStart());
+        var m = loop.load();
+        (Q("#chi_name") as SpanElement).appendText(m.name);
         Future.doWhile(() {
           return new Future.delayed(new Duration(seconds: 1), loop.run);
         });

@@ -9,16 +9,30 @@
 <link rel="import" href="packages/chi/poly/chi_canvas.html">
 <link rel="import" href="packages/chi/poly/chi_controls.html">
 <link rel="import" href="packages/chi/poly/chi_meter.html">
+<link rel="import" href="packages/chi/poly/chi_balance.html">
 </head>
 <body unresolved>
+<div>
+  <div class="meter-label">
+    имя:
+    </div>
+    <span id="chi_name" style="font-family: bold-pixel; font-size: 14pt;"></span>
+</div>
 <div id="meters">
   <div class="meter-label">
-    hunger:
+    сытость:
   </div>
   <div class="meter">
       <chi-meter property="hunger"></chi-meter>
     </div>
+   <div class="meter-label">
+    подтянутость:
   </div>
+  <div class="meter">
+      <chi-balance property="fitness"></chi-balance>
+    </div>
+  </div>
+  <br/>
   <div id="pane">
     <div class="layer">
       <chi-canvas base="6" transparent="false"></chi-canvas>
@@ -27,7 +41,6 @@
       <chi-canvas base="6" href="../img/eye0.json" top="20" left="30"></chi-canvas>
     </div>
   </div>
-  <br/>
   <div id="controls">
     <chi-controls></chi-controls>
   </div>

@@ -149,8 +149,10 @@ class ChiCanvas extends PolymerElement implements ChiEventListener {
   void front() {
     int w = 0;
     int h = 0;
+/*
     _ctx.setStrokeColorRgb(0xFF, 0, 0);
     _ctx.strokeRect(2 * OUTER_MARGIN + LEFT * DOT, 2 * OUTER_MARGIN + TOP * DOT, img.width * DOT - 2, img.height * DOT - 2);
+*/
     int y = 2 * OUTER_MARGIN + TOP * DOT;
     while (y < height && h < img.height) {
       int x = 2 * OUTER_MARGIN + LEFT * DOT;

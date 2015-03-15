@@ -23,7 +23,6 @@ class ChiControls extends PolymerElement implements ChiEventListener {
       if (_hm == null) _hm = event.model.hashCode;
     } else if (_hm != null) {
       if (event is ModelUpdated) {
-
       }
     }
   }

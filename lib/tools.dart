@@ -23,7 +23,10 @@ void listenTo(ChiEventListener e){
 }
 
 //алиас для селектора, чтобы как в джыкуере
-final Q = querySelector;
+final Function Q = (String s){
+  if (s[0] != "#") print("possibly wrong selector $s");
+  return querySelector(s);
+};
 
 class Tuple2<T1, T2> {
   T1 i1;

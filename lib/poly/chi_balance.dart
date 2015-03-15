@@ -1,6 +1,7 @@
 library elem;
 
 import 'dart:html';
+import 'dart:math';
 import 'package:polymer/polymer.dart';
 import 'package:chi/tools.dart';
 import 'package:chi/app/loop.dart';
@@ -10,8 +11,8 @@ final Color BG_COLOR = new Color.hex("ced6b5");
 final Color SHADE_COLOR = new Color.hex("bac1a3");
 final Color BLACK = new Color.hex("000000");
 
-@CustomTag("chi-meter")
-class ChiMeter extends PolymerElement implements ChiEventListener {
+@CustomTag("chi-balance")
+class ChiBalance extends PolymerElement implements ChiEventListener {
   int _hm;
   CanvasRenderingContext2D ctx;
   int width;
@@ -28,8 +29,8 @@ class ChiMeter extends PolymerElement implements ChiEventListener {
 
   void setValue(Model m) {
     switch (property) {
-      case "hunger":
-        value = m.full;
+      case "fitness":
+        value = m.fit;
         break;
       default:
         throw new ArgumentError.value(property, "", "неизвестный параметр");
@@ -55,9 +56,10 @@ class ChiMeter extends PolymerElement implements ChiEventListener {
   void doDraw() {
     final int BAR_HEIGHT = height - 4;
     final int BAR_WIDTH = BAR_HEIGHT ~/ 2;
-    final int count = -1 + ((width - 8) ~/ (BAR_WIDTH + 1));
+    int count = -1 + ((width - 8) ~/ (BAR_WIDTH + 1));
+    if (count.isEven) count--;
     final int _width = count * (BAR_WIDTH + 1) + 3;
-    final int val = (count * value).round();
+    int val = (count * (0.495 + value)).floor();
 
     ctx.clearRect(0, 0, width, height);
     var color = BG_COLOR.toRgbColor();
@@ -74,7 +76,7 @@ class ChiMeter extends PolymerElement implements ChiEventListener {
     int x = 2;
     int y = 2;
     for (int i = 0; i < count; i++) {
-      if (i < val) color = BLACK.toRgbColor(); else color = SHADE_COLOR.toRgbColor();
+      if (i == val) color = BLACK.toRgbColor(); else color = SHADE_COLOR.toRgbColor();
 
       ctx.setFillColorRgb(color.r, color.g, color.b);
       ctx.fillRect(x, y, BAR_WIDTH, BAR_HEIGHT);
@@ -101,7 +103,7 @@ class ChiMeter extends PolymerElement implements ChiEventListener {
     doDraw();
   }
 
-  ChiMeter.created() : super.created() {
+  ChiBalance.created() : super.created() {
     listenTo(this);
   }
 }

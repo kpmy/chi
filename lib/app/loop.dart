@@ -59,5 +59,7 @@ void handle(event) {
   } else if (event is ModelUpdateRequest) {
     assert(event.upd != null);
     save(notify(event.upd(load())));
+  } else if (event is AppStart){
+
   }
 }
