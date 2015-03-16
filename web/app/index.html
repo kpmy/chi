@@ -7,6 +7,7 @@
 <title>chi :: pet</title>
 <link rel="stylesheet" href="styles/index.css">
 <link rel="import" href="packages/chi/poly/chi_canvas.html">
+<link rel="import" href="packages/chi/poly/chi_frame.html">
 <link rel="import" href="packages/chi/poly/chi_controls.html">
 <link rel="import" href="packages/chi/poly/chi_meter.html">
 <link rel="import" href="packages/chi/poly/chi_balance.html">
@@ -38,7 +39,10 @@
       <chi-canvas base="6" transparent="false"></chi-canvas>
     </div>
     <div class="layer">
-      <chi-canvas base="6" href="../img/eye0.json" top="20" left="30"></chi-canvas>
+      <chi-canvas base="6" top="20" left="20" duration="2000">
+        <chi-frame href="../img/eye0-0.json" order="0"></chi-frame>
+        <chi-frame href="../img/eye0-1.json" order="1"></chi-frame>
+      </chi-canvas>
     </div>
   </div>
   <div id="controls">

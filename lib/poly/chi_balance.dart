@@ -59,7 +59,7 @@ class ChiBalance extends PolymerElement implements ChiEventListener {
     int count = -1 + ((width - 8) ~/ (BAR_WIDTH + 1));
     if (count.isEven) count--;
     final int _width = count * (BAR_WIDTH + 1) + 3;
-    int val = (count * (0.495 + value)).floor();
+    int val = max(0, (count * (0.495 + value)).floor());
 
     ctx.clearRect(0, 0, width, height);
     var color = BG_COLOR.toRgbColor();
