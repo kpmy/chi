@@ -51,6 +51,15 @@ class Tuple2<T1, T2> {
       return (t.i1 == i1 &&
           t.i2 == i2);
     }
+
+    Tuple2.fromList(List l){
+      i1 = l[0];
+      i2 = l[1];
+    }
+
+    List toList(){
+      return [i1, i2];
+    }
 }
 
 void initTools(){

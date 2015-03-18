@@ -7,89 +7,8 @@ import 'dart:async';
 import 'package:polymer/polymer.dart';
 import 'package:color/color.dart';
 import 'package:chi/tools.dart';
-import 'package:chi/app/loop.dart';
-
-final Color BG_COLOR = new Color.hex("ced6b5");
-final Color SHADE_COLOR = new Color.hex("bac1a3");
-final Color BLACK = new Color.hex("000000");
-final Color GREY50 = new Color.hex("7c806d");
-final Color GREY25 = new Color.hex("a5ab91");
-
-//const int OUTER_SIDE = INNER_SIDE+2*INNER_MARGIN+2*OUTER_STROKE;
-const int DEFAULT_INNER_SIDE = 7;
-const int INNER_MARGIN = 1;
-const int OUTER_MARGIN = 1;
-const int OUTER_STROKE = 1;
-//const DOT = OUTER_SIDE+2*OUTER_MARGIN;
-
-class Point {
-  int x = 0;
-  int y = 0;
-  Color col = BLACK;
-
-  Point(this.x, this.y);
-  String toString() => '{x: $x, y: $y, col: "$col"}';
-  Map<String, Object> toMap() {
-    Map<String, Object> ret = new Map();
-    ret["x"] = x;
-    ret["y"] = y;
-    ret["col"] = col.toString();
-    return ret;
-  }
-
-  Point.fromMap(Map<String, Object> m) {
-    this.x = m["x"];
-    this.y = m["y"];
-    this.col = new Color.hex(m["col"]);
-  }
-}
-
-class Image {
-  int width = 0;
-  int height = 0;
-
-  Map<Tuple2<int, int>, Point> data = new Map();
-
-  Image.import(String js) {
-    Map<String, Object> r;
-    r = JSON.decode(js);
-    String name = r["name"];
-    if (name == null || name == "") {
-      name = "noname";
-    }
-    data.clear();
-    List<Map<String, Object>> pl = r["data"];
-    if (pl != null) {
-      //normalize
-      Point min = new Point(0xFFFFFFFF, 0xFFFFFFFF);
-      Point max = new Point(0, 0);
-
-      pl.forEach((Map<String, Object> m) {
-        Point p = new Point.fromMap(m);
-        if (p.x <= min.x) min.x = p.x;
-        if (p.y <= min.y) min.y = p.y;
-        if (p.x >= max.x) max.x = p.x;
-        if (p.y >= max.y) max.y = p.y;
-      });
-
-      if (min.x == 0xFFFFFFFF) {
-        min = null;
-      } else {
-        width = max.x - min.x + 1;
-        height = max.y - min.y + 1;
-      }
-      pl.forEach((Map<String, Object> m) {
-        Point p = new Point.fromMap(m);
-        if (min != null) {
-          p.x = p.x - min.x;
-          p.y = p.y - min.y;
-        }
-        data[new Tuple2(p.x, p.y)] = p;
-      });
-
-    }
-  }
-}
+import 'package:chi/image.dart';
+import 'package:chi/design.dart';
 
 class Frame {
   int order;
@@ -103,6 +22,16 @@ class Frame {
 
 @CustomTag("chi-canvas")
 class ChiCanvas extends PolymerElement implements ChiEventListener {
+
+  //вычисляются теперь
+  //const int OUTER_SIDE = INNER_SIDE+2*INNER_MARGIN+2*OUTER_STROKE;
+  //const DOT = OUTER_SIDE+2*OUTER_MARGIN;
+
+  static final int DEFAULT_INNER_SIDE = 7;
+  static final int INNER_MARGIN = 1;
+  static final int OUTER_MARGIN = 1;
+  static final int OUTER_STROKE = 1;
+
   @published int base = DEFAULT_INNER_SIDE;
   @published bool transparent = true;
   @published int top = 0;
@@ -173,7 +102,7 @@ class ChiCanvas extends PolymerElement implements ChiEventListener {
       w = 0;
       while (x < width && w < img.width) {
         var p = new Tuple2<int, int>(w, h);
-        Point tp = img.data[p];
+        Dot tp = img.data[p];
         if (tp != null) {
           var color = tp.col.toRgbColor();
           _ctx.setFillColorRgb(color.r, color.g, color.b);
@@ -193,6 +122,9 @@ class ChiCanvas extends PolymerElement implements ChiEventListener {
   void registerFrame(ChiFrame f){
     assert(f.img!=null);
     frames[f.order]= new Frame.elem(f);
+    if(frames.containsKey(0)){
+      front(frames[0].img);
+    }
   }
 
   void prepare(int w, int h) {
