@@ -498,6 +498,11 @@ var $$ = Object.create(null);
         throw H.wrapException(P.ArgumentError$(other));
       return receiver + other;
     },
+    $sub: function(receiver, other) {
+      if (typeof other !== "number")
+        throw H.wrapException(P.ArgumentError$(other));
+      return receiver - other;
+    },
     $mul: function(receiver, other) {
       if (typeof other !== "number")
         throw H.wrapException(P.ArgumentError$(other));
@@ -4424,6 +4429,20 @@ var $$ = Object.create(null);
     get$values: function(_) {
       return H.MappedIterable_MappedIterable(H.setRuntimeTypeInfo(new P.HashMapKeyIterable(this), [H.getTypeArgumentByIndex(this, 0)]), new P._HashMap_values_closure(this), H.getTypeArgumentByIndex(this, 0), H.getTypeArgumentByIndex(this, 1));
     },
+    containsKey$1: function(key) {
+      var strings;
+      if (key !== "__proto__") {
+        strings = this._strings;
+        return strings == null ? false : strings[key] != null;
+      } else
+        return this._containsKey$1(key);
+    },
+    _containsKey$1: function(key) {
+      var rest = this._rest;
+      if (rest == null)
+        return false;
+      return this._findBucketIndex$2(rest[this._computeHashCode$1(key)], key) >= 0;
+    },
     $index: function(_, key) {
       var strings, t1, entry, nums;
       if (typeof key === "string" && key !== "__proto__") {
@@ -6039,6 +6058,9 @@ var $$ = Object.create(null);
     $add: function(_, other) {
       return P.Duration$(0, 0, C.JSInt_methods.$add(this._duration, other.get$_duration()), 0, 0, 0);
     },
+    $sub: function(_, other) {
+      return P.Duration$(0, 0, C.JSInt_methods.$sub(this._duration, other.get$_duration()), 0, 0, 0);
+    },
     $mul: function(_, factor) {
       return P.Duration$(0, 0, C.JSNumber_methods.toInt$0(C.JSInt_methods.roundToDouble$0(this._duration * factor)), 0, 0, 0);
     },
@@ -6399,7 +6421,7 @@ var $$ = Object.create(null);
   "^": "",
   HtmlElement: {
     "^": "Element;",
-    "%": "HTMLAppletElement|HTMLBRElement|HTMLBaseElement|HTMLButtonElement|HTMLContentElement|HTMLDListElement|HTMLDataListElement|HTMLDetailsElement|HTMLDialogElement|HTMLDirectoryElement|HTMLDivElement|HTMLEmbedElement|HTMLFieldSetElement|HTMLFontElement|HTMLFrameElement|HTMLHRElement|HTMLHeadElement|HTMLHeadingElement|HTMLHtmlElement|HTMLIFrameElement|HTMLImageElement|HTMLKeygenElement|HTMLLIElement|HTMLLabelElement|HTMLLegendElement|HTMLLinkElement|HTMLMapElement|HTMLMarqueeElement|HTMLMenuElement|HTMLMenuItemElement|HTMLMetaElement|HTMLMeterElement|HTMLModElement|HTMLOListElement|HTMLObjectElement|HTMLOptGroupElement|HTMLOptionElement|HTMLOutputElement|HTMLParagraphElement|HTMLParamElement|HTMLPictureElement|HTMLPreElement|HTMLProgressElement|HTMLQuoteElement|HTMLScriptElement|HTMLShadowElement|HTMLSourceElement|HTMLSpanElement|HTMLStyleElement|HTMLTableCaptionElement|HTMLTableCellElement|HTMLTableColElement|HTMLTableDataCellElement|HTMLTableElement|HTMLTableHeaderCellElement|HTMLTableRowElement|HTMLTableSectionElement|HTMLTemplateElement|HTMLTextAreaElement|HTMLTitleElement|HTMLTrackElement|HTMLUListElement|HTMLUnknownElement;HTMLElement"
+    "%": "HTMLAppletElement|HTMLBRElement|HTMLBaseElement|HTMLButtonElement|HTMLContentElement|HTMLDListElement|HTMLDataListElement|HTMLDetailsElement|HTMLDialogElement|HTMLDirectoryElement|HTMLDivElement|HTMLEmbedElement|HTMLFieldSetElement|HTMLFontElement|HTMLFrameElement|HTMLHRElement|HTMLHeadElement|HTMLHeadingElement|HTMLHtmlElement|HTMLIFrameElement|HTMLImageElement|HTMLKeygenElement|HTMLLIElement|HTMLLabelElement|HTMLLegendElement|HTMLLinkElement|HTMLMapElement|HTMLMarqueeElement|HTMLMenuElement|HTMLMenuItemElement|HTMLMetaElement|HTMLMeterElement|HTMLModElement|HTMLOListElement|HTMLObjectElement|HTMLOptGroupElement|HTMLOptionElement|HTMLOutputElement|HTMLParagraphElement|HTMLParamElement|HTMLPictureElement|HTMLPreElement|HTMLProgressElement|HTMLQuoteElement|HTMLScriptElement|HTMLShadowElement|HTMLSourceElement|HTMLStyleElement|HTMLTableCaptionElement|HTMLTableCellElement|HTMLTableColElement|HTMLTableDataCellElement|HTMLTableElement|HTMLTableHeaderCellElement|HTMLTableRowElement|HTMLTableSectionElement|HTMLTemplateElement|HTMLTextAreaElement|HTMLTitleElement|HTMLTrackElement|HTMLUListElement|HTMLUnknownElement;HTMLElement"
   },
   AnchorElement: {
     "^": "HtmlElement;",
@@ -6668,28 +6690,14 @@ var $$ = Object.create(null);
   MouseEvent: {
     "^": "UIEvent;button=",
     get$offset: function(receiver) {
-      var target, t1, t2, t3, t4, t5, point;
+      var target, point;
       if (!!receiver.offsetX)
         return H.setRuntimeTypeInfo(new P.Point0(receiver.offsetX, receiver.offsetY), [null]);
       else {
         if (!J.getInterceptor(W._convertNativeToDart_EventTarget(receiver.target)).$isElement)
           throw H.wrapException(P.UnsupportedError$("offsetX is only supported on elements"));
         target = W._convertNativeToDart_EventTarget(receiver.target);
-        t1 = H.setRuntimeTypeInfo(new P.Point0(receiver.clientX, receiver.clientY), [null]);
-        t2 = J.get$topLeft$x(J.getBoundingClientRect$0$x(target));
-        t3 = t1.x;
-        t4 = t2.x;
-        if (typeof t3 !== "number")
-          return t3.$sub();
-        if (typeof t4 !== "number")
-          return H.iae(t4);
-        t5 = t1.y;
-        t2 = t2.y;
-        if (typeof t5 !== "number")
-          return t5.$sub();
-        if (typeof t2 !== "number")
-          return H.iae(t2);
-        point = H.setRuntimeTypeInfo(new P.Point0(t3 - t4, t5 - t2), [H.getTypeArgumentByIndex(t1, 0)]);
+        point = H.setRuntimeTypeInfo(new P.Point0(receiver.clientX, receiver.clientY), [null]).$sub(0, J.get$topLeft$x(J.getBoundingClientRect$0$x(target)));
         return H.setRuntimeTypeInfo(new P.Point0(J.toInt$0$n(point.x), J.toInt$0$n(point.y)), [null]);
       }
     },
@@ -6706,6 +6714,11 @@ var $$ = Object.create(null);
   SelectElement: {
     "^": "HtmlElement;length=",
     "%": "HTMLSelectElement"
+  },
+  SpanElement: {
+    "^": "HtmlElement;",
+    $isSpanElement: true,
+    "%": "HTMLSpanElement"
   },
   SpeechRecognitionError: {
     "^": "Event;error=",
@@ -7097,6 +7110,24 @@ var $$ = Object.create(null);
       t2.$builtinTypeInfo = this.$builtinTypeInfo;
       return t2;
     },
+    $sub: function(_, other) {
+      var t1, t2, t3, t4;
+      t1 = this.x;
+      t2 = J.get$x$x(other);
+      if (typeof t1 !== "number")
+        return t1.$sub();
+      if (typeof t2 !== "number")
+        return H.iae(t2);
+      t3 = this.y;
+      t4 = other.y;
+      if (typeof t3 !== "number")
+        return t3.$sub();
+      if (typeof t4 !== "number")
+        return H.iae(t4);
+      t4 = new P.Point0(t1 - t2, t3 - t4);
+      t4.$builtinTypeInfo = this.$builtinTypeInfo;
+      return t4;
+    },
     $mul: function(_, factor) {
       var t1, t2;
       t1 = this.x;
@@ -7388,7 +7419,7 @@ var $$ = Object.create(null);
     root = H.interceptedTypeCast(document.querySelector("#root_canvas"), "$isCanvasElement");
     via = H.interceptedTypeCast(document.querySelector("#via_canvas"), "$isCanvasElement");
     img = H.interceptedTypeCast(document.querySelector("#img_canvas"), "$isCanvasElement");
-    t1 = new T.Port(null, null, null, null, null, null, P.LinkedHashMap_LinkedHashMap(null, null, null, null, null));
+    t1 = new T.Port(null, null, null, null, null, null, P.LinkedHashMap_LinkedHashMap(null, null, null, null, null), new U.Tuple2(50, 40));
     $.port = t1;
     root.toString;
     t1.ctx = root.getContext("2d");
@@ -7439,7 +7470,7 @@ var $$ = Object.create(null);
     }
   },
   Port: {
-    "^": "Object;ctx,via,img,width,height,lastPen,data",
+    "^": "Object;ctx,via,img,width,height,lastPen,data,size",
     back$0: function() {
       var color, t1, t2, t3, t4, h, y, w, x;
       color = $.get$BG_COLOR();
@@ -7499,6 +7530,9 @@ var $$ = Object.create(null);
       this.img.setTransform(1, 0, 0, 1, 0, 0);
       this.img.clearRect(0, 0, this.width, this.height);
       this.img.restore();
+      t1 = this.img;
+      t1.strokeStyle = "rgba(255, 0, 0, 1)";
+      t1.strokeRect(2, 2, J.$sub$n(J.$mul$ns(this.size.i1, 13), 2), J.$sub$n(J.$mul$ns(this.size.i2, 13), 2));
       t1 = this.data;
       h = 0;
       y = 2;
@@ -7590,17 +7624,25 @@ var $$ = Object.create(null);
       t1.get$values(t1).forEach$1(0, new T.Port_export_closure(ret));
       $name = H.interceptedTypeCast(document.querySelector("#root_name"), "$isInputElement").value;
       r.$indexSet(0, "name", $name == null || $name === "" ? "noname" : $name);
+      t1 = this.size;
+      r.$indexSet(0, "size", [t1.i1, t1.i2]);
       r.$indexSet(0, "data", ret);
       return C.JsonCodec_null_null.encode$1(r);
     },
     import$1: function(_, js) {
-      var r, t1, $name, pl;
+      var r, t1, $name, t2, pl;
       r = C.JsonCodec_null_null.decode$1(js);
       t1 = J.getInterceptor$asx(r);
       $name = t1.$index(r, "name");
       if ($name == null || J.$eq($name, ""))
         $name = "noname";
       H.interceptedTypeCast(document.querySelector("#root_name"), "$isInputElement").value = $name;
+      if (r.containsKey$1("size")) {
+        t2 = new U.Tuple2(null, null);
+        t2.Tuple2$fromList$1(t1.$index(r, "size"));
+        this.size = t2;
+      } else
+        this.size = new U.Tuple2(50, 40);
       this.data.clear$0(0);
       pl = t1.$index(r, "data");
       if (pl != null)
@@ -7669,7 +7711,7 @@ var $$ = Object.create(null);
   run_closure0: {
     "^": "Closure:26;",
     call$1: function(e) {
-      var t1, t2, t3, c, t4, t5, t6, t7;
+      var t1, t2, t3, c, c0, t4, t5, t6, t7;
       t1 = $.port;
       t2 = J.getInterceptor$x(e);
       t3 = t2.get$offset(e);
@@ -7683,21 +7725,25 @@ var $$ = Object.create(null);
       t2.via.setTransform(1, 0, 0, 1, 0, 0);
       t2.via.clearRect(0, 0, t2.width, t2.height);
       t2.via.restore();
-      c = S.HexColor$("0000ff");
+      c0 = S.HexColor$("0000ff");
       t4 = t2.via;
-      t5 = c.get$r(c);
-      t6 = c.get$g();
-      t7 = c.get$b();
+      t5 = c0.get$r(c0);
+      t6 = c0.get$g();
+      t7 = c0.get$b();
       t4.toString;
       t4.strokeStyle = "rgba(" + H.S(t5) + ", " + H.S(t6) + ", " + H.S(t7) + ", 1)";
       t7 = J.getInterceptor$ns(t3);
       t6 = J.getInterceptor$ns(t1);
       t2.via.strokeRect(J.$add$ns(t7.$mul(t3, 13), 1), J.$add$ns(t6.$mul(t1, 13), 1), 13, 13);
       t2.via.strokeRect(J.$add$ns(J.$add$ns(J.$add$ns(t7.$mul(t3, 13), 1), 1), 1), J.$add$ns(J.$add$ns(J.$add$ns(t6.$mul(t1, 13), 1), 1), 1), 9, 9);
-      t2 = $.port;
-      t4 = t2.lastPen;
-      if (t4 != null) {
-        t2.put$3(t3, t1, t4);
+      H.interceptedTypeCast(document.querySelector("#pos"), "$isSpanElement").textContent = H.S(t3) + ":" + H.S(t1);
+      t1 = H.interceptedTypeCast(document.querySelector("#size"), "$isSpanElement");
+      t2 = t2.size;
+      t1.textContent = "[" + H.S(t2.i1) + ", " + H.S(t2.i2) + "]";
+      t1 = $.port;
+      t2 = t1.lastPen;
+      if (t2 != null) {
+        t1.put$3(c.i1, c.i2, t2);
         $.port.front$0();
       }
     }
@@ -7726,14 +7772,17 @@ var $$ = Object.create(null);
       t3 = t3.get$x(t3);
       t4 = t2.get$offset(e);
       c = t1.mapCoord$2(t3, t4.get$y(t4));
-      t1 = t2.get$button(e);
-      t2 = $.port;
-      t3 = c.i1;
-      t4 = c.i2;
-      if (t1 === 0)
-        t2.put$2(t3, t4);
-      else
-        t2.clear$2(0, t3, t4);
+      if (t2.get$button(e) === 0)
+        $.port.put$2(c.i1, c.i2);
+      else {
+        t1 = e.button;
+        t2 = c.i1;
+        t3 = $.port;
+        if (t1 === 1)
+          t3.size = new U.Tuple2(J.$add$ns(t2, 1), J.$add$ns(c.i2, 1));
+        else
+          t3.clear$2(0, t2, c.i2);
+      }
       $.port.front$0();
       e.preventDefault();
     }
@@ -7940,6 +7989,11 @@ var $$ = Object.create(null);
         return false;
       return J.$eq(other.i1, this.i1) && J.$eq(other.i2, this.i2);
     },
+    Tuple2$fromList$1: function(l) {
+      var t1 = J.getInterceptor$asx(l);
+      this.i1 = t1.$index(l, 0);
+      this.i2 = t1.$index(l, 1);
+    },
     $isTuple2: true
   }
 }],
@@ -8131,6 +8185,16 @@ J.$lt$n = function(receiver, a0) {
     return receiver < a0;
   return J.getInterceptor$n(receiver).$lt(receiver, a0);
 };
+J.$mul$ns = function(receiver, a0) {
+  if (typeof receiver == "number" && typeof a0 == "number")
+    return receiver * a0;
+  return J.getInterceptor$ns(receiver).$mul(receiver, a0);
+};
+J.$sub$n = function(receiver, a0) {
+  if (typeof receiver == "number" && typeof a0 == "number")
+    return receiver - a0;
+  return J.getInterceptor$n(receiver).$sub(receiver, a0);
+};
 J._addEventListener$3$x = function(receiver, a0, a1, a2) {
   return J.getInterceptor$x(receiver)._addEventListener$3(receiver, a0, a1, a2);
 };
@@ -8184,6 +8248,9 @@ J.get$root$x = function(receiver) {
 };
 J.get$topLeft$x = function(receiver) {
   return J.getInterceptor$x(receiver).get$topLeft(receiver);
+};
+J.get$x$x = function(receiver) {
+  return J.getInterceptor$x(receiver).get$x(receiver);
 };
 J.getBoundingClientRect$0$x = function(receiver) {
   return J.getInterceptor$x(receiver).getBoundingClientRect$0(receiver);

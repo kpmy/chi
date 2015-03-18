@@ -9902,7 +9902,7 @@ var $$ = Object.create(null);
   "^": "",
   HtmlElement: {
     "^": "Element;",
-    "%": "HTMLAppletElement|HTMLBRElement|HTMLContentElement|HTMLDListElement|HTMLDataListElement|HTMLDetailsElement|HTMLDialogElement|HTMLDirectoryElement|HTMLDivElement|HTMLFontElement|HTMLFrameElement|HTMLHRElement|HTMLHeadElement|HTMLHeadingElement|HTMLHtmlElement|HTMLImageElement|HTMLLabelElement|HTMLLegendElement|HTMLMarqueeElement|HTMLMenuElement|HTMLMenuItemElement|HTMLModElement|HTMLOListElement|HTMLOptGroupElement|HTMLParagraphElement|HTMLPictureElement|HTMLPreElement|HTMLQuoteElement|HTMLScriptElement|HTMLShadowElement|HTMLSourceElement|HTMLSpanElement|HTMLStyleElement|HTMLTableCaptionElement|HTMLTableCellElement|HTMLTableDataCellElement|HTMLTableElement|HTMLTableHeaderCellElement|HTMLTableRowElement|HTMLTableSectionElement|HTMLTitleElement|HTMLTrackElement|HTMLUListElement|HTMLUnknownElement;HTMLElement;HtmlElement_Polymer|HtmlElement_Polymer_ChangeNotifier|PolymerElement"
+    "%": "HTMLAppletElement|HTMLBRElement|HTMLContentElement|HTMLDListElement|HTMLDataListElement|HTMLDetailsElement|HTMLDialogElement|HTMLDirectoryElement|HTMLDivElement|HTMLFontElement|HTMLFrameElement|HTMLHRElement|HTMLHeadElement|HTMLHeadingElement|HTMLHtmlElement|HTMLImageElement|HTMLLabelElement|HTMLLegendElement|HTMLMarqueeElement|HTMLMenuElement|HTMLMenuItemElement|HTMLModElement|HTMLOListElement|HTMLOptGroupElement|HTMLParagraphElement|HTMLPictureElement|HTMLPreElement|HTMLQuoteElement|HTMLScriptElement|HTMLShadowElement|HTMLSourceElement|HTMLStyleElement|HTMLTableCaptionElement|HTMLTableCellElement|HTMLTableDataCellElement|HTMLTableElement|HTMLTableHeaderCellElement|HTMLTableRowElement|HTMLTableSectionElement|HTMLTitleElement|HTMLTrackElement|HTMLUListElement|HTMLUnknownElement;HTMLElement;HtmlElement_Polymer|HtmlElement_Polymer_ChangeNotifier|PolymerElement"
   },
   _EntryArray: {
     "^": "Interceptor;",
@@ -10531,6 +10531,11 @@ var $$ = Object.create(null);
     "^": "HtmlElement;length=,name=,value=",
     "%": "HTMLSelectElement"
   },
+  SpanElement: {
+    "^": "HtmlElement;",
+    $isSpanElement: true,
+    "%": "HTMLSpanElement"
+  },
   SpeechRecognitionError: {
     "^": "Event;error=,message=",
     "%": "SpeechRecognitionError"
@@ -10991,6 +10996,9 @@ var $$ = Object.create(null);
   },
   _ElementAttributeMap: {
     "^": "_AttributeMap;_html$_element",
+    containsKey$1: function(key) {
+      return this._html$_element.hasAttribute(key);
+    },
     $index: function(_, key) {
       return this._html$_element.getAttribute(key);
     },
@@ -11937,7 +11945,7 @@ var $$ = Object.create(null);
     root = H.interceptedTypeCast(document.querySelector("#root_canvas"), "$isCanvasElement");
     via = H.interceptedTypeCast(document.querySelector("#via_canvas"), "$isCanvasElement");
     img = H.interceptedTypeCast(document.querySelector("#img_canvas"), "$isCanvasElement");
-    t1 = new T.Port(null, null, null, null, null, null, P.LinkedHashMap_LinkedHashMap(null, null, null, null, null));
+    t1 = new T.Port(null, null, null, null, null, null, P.LinkedHashMap_LinkedHashMap(null, null, null, null, null), H.setRuntimeTypeInfo(new U.Tuple2(50, 40), [null, null]));
     $.port = t1;
     root.toString;
     t1.ctx = root.getContext("2d");
@@ -11988,7 +11996,7 @@ var $$ = Object.create(null);
     }
   },
   Port: {
-    "^": "Object;ctx,via,img,width,height,lastPen,data",
+    "^": "Object;ctx,via,img,width,height,lastPen,data,size",
     back$0: function() {
       var color, t1, t2, t3, t4, h, y, w, x;
       color = $.get$BG_COLOR();
@@ -12048,6 +12056,9 @@ var $$ = Object.create(null);
       this.img.setTransform(1, 0, 0, 1, 0, 0);
       this.img.clearRect(0, 0, this.width, this.height);
       this.img.restore();
+      t1 = this.img;
+      t1.strokeStyle = "rgba(255, 0, 0, 1)";
+      t1.strokeRect(2, 2, J.$sub$n(J.$mul$ns(this.size.i1, 13), 2), J.$sub$n(J.$mul$ns(this.size.i2, 13), 2));
       t1 = this.data;
       h = 0;
       y = 2;
@@ -12139,17 +12150,26 @@ var $$ = Object.create(null);
       t1.get$values(t1).forEach$1(0, new T.Port_export_closure(ret));
       $name = H.interceptedTypeCast(document.querySelector("#root_name"), "$isInputElement").value;
       r.$indexSet(0, "name", $name == null || $name === "" ? "noname" : $name);
+      t1 = this.size;
+      r.$indexSet(0, "size", [t1.i1, t1.i2]);
       r.$indexSet(0, "data", ret);
       return C.JsonCodec_null_null.encode$1(r);
     },
     import$1: function(_, js) {
-      var r, t1, $name, pl;
+      var r, t1, $name, t2, t3, pl;
       r = C.JsonCodec_null_null.decode$1(js);
       t1 = J.getInterceptor$asx(r);
       $name = t1.$index(r, "name");
       if ($name == null || J.$eq($name, ""))
         $name = "noname";
       H.interceptedTypeCast(document.querySelector("#root_name"), "$isInputElement").value = $name;
+      if (r.containsKey$1("size") === true) {
+        t2 = t1.$index(r, "size");
+        t3 = H.setRuntimeTypeInfo(new U.Tuple2(null, null), [null, null]);
+        t3.Tuple2$fromList$1(t2, null, null);
+        this.size = t3;
+      } else
+        this.size = H.setRuntimeTypeInfo(new U.Tuple2(50, 40), [null, null]);
       this.data.clear$0(0);
       pl = t1.$index(r, "data");
       if (pl != null)
@@ -12212,7 +12232,7 @@ var $$ = Object.create(null);
   run_closure0: {
     "^": "Closure:66;",
     call$1: [function(e) {
-      var t1, c, t2, t3, t4, t5, t6, t7;
+      var t1, c, t2, t3, c0, t4, t5, t6, t7;
       t1 = J.getInterceptor$x(e);
       c = $.port.mapCoord$2(J.get$x$x(t1.get$offset(e)), J.get$y$x(t1.get$offset(e)));
       t1 = $.port;
@@ -12222,21 +12242,25 @@ var $$ = Object.create(null);
       t1.via.setTransform(1, 0, 0, 1, 0, 0);
       t1.via.clearRect(0, 0, t1.width, t1.height);
       t1.via.restore();
-      c = S.HexColor$("0000ff");
+      c0 = S.HexColor$("0000ff");
       t4 = t1.via;
-      t5 = c.get$r(c);
-      t6 = c.get$g();
-      t7 = c.get$b();
+      t5 = c0.get$r(c0);
+      t6 = c0.get$g();
+      t7 = c0.get$b();
       t4.toString;
       t4.strokeStyle = "rgba(" + H.S(t5) + ", " + H.S(t6) + ", " + H.S(t7) + ", 1)";
       t7 = J.getInterceptor$ns(t2);
       t6 = J.getInterceptor$ns(t3);
       t1.via.strokeRect(J.$add$ns(t7.$mul(t2, 13), 1), J.$add$ns(t6.$mul(t3, 13), 1), 13, 13);
       t1.via.strokeRect(J.$add$ns(J.$add$ns(J.$add$ns(t7.$mul(t2, 13), 1), 1), 1), J.$add$ns(J.$add$ns(J.$add$ns(t6.$mul(t3, 13), 1), 1), 1), 9, 9);
+      H.interceptedTypeCast(document.querySelector("#pos"), "$isSpanElement").textContent = H.S(t2) + ":" + H.S(t3);
+      t3 = H.interceptedTypeCast(document.querySelector("#size"), "$isSpanElement");
+      t1 = t1.size;
+      t3.textContent = "[" + H.S(t1.i1) + ", " + H.S(t1.i2) + "]";
       t1 = $.port;
-      t4 = t1.lastPen;
-      if (t4 != null) {
-        t1.put$3(t2, t3, t4);
+      t2 = t1.lastPen;
+      if (t2 != null) {
+        t1.put$3(c.i1, c.i2, t2);
         $.port.front$0();
       }
     }, "call$1", null, 2, 0, null, 2, "call"]
@@ -12258,17 +12282,23 @@ var $$ = Object.create(null);
   run_closure3: {
     "^": "Closure:66;",
     call$1: [function(e) {
-      var t1, c, t2, t3, t4, t5;
+      var t1, c, t2, t3, t4;
       t1 = J.getInterceptor$x(e);
       c = $.port.mapCoord$2(J.get$x$x(t1.get$offset(e)), J.get$y$x(t1.get$offset(e)));
-      t2 = t1.get$button(e);
-      t3 = c.i1;
-      t4 = $.port;
-      t5 = c.i2;
-      if (t2 === 0)
-        t4.put$2(t3, t5);
-      else
-        t4.clear$2(0, t3, t5);
+      if (t1.get$button(e) === 0)
+        $.port.put$2(c.i1, c.i2);
+      else {
+        t2 = t1.get$button(e);
+        t3 = c.i1;
+        t4 = $.port;
+        if (t2 === 1) {
+          t2 = J.$add$ns(t3, 1);
+          t3 = J.$add$ns(c.i2, 1);
+          t4.toString;
+          t4.size = H.setRuntimeTypeInfo(new U.Tuple2(t2, t3), [null, null]);
+        } else
+          t4.clear$2(0, t3, c.i2);
+      }
       $.port.front$0();
       t1.preventDefault$0(e);
     }, "call$1", null, 2, 0, null, 2, "call"]
@@ -13621,6 +13651,14 @@ var $$ = Object.create(null);
         return false;
       return J.$eq(other.i1, this.i1) && J.$eq(other.i2, this.i2);
     },
+    toList$0: function(_) {
+      return [this.i1, this.i2];
+    },
+    Tuple2$fromList$1: function(l, T1, T2) {
+      var t1 = J.getInterceptor$asx(l);
+      this.i1 = t1.$index(l, 0);
+      this.i2 = t1.$index(l, 1);
+    },
     $isTuple2: true
   }
 }],
@@ -13888,6 +13926,11 @@ J.$lt$n = function(receiver, a0) {
   if (typeof receiver == "number" && typeof a0 == "number")
     return receiver < a0;
   return J.getInterceptor$n(receiver).$lt(receiver, a0);
+};
+J.$mul$ns = function(receiver, a0) {
+  if (typeof receiver == "number" && typeof a0 == "number")
+    return receiver * a0;
+  return J.getInterceptor$ns(receiver).$mul(receiver, a0);
 };
 J.$shl$n = function(receiver, a0) {
   return J.getInterceptor$n(receiver).$shl(receiver, a0);

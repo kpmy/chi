@@ -1,9 +1,32 @@
 library tools;
 
 import 'dart:html';
+import 'package:event_bus/event_bus.dart';
+import 'package:dartson/transformers/date_time.dart';
+import 'package:dartson/dartson_static.dart';
+
+final codec = new Dartson.JSON();
+final EventBus bus = new EventBus();
+
+abstract class ChiEventListener{
+  void listen(event);
+}
+
+Function listenerOf(ChiEventListener e){
+  return (event){
+    e.listen(event);
+  };
+}
+
+void listenTo(ChiEventListener e){
+  bus.on().listen(listenerOf(e));
+}
 
 //алиас для селектора, чтобы как в джыкуере
-final Q = querySelector;
+final Function Q = (String s){
+  if (s[0] != "#") print("possibly wrong selector $s");
+  return querySelector(s);
+};
 
 class Tuple2<T1, T2> {
   T1 i1;
@@ -28,4 +51,18 @@ class Tuple2<T1, T2> {
       return (t.i1 == i1 &&
           t.i2 == i2);
     }
+
+    Tuple2.fromList(List l){
+      i1 = l[0];
+      i2 = l[1];
+    }
+
+    List toList(){
+      return [i1, i2];
+    }
+}
+
+void initTools(){
+  print("init tools");
+  codec.addTransformer(new DateTimeParser(), DateTime);
 }

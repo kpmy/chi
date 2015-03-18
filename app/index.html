@@ -1,10 +1,10 @@
 <!DOCTYPE html><html><head><script src="packages/web_components/webcomponents.js"></script>
 <script src="packages/web_components/dart_support.js"></script>
 
-  	<meta charset="utf-8">
-  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>chi :: pet</title>
-    <style>.layer{
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>chi :: pet</title>
+<style>.layer {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -12,16 +12,42 @@
   left: 0px;
 }
 
-#pane{
+#pane {
   width: 800px;
   height: 600px;
   border: 1px solid black;
   background-color: #ced6b5;
   position: relative;
+}
+
+
+.meter {
+  width: 250px;
+  height: 16px;
+}
+
+.meter-label{
+  font-family: pixel;
+  font-size: 12pt;
+  color: #000000;
+}
+
+@font-face {
+     font-family: pixel;
+     src: url(fonts/FreePixel.ttf);
+}
+
+@font-face {
+    font-family: bold-pixel;
+    src: url(fonts/half_bold_pixel-7.ttf);
 }</style>
-    
+
+
+
+
+
 <link rel="stylesheet" type="text/css" href="packages/polymer/src/build/log_injector.css"></head>
-  <body unresolved=""><div hidden=""><style shim-shadowdom="">
+<body unresolved=""><div hidden=""><style shim-shadowdom="">
 /*******************************
           Flex Layout
 *******************************/
@@ -312,38 +338,104 @@ html /deep/ [segment], html /deep/ segment {
 <script src="src/js/polymer/polymer.js"></script>
 -->
 
-<polymer-element name="chi-canvas" attributes="base transparent href">
-  <template>
-     <style>
-      :host{
-        width: 100%;
-        height: 100%;
-      }
-      #root_canvas_bg{
-        width: 100%;
-        height: 100%;
-      }
-      #root_canvas_container {
-        width: calc(100% - 40px);
-        height: calc(100% - 5px);
-        margin-left: 20px;
-        margin-right: 20px;
-      }
-    </style>
-    <div id="root_canvas_bg">
-      <div id="root_canvas_container"><canvas id="root_canvas"></canvas></div>
-    </div>
-  </template>
-  
-</polymer-element>
+
+<polymer-element name="chi-canvas" attributes="base transparent top left duration"> <template>
+<style>
+:host {
+  width: 100%;
+  height: 100%;
+}
+
+#root_canvas_bg {
+  width: 100%;
+  height: 100%;
+}
+
+#root_canvas_container {
+  width: calc(100% - 30px);
+  height: calc(100% - 6px);
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-top: 3px;
+}
+</style>
+<div id="root_canvas_bg">
+  <div id="root_canvas_container">
+    <canvas id="root_canvas"></canvas>
+  </div>
 </div>
-    <div id="pane">
-      <div class="layer"><chi-canvas base="6" transparent="false"></chi-canvas></div>
-      <div class="layer"><chi-canvas base="6" transparent="true" href="../img/eye0.json"></chi-canvas></div>
+</template></polymer-element>
+
+
+<polymer-element name="chi-frame" attributes="href order">
+  <template>
+    <div></div>
+  </template>
+  </polymer-element>
+
+
+<polymer-element name="chi-controls"> <template>
+<p id="info"></p>
+<input type="button" on-click="{{doFeed}}" id="feed" value="Покормить">
+</template>  </polymer-element>
+<polymer-element name="chi-meter" attributes="property">
+<template>
+<style>#meter_container {
+  width: 100%;
+  height: 100%;
+}</style>
+<div id="meter_container">
+  <canvas id="meter_canvas"></canvas>
+</div>
+</template>  </polymer-element>
+<polymer-element name="chi-balance" attributes="property">
+<template>
+<style>#meter_container {
+  width: 100%;
+  height: 100%;
+}</style>
+<div id="meter_container">
+  <canvas id="meter_canvas"></canvas>
+</div>
+</template>  </polymer-element></div>
+<div>
+  <div class="meter-label">
+    имя:
     </div>
-    
-    <!-- for this next line to work, your pubspec.yaml file must have a dependency on 'browser' -->
-    
+    <span id="chi_name" style="font-family: bold-pixel; font-size: 14pt;"></span>
+</div>
+<div id="meters">
+  <div class="meter-label">
+    сытость:
+  </div>
+  <div class="meter">
+      <chi-meter property="hunger"></chi-meter>
+    </div>
+   <div class="meter-label">
+    подтянутость:
+  </div>
+  <div class="meter">
+      <chi-balance property="fitness"></chi-balance>
+    </div>
+  </div>
+  <br>
+  <div id="pane">
+    <div class="layer">
+      <chi-canvas base="6" transparent="false"></chi-canvas>
+    </div>
+    <div class="layer">
+      <chi-canvas base="6" top="20" left="20" duration="2000">
+        <chi-frame href="../img/eye0-0.json" order="0"></chi-frame>
+        <chi-frame href="../img/eye0-1.json" order="1"></chi-frame>
+      </chi-canvas>
+    </div>
+  </div>
+  <div id="controls">
+    <chi-controls></chi-controls>
+  </div>
   
+  <!-- for this next line to work, your pubspec.yaml file must have a dependency on 'browser' -->
+  
+
 
 <script type="application/dart" src="index.html_bootstrap.dart"></script><script src="packages/browser/dart.js"></script></body></html>

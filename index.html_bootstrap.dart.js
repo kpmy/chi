@@ -346,7 +346,7 @@ var $$ = Object.create(null);
     },
     noSuchMethod$1: [function(receiver, invocation) {
       throw H.wrapException(P.NoSuchMethodError$(receiver, invocation.get$memberName(), invocation.get$positionalArguments(), invocation.get$namedArguments(), null));
-    }, "call$1", "get$noSuchMethod", 2, 0, null, 73],
+    }, "call$1", "get$noSuchMethod", 2, 0, null, 72],
     get$runtimeType: function(receiver) {
       return new H.TypeImpl(H.getRuntimeTypeString(receiver), null);
     },
@@ -381,7 +381,7 @@ var $$ = Object.create(null);
     },
     noSuchMethod$1: [function(receiver, invocation) {
       return J.Interceptor.prototype.noSuchMethod$1.call(this, receiver, invocation);
-    }, "call$1", "get$noSuchMethod", 2, 0, null, 73]
+    }, "call$1", "get$noSuchMethod", 2, 0, null, 72]
   },
   JavaScriptObject: {
     "^": "Interceptor;",
@@ -2021,7 +2021,7 @@ var $$ = Object.create(null);
     }
   },
   _Copier_visitMap_closure: {
-    "^": "Closure:74;box_0,this_1",
+    "^": "Closure:73;box_0,this_1",
     call$2: function(key, val) {
       var t1 = this.this_1;
       J.$indexSet$ax(this.box_0.copy_0, t1._dispatch$1(key), t1._dispatch$1(val));
@@ -3528,7 +3528,7 @@ var $$ = Object.create(null);
     "^": "Closure:57;this_0",
     call$1: [function(key) {
       return this.this_0._fetch$1(key);
-    }, "call$1", null, 2, 0, null, 75, "call"]
+    }, "call$1", null, 2, 0, null, 74, "call"]
   },
   _ConstantMapKeyIterable: {
     "^": "IterableBase;__js_helper$_map",
@@ -3664,7 +3664,7 @@ var $$ = Object.create(null);
     }
   },
   Primitives_functionNoSuchMethod_closure: {
-    "^": "Closure:76;box_0,arguments_1,namedArgumentList_2",
+    "^": "Closure:75;box_0,arguments_1,namedArgumentList_2",
     call$2: function($name, argument) {
       var t1 = this.box_0;
       t1.names_1 = t1.names_1 + "$" + H.S($name);
@@ -3674,7 +3674,7 @@ var $$ = Object.create(null);
     }
   },
   Primitives_applyFunction_closure: {
-    "^": "Closure:76;box_0,defaultArguments_1",
+    "^": "Closure:75;box_0,defaultArguments_1",
     call$2: function(parameter, value) {
       var t1 = this.defaultArguments_1;
       if (t1.containsKey$1(0, parameter))
@@ -4078,7 +4078,7 @@ var $$ = Object.create(null);
     }
   },
   initHooks_closure0: {
-    "^": "Closure:77;getUnknownTag_1",
+    "^": "Closure:76;getUnknownTag_1",
     call$2: function(o, tag) {
       return this.getUnknownTag_1(o, tag);
     }
@@ -4394,10 +4394,10 @@ var $$ = Object.create(null);
       t2 = t1.$index(v, "message");
       t3 = J.getInterceptor$asx(t2);
       return new Z.BuildLogEntry(new Z.Message(Z.MessageId_MessageId$fromJson(t3.$index(t2, "id")), t3.$index(t2, "snippet")), t1.$index(v, "level"), span);
-    }, "call$1", null, 2, 0, null, 70, "call"]
+    }, "call$1", null, 2, 0, null, 69, "call"]
   },
   LogEntryTable_toJson_closure: {
-    "^": "Closure:74;res_0",
+    "^": "Closure:73;res_0",
     call$2: function(key, value) {
       this.res_0.$indexSet(0, H.S(key), J.map$1$ax(value, new Z.LogEntryTable_toJson__closure()).toList$0(0));
     }
@@ -5756,10 +5756,10 @@ var $$ = Object.create(null);
       f = t1.storedCallback_0;
       t1.storedCallback_0 = null;
       f.call$0();
-    }, "call$1", null, 2, 0, null, 78, "call"]
+    }, "call$1", null, 2, 0, null, 77, "call"]
   },
   _AsyncRun__initializeScheduleImmediate_closure: {
-    "^": "Closure:79;box_0,div_1,span_2",
+    "^": "Closure:78;box_0,div_1,span_2",
     call$1: function(callback) {
       var t1, t2;
       ++init.globalState.topEventLoop._activeJsAsyncCount;
@@ -5923,7 +5923,7 @@ var $$ = Object.create(null);
       return H.computeSignature(function(T) {
         return {func: "void__T", void: true, args: [T]};
       }, this.$receiver, "_BroadcastStreamController");
-    }, 80],
+    }, 79],
     addError$2: [function(error, stackTrace) {
       var replacement;
       error = error != null ? error : new P.NullThrownError();
@@ -5938,7 +5938,7 @@ var $$ = Object.create(null);
       this._sendError$2(error, stackTrace);
     }, function(error) {
       return this.addError$2(error, null);
-    }, "addError$1", "call$2", "call$1", "get$addError", 2, 2, 81, 19, 20, 21],
+    }, "addError$1", "call$2", "call$1", "get$addError", 2, 2, 80, 19, 20, 21],
     close$0: function(_) {
       var t1, doneFuture;
       t1 = this._state;
@@ -6106,7 +6106,7 @@ var $$ = Object.create(null);
       this._completeError$2(error, stackTrace);
     }, function(error) {
       return this.completeError$2(error, null);
-    }, "completeError$1", "call$2", "call$1", "get$completeError", 2, 2, 81, 19, 20, 21]
+    }, "completeError$1", "call$2", "call$1", "get$completeError", 2, 2, 80, 19, 20, 21]
   },
   _AsyncCompleter: {
     "^": "_Completer;future",
@@ -6394,7 +6394,7 @@ var $$ = Object.create(null);
     }, "call$1", null, 2, 0, null, 17, "call"]
   },
   _Future__chainForeignFuture_closure0: {
-    "^": "Closure:82;target_1",
+    "^": "Closure:81;target_1",
     call$2: [function(error, stackTrace) {
       this.target_1._completeError$2(error, stackTrace);
     }, function(error) {
@@ -6420,7 +6420,7 @@ var $$ = Object.create(null);
     }, "call$0", null, 0, 0, null, "call"]
   },
   _Future__propagateToListeners_handleValueCallback: {
-    "^": "Closure:83;box_1,listener_3,sourceValue_4,zone_5",
+    "^": "Closure:82;box_1,listener_3,sourceValue_4,zone_5",
     call$0: function() {
       var e, s, exception, t1;
       try {
@@ -6536,10 +6536,10 @@ var $$ = Object.create(null);
     "^": "Closure:57;box_2,result_11",
     call$1: [function(ignored) {
       P._Future__propagateToListeners(this.box_2.source_4, new P._FutureListener(null, this.result_11, 0, null, null));
-    }, "call$1", null, 2, 0, null, 84, "call"]
+    }, "call$1", null, 2, 0, null, 83, "call"]
   },
   _Future__propagateToListeners_handleWhenCompleteCallback_closure0: {
-    "^": "Closure:82;box_0,result_12",
+    "^": "Closure:81;box_0,result_12",
     call$2: [function(error, stackTrace) {
       var t1, completeResult;
       t1 = this.box_0;
@@ -6693,7 +6693,7 @@ var $$ = Object.create(null);
     }
   },
   Stream_contains__closure0: {
-    "^": "Closure:85;box_0,future_6",
+    "^": "Closure:84;box_0,future_6",
     call$1: function(isMatch) {
       if (isMatch === true)
         P._cancelAndValue(this.box_0.subscription_0, this.future_6, true);
@@ -6754,7 +6754,7 @@ var $$ = Object.create(null);
     }
   },
   Stream_any__closure0: {
-    "^": "Closure:85;box_0,future_6",
+    "^": "Closure:84;box_0,future_6",
     call$1: function(isMatch) {
       if (isMatch === true)
         P._cancelAndValue(this.box_0.subscription_0, this.future_6, true);
@@ -6770,7 +6770,7 @@ var $$ = Object.create(null);
     "^": "Closure:57;box_0",
     call$1: [function(_) {
       ++this.box_0.count_0;
-    }, "call$1", null, 2, 0, null, 78, "call"]
+    }, "call$1", null, 2, 0, null, 77, "call"]
   },
   Stream_length_closure0: {
     "^": "Closure:14;box_0,future_1",
@@ -6782,7 +6782,7 @@ var $$ = Object.create(null);
     "^": "Closure:57;box_0,future_1",
     call$1: [function(_) {
       P._cancelAndValue(this.box_0.subscription_0, this.future_1, false);
-    }, "call$1", null, 2, 0, null, 78, "call"]
+    }, "call$1", null, 2, 0, null, 77, "call"]
   },
   Stream_isEmpty_closure0: {
     "^": "Closure:14;future_2",
@@ -6794,7 +6794,7 @@ var $$ = Object.create(null);
     "^": "Closure;this_0,result_1",
     call$1: [function(data) {
       this.result_1.push(data);
-    }, "call$1", null, 2, 0, null, 80, "call"],
+    }, "call$1", null, 2, 0, null, 79, "call"],
     $signature: function() {
       return H.computeSignature(function(T) {
         return {func: "dynamic__T", args: [T]};
@@ -7275,7 +7275,7 @@ var $$ = Object.create(null);
     }, "call$0", null, 0, 0, null, "call"]
   },
   _cancelAndErrorClosure_closure: {
-    "^": "Closure:86;subscription_0,future_1",
+    "^": "Closure:85;subscription_0,future_1",
     call$2: function(error, stackTrace) {
       return P._cancelAndError(this.subscription_0, this.future_1, error, stackTrace);
     }
@@ -7351,10 +7351,10 @@ var $$ = Object.create(null);
       return H.computeSignature(function(S, T) {
         return {func: "void__S", void: true, args: [S]};
       }, this.$receiver, "_ForwardingStreamSubscription");
-    }, 80],
+    }, 79],
     _handleError$2: [function(error, stackTrace) {
       this._addError$2(error, stackTrace);
-    }, "call$2", "get$_handleError", 4, 0, 87, 20, 21],
+    }, "call$2", "get$_handleError", 4, 0, 86, 20, 21],
     _handleDone$0: [function() {
       this._close$0();
     }, "call$0", "get$_handleDone", 0, 0, 13],
@@ -7736,13 +7736,13 @@ var $$ = Object.create(null);
     }, "call$1", null, 2, 0, null, 29, "call"]
   },
   _CustomZone_bindBinaryCallback_closure: {
-    "^": "Closure:74;this_0,registered_1",
+    "^": "Closure:73;this_0,registered_1",
     call$2: [function(arg1, arg2) {
       return this.this_0.runBinaryGuarded$3(this.registered_1, arg1, arg2);
     }, "call$2", null, 4, 0, null, 7, 8, "call"]
   },
   _CustomZone_bindBinaryCallback_closure0: {
-    "^": "Closure:74;this_2,registered_3",
+    "^": "Closure:73;this_2,registered_3",
     call$2: [function(arg1, arg2) {
       return this.this_2.runBinary$3(this.registered_3, arg1, arg2);
     }, "call$2", null, 4, 0, null, 7, 8, "call"]
@@ -7964,13 +7964,13 @@ var $$ = Object.create(null);
     }, "call$1", null, 2, 0, null, 29, "call"]
   },
   _RootZone_bindBinaryCallback_closure: {
-    "^": "Closure:74;this_0,f_1",
+    "^": "Closure:73;this_0,f_1",
     call$2: [function(arg1, arg2) {
       return this.this_0.runBinaryGuarded$3(this.f_1, arg1, arg2);
     }, "call$2", null, 4, 0, null, 7, 8, "call"]
   },
   _RootZone_bindBinaryCallback_closure0: {
-    "^": "Closure:74;this_2,f_3",
+    "^": "Closure:73;this_2,f_3",
     call$2: [function(arg1, arg2) {
       return this.this_2.runBinary$3(this.f_3, arg1, arg2);
     }, "call$2", null, 4, 0, null, 7, 8, "call"]
@@ -8409,13 +8409,13 @@ var $$ = Object.create(null);
     "^": "Closure:57;this_0",
     call$1: [function(each) {
       return this.this_0.$index(0, each);
-    }, "call$1", null, 2, 0, null, 88, "call"]
+    }, "call$1", null, 2, 0, null, 87, "call"]
   },
   _HashMap_addAll_closure: {
     "^": "Closure;this_0",
     call$2: [function(key, value) {
       this.this_0.$indexSet(0, key, value);
-    }, "call$2", null, 4, 0, null, 75, 17, "call"],
+    }, "call$2", null, 4, 0, null, 74, 17, "call"],
     $signature: function() {
       return H.computeSignature(function(K, V) {
         return {func: "dynamic__K_V", args: [K, V]};
@@ -8784,13 +8784,13 @@ var $$ = Object.create(null);
     "^": "Closure:57;this_0",
     call$1: [function(each) {
       return this.this_0.$index(0, each);
-    }, "call$1", null, 2, 0, null, 88, "call"]
+    }, "call$1", null, 2, 0, null, 87, "call"]
   },
   _LinkedHashMap_addAll_closure: {
     "^": "Closure;this_0",
     call$2: [function(key, value) {
       this.this_0.$indexSet(0, key, value);
-    }, "call$2", null, 4, 0, null, 75, 17, "call"],
+    }, "call$2", null, 4, 0, null, 74, 17, "call"],
     $signature: function() {
       return H.computeSignature(function(K, V) {
         return {func: "dynamic__K_V0", args: [K, V]};
@@ -9779,7 +9779,7 @@ var $$ = Object.create(null);
     $asMap: null
   },
   Maps_mapToString_closure: {
-    "^": "Closure:74;box_0,result_1",
+    "^": "Closure:73;box_0,result_1",
     call$2: function(k, v) {
       var t1 = this.box_0;
       if (!t1.first_0)
@@ -10308,7 +10308,7 @@ var $$ = Object.create(null);
     "^": "Closure:57;this_0",
     call$1: [function(each) {
       return this.this_0.$index(0, each);
-    }, "call$1", null, 2, 0, null, 88, "call"]
+    }, "call$1", null, 2, 0, null, 87, "call"]
   },
   Codec: {
     "^": "Object;"
@@ -10579,7 +10579,7 @@ var $$ = Object.create(null);
     static: {"^": "_Utf8Decoder__LIMITS"}
   },
   _Utf8Decoder_convert_scanOneByteCharacters: {
-    "^": "Closure:89;endIndex_0",
+    "^": "Closure:88;endIndex_0",
     call$2: function(units, from) {
       var to, t1, i, unit;
       to = this.endIndex_0;
@@ -10592,7 +10592,7 @@ var $$ = Object.create(null);
     }
   },
   _Utf8Decoder_convert_addSingleBytes: {
-    "^": "Closure:90;this_1,codeUnits_2,startIndex_3,endIndex_4",
+    "^": "Closure:89;this_1,codeUnits_2,startIndex_3,endIndex_4",
     call$2: function(from, to) {
       this.this_1._stringSink.write$1(P.String_String$fromCharCodes(this.codeUnits_2, from, to));
     }
@@ -10710,13 +10710,13 @@ var $$ = Object.create(null);
     return H.Primitives_stringFromCharCodes(t1 ? C.JSArray_methods.sublist$2(charCodes, start, end) : charCodes);
   },
   Function__toMangledNames_closure: {
-    "^": "Closure:74;result_0",
+    "^": "Closure:73;result_0",
     call$2: function(symbol, value) {
       this.result_0.$indexSet(0, symbol.get$_name(symbol), value);
     }
   },
   NoSuchMethodError_toString_closure: {
-    "^": "Closure:91;box_0",
+    "^": "Closure:90;box_0",
     call$2: function(key, value) {
       var t1 = this.box_0;
       if (t1.i_1 > 0)
@@ -10864,7 +10864,7 @@ var $$ = Object.create(null);
       }}
   },
   DateTime_parse_parseIntOrZero: {
-    "^": "Closure:92;",
+    "^": "Closure:91;",
     call$1: function(matched) {
       if (matched == null)
         return 0;
@@ -10872,7 +10872,7 @@ var $$ = Object.create(null);
     }
   },
   DateTime_parse_parseDoubleOrZero: {
-    "^": "Closure:93;",
+    "^": "Closure:92;",
     call$1: function(matched) {
       if (matched == null)
         return 0;
@@ -10953,7 +10953,7 @@ var $$ = Object.create(null);
       }}
   },
   Duration_toString_sixDigits: {
-    "^": "Closure:94;",
+    "^": "Closure:93;",
     call$1: function(n) {
       if (n >= 100000)
         return "" + n;
@@ -10969,7 +10969,7 @@ var $$ = Object.create(null);
     }
   },
   Duration_toString_twoDigits: {
-    "^": "Closure:94;",
+    "^": "Closure:93;",
     call$1: function(n) {
       if (n >= 10)
         return "" + n;
@@ -12420,7 +12420,7 @@ var $$ = Object.create(null);
       }}
   },
   Uri_parse_isRegName: {
-    "^": "Closure:95;",
+    "^": "Closure:94;",
     call$1: function(ch) {
       ch.$lt(0, 128);
       return false;
@@ -12506,7 +12506,7 @@ var $$ = Object.create(null);
     }
   },
   Uri__makeQuery_closure: {
-    "^": "Closure:74;box_0,result_1",
+    "^": "Closure:73;box_0,result_1",
     call$2: function(key, value) {
       var t1 = this.box_0;
       if (!t1.first_0)
@@ -12520,7 +12520,7 @@ var $$ = Object.create(null);
     }
   },
   Uri_hashCode_combine: {
-    "^": "Closure:96;",
+    "^": "Closure:95;",
     call$2: function(part, current) {
       var t1 = J.get$hashCode$(part);
       if (typeof t1 !== "number")
@@ -12543,10 +12543,10 @@ var $$ = Object.create(null);
       if (t1.$lt($byte, 0) || t1.$gt($byte, 255))
         this.error_0.call$1("each part must be in the range of `0..255`");
       return $byte;
-    }, "call$1", null, 2, 0, null, 97, "call"]
+    }, "call$1", null, 2, 0, null, 96, "call"]
   },
   Uri_parseIPv6Address_error: {
-    "^": "Closure:98;host_0",
+    "^": "Closure:97;host_0",
     call$2: function(msg, position) {
       throw H.wrapException(P.FormatException$("Illegal IPv6 address, " + msg, this.host_0, position));
     },
@@ -12555,7 +12555,7 @@ var $$ = Object.create(null);
     }
   },
   Uri_parseIPv6Address_parseHex: {
-    "^": "Closure:99;host_1,error_2",
+    "^": "Closure:98;host_1,error_2",
     call$2: function(start, end) {
       var value, t1;
       if (J.$gt$n(J.$sub$n(end, start), 4))
@@ -12568,7 +12568,7 @@ var $$ = Object.create(null);
     }
   },
   Uri__uriEncode_byteToHex: {
-    "^": "Closure:74;",
+    "^": "Closure:73;",
     call$2: function($byte, buffer) {
       var t1 = J.getInterceptor$n($byte);
       buffer.write$1(H.Primitives_stringFromCharCode(C.JSString_methods.codeUnitAt$1("0123456789ABCDEF", t1.$shr($byte, 4))));
@@ -13734,9 +13734,6 @@ var $$ = Object.create(null);
       return callback;
     return $.Zone__current.bindBinaryCallback$2$runGuarded(callback, true);
   },
-  querySelector: [function(selectors) {
-    return document.querySelector(selectors);
-  }, "call$1", "querySelector$closure", 2, 0, 63],
   Interceptor_CssStyleDeclarationBase: {
     "^": "Interceptor+CssStyleDeclarationBase;"
   },
@@ -13839,10 +13836,10 @@ var $$ = Object.create(null);
     "^": "Closure:57;",
     call$1: [function(xhr) {
       return J.get$responseText$x(xhr);
-    }, "call$1", null, 2, 0, null, 100, "call"]
+    }, "call$1", null, 2, 0, null, 99, "call"]
   },
   HttpRequest_request_closure0: {
-    "^": "Closure:74;xhr_0",
+    "^": "Closure:73;xhr_0",
     call$2: function(header, value) {
       this.xhr_0.setRequestHeader(header, value);
     }
@@ -13864,7 +13861,7 @@ var $$ = Object.create(null);
     }, "call$1", null, 2, 0, null, 2, "call"]
   },
   MutationObserver_observe_override: {
-    "^": "Closure:74;parsedOptions_0",
+    "^": "Closure:73;parsedOptions_0",
     call$2: function(key, value) {
       if (value != null)
         this.parsedOptions_0[key] = value;
@@ -13948,13 +13945,13 @@ var $$ = Object.create(null);
     }
   },
   Storage_keys_closure: {
-    "^": "Closure:74;keys_0",
+    "^": "Closure:73;keys_0",
     call$2: function(k, v) {
       return this.keys_0.push(k);
     }
   },
   Storage_values_closure: {
-    "^": "Closure:74;values_0",
+    "^": "Closure:73;values_0",
     call$2: function(k, v) {
       return this.values_0.push(v);
     }
@@ -14042,7 +14039,7 @@ var $$ = Object.create(null);
     }
   },
   _AttributeMap_addAll_closure: {
-    "^": "Closure:74;this_0",
+    "^": "Closure:73;this_0",
     call$2: function(k, v) {
       this.this_0.$indexSet(0, k, v);
     }
@@ -14140,7 +14137,7 @@ var $$ = Object.create(null);
     }
   },
   _MultiElementCssClassSet__modifyWithReturnValue_closure: {
-    "^": "Closure:74;f_0",
+    "^": "Closure:73;f_0",
     call$2: function(prevValue, element) {
       return this.f_0.call$1(element) === true || prevValue === true;
     }
@@ -14462,7 +14459,7 @@ var $$ = Object.create(null);
     "^": "Closure:57;",
     call$1: [function(attr) {
       return "TEMPLATE::" + H.S(attr);
-    }, "call$1", null, 2, 0, null, 101, "call"]
+    }, "call$1", null, 2, 0, null, 100, "call"]
   },
   FixedSizeListIterator: {
     "^": "Object;_array,_html$_length,_position,_html$_current",
@@ -14632,7 +14629,7 @@ var $$ = Object.create(null);
     }
   },
   _ValidatingTreeSanitizer_sanitizeTree_walk: {
-    "^": "Closure:102;this_0",
+    "^": "Closure:101;this_0",
     call$1: function(node) {
       var child, nextChild;
       this.this_0.sanitizeNode$1(node);
@@ -14869,7 +14866,7 @@ var $$ = Object.create(null);
       $arguments = arguments0;
     }
     return P._convertToJS(H.Primitives_applyFunction(callback, P.List_List$from(J.map$1$ax($arguments, P._convertToDart$closure()), true, null), P.Function__toMangledNames(null)));
-  }, "call$4", "_callDartFunction$closure", 8, 0, null, 38, 64, 23, 65],
+  }, "call$4", "_callDartFunction$closure", 8, 0, null, 38, 63, 23, 64],
   _defineProperty: function(o, $name, value) {
     var exception;
     if (Object.isExtensible(o) && !Object.prototype.hasOwnProperty.call(o, $name))
@@ -14904,7 +14901,7 @@ var $$ = Object.create(null);
       else
         return P._getJsProxy(o, "_$dart_jsObject", new P._convertToJS_closure0($.get$_dartProxyCtor()));
     }
-  }, "call$1", "_convertToJS$closure", 2, 0, 57, 66],
+  }, "call$1", "_convertToJS$closure", 2, 0, 57, 65],
   _getJsProxy: function(o, propertyName, createProxy) {
     var jsProxy = P._getOwnProperty(o, propertyName);
     if (jsProxy == null) {
@@ -14932,7 +14929,7 @@ var $$ = Object.create(null);
       else
         return P._wrapToDart(o);
     }
-  }, "call$1", "_convertToDart$closure", 2, 0, 67, 66],
+  }, "call$1", "_convertToDart$closure", 2, 0, 66, 65],
   _wrapToDart: function(o) {
     if (typeof o == "function")
       return P._getDartProxy(o, $.get$_DART_CLOSURE_PROPERTY_NAME(), new P._wrapToDart_closure());
@@ -15031,7 +15028,7 @@ var $$ = Object.create(null);
         return convertedList;
       } else
         return P._convertToJS(o);
-    }, "call$1", null, 2, 0, null, 66, "call"]
+    }, "call$1", null, 2, 0, null, 65, "call"]
   },
   JsFunction: {
     "^": "JsObject;_jsObject",
@@ -15735,7 +15732,7 @@ var $$ = Object.create(null);
     }
   },
   _convertDartToNative_PrepareForStructuredClone_readSlot: {
-    "^": "Closure:103;copies_3",
+    "^": "Closure:102;copies_3",
     call$1: function(i) {
       var t1 = this.copies_3;
       if (i >= t1.length)
@@ -15744,7 +15741,7 @@ var $$ = Object.create(null);
     }
   },
   _convertDartToNative_PrepareForStructuredClone_writeSlot: {
-    "^": "Closure:104;copies_4",
+    "^": "Closure:103;copies_4",
     call$2: function(i, x) {
       var t1 = this.copies_4;
       if (i >= t1.length)
@@ -15822,7 +15819,7 @@ var $$ = Object.create(null);
     }
   },
   _convertDartToNative_PrepareForStructuredClone_walk_closure: {
-    "^": "Closure:74;box_0,walk_8",
+    "^": "Closure:73;box_0,walk_8",
     call$2: function(key, value) {
       this.box_0.copy_0[key] = this.walk_8.call$1(value);
     }
@@ -15844,7 +15841,7 @@ var $$ = Object.create(null);
     }
   },
   convertNativeToDart_AcceptStructuredClone_readSlot: {
-    "^": "Closure:103;copies_2",
+    "^": "Closure:102;copies_2",
     call$1: function(i) {
       var t1 = this.copies_2;
       if (i >= t1.length)
@@ -15853,7 +15850,7 @@ var $$ = Object.create(null);
     }
   },
   convertNativeToDart_AcceptStructuredClone_writeSlot: {
-    "^": "Closure:104;copies_3",
+    "^": "Closure:103;copies_3",
     call$2: function(i, x) {
       var t1 = this.copies_3;
       if (i >= t1.length)
@@ -16006,7 +16003,7 @@ var $$ = Object.create(null);
     "^": "Closure:57;value_0",
     call$1: [function(s) {
       return J.add$1$ax(s, this.value_0);
-    }, "call$1", null, 2, 0, null, 105, "call"]
+    }, "call$1", null, 2, 0, null, 104, "call"]
   }
 }],
 ["logging", "package:logging/logging.dart", , N, {
@@ -16209,9 +16206,10 @@ var $$ = Object.create(null);
 ["", "main.dart", , F, {
   "^": "",
   init: function() {
-    var go, $name;
-    go = W.querySelector$closure().call$1("#chi_go");
-    $name = W.querySelector$closure().call$1("#chi_name_new");
+    var t1, go, $name;
+    t1 = $.get$Q();
+    go = t1.call$1("#chi_go");
+    $name = t1.call$1("#chi_name_new");
     if (window.sessionStorage.getItem("chi:app:session") != null)
       J.set$value$x($name, window.sessionStorage.getItem("chi:app:session"));
     J.get$onInput$x($name).listen$1(new F.init_closure(go, $name));
@@ -16221,13 +16219,13 @@ var $$ = Object.create(null);
     A.initPolymer().run$1(new F.main_closure());
   },
   init_closure: {
-    "^": "Closure:106;go_0,name_1",
+    "^": "Closure:105;go_0,name_1",
     call$1: [function(e) {
       J.set$disabled$x(this.go_0, J.$eq(J.get$value$x(this.name_1), ""));
     }, "call$1", null, 2, 0, null, 2, "call"]
   },
   init_closure0: {
-    "^": "Closure:107;name_2",
+    "^": "Closure:106;name_2",
     call$1: [function(e) {
       window.sessionStorage.setItem("chi:app:session", J.get$value$x(this.name_2));
       window.location.assign("app");
@@ -16243,7 +16241,7 @@ var $$ = Object.create(null);
     "^": "Closure:57;",
     call$1: [function(_) {
       F.init();
-    }, "call$1", null, 2, 0, null, 78, "call"]
+    }, "call$1", null, 2, 0, null, 77, "call"]
   }
 }],
 ["observe.src.bindable", "package:observe/src/bindable.dart", , A, {
@@ -16294,7 +16292,7 @@ var $$ = Object.create(null);
         return true;
       }
       return false;
-    }, "call$0", "get$deliverChanges", 0, 0, 83],
+    }, "call$0", "get$deliverChanges", 0, 0, 82],
     get$hasObservers: function(receiver) {
       var t1, t2;
       t1 = receiver.change_notifier$ChangeNotifier$_changes;
@@ -16392,7 +16390,7 @@ var $$ = Object.create(null);
     return new P._ZoneSpecification(null, null, null, null, new O.dirtyCheckZoneSpec_wrapCallback(t1), new O.dirtyCheckZoneSpec_wrapUnaryCallback(t1), null, null, null, null, null, null, null);
   },
   dirtyCheckZoneSpec_enqueueDirtyCheck: {
-    "^": "Closure:108;box_0",
+    "^": "Closure:107;box_0",
     call$2: function($parent, zone) {
       var t1 = this.box_0;
       if (t1.pending_0)
@@ -16424,7 +16422,7 @@ var $$ = Object.create(null);
     }, "call$0", null, 0, 0, null, "call"]
   },
   dirtyCheckZoneSpec_wrapUnaryCallback: {
-    "^": "Closure:109;enqueueDirtyCheck_6",
+    "^": "Closure:108;enqueueDirtyCheck_6",
     call$4: [function($self, $parent, zone, f) {
       if (f == null)
         return f;
@@ -16436,7 +16434,7 @@ var $$ = Object.create(null);
     call$1: [function(x) {
       this.enqueueDirtyCheck_7.call$2(this.parent_8, this.zone_9);
       return this.f_10.call$1(x);
-    }, "call$1", null, 2, 0, null, 110, "call"]
+    }, "call$1", null, 2, 0, null, 109, "call"]
   }
 }],
 ["observe.src.list_diff", "package:observe/src/list_diff.dart", , G, {
@@ -16807,7 +16805,7 @@ var $$ = Object.create(null);
     $isObservable: true
   },
   Observable_deliverChanges_closure: {
-    "^": "Closure:74;box_0,this_1",
+    "^": "Closure:73;box_0,this_1",
     call$2: function($name, oldValue) {
       var t1, newValue, t2, t3, records;
       t1 = this.this_1;
@@ -17606,7 +17604,7 @@ var $$ = Object.create(null);
       if (t1._path_observer$_state === $._Observer__OPENED)
         t1._dirtyCheck$0();
       return;
-    }, "call$1", null, 2, 0, null, 78, "call"]
+    }, "call$1", null, 2, 0, null, 77, "call"]
   },
   CompoundObserver__check_closure: {
     "^": "Closure:57;this_0",
@@ -17615,7 +17613,7 @@ var $$ = Object.create(null);
       if (t1._path_observer$_state === $._Observer__OPENED)
         t1._dirtyCheck$0();
       return;
-    }, "call$1", null, 2, 0, null, 78, "call"]
+    }, "call$1", null, 2, 0, null, 77, "call"]
   },
   _ObserverSentinel: {
     "^": "Object;"
@@ -17709,7 +17707,7 @@ var $$ = Object.create(null);
       t1 = J.getInterceptor(obj);
       if (!!t1.$isObservable)
         this._observeStream$1(t1.get$changes(obj));
-    }, "call$2", "get$observe", 4, 0, 111, 112, 113],
+    }, "call$2", "get$observe", 4, 0, 110, 111, 112],
     _observeStream$1: function(stream) {
       var t1 = this._objects;
       if (t1 == null) {
@@ -17751,7 +17749,7 @@ var $$ = Object.create(null);
         if (observer.get$_isOpen())
           observer._check$0();
       }
-    }, "call$1", "get$_path_observer$_callback", 2, 0, 16, 114],
+    }, "call$1", "get$_path_observer$_callback", 2, 0, 16, 113],
     static: {"^": "_ObservedSet__lastSet", _ObservedSet__ObservedSet: function(observer, rootObject) {
         var t1, t2;
         t1 = $._ObservedSet__lastSet;
@@ -18526,7 +18524,7 @@ var $$ = Object.create(null);
       return false;
     t1 = J.getInterceptor$s($name);
     return t1.endsWith$1($name, "Changed") && !t1.$eq($name, "attributeChanged");
-  }, "call$1", "_isObserverMethod$closure", 2, 0, 68, 69],
+  }, "call$1", "_isObserverMethod$closure", 2, 0, 67, 68],
   Polymer_applyStyleToScope: function(style, scope) {
     var clone, attr, refNode, styleElement;
     if (style == null)
@@ -18893,14 +18891,14 @@ var $$ = Object.create(null);
     }
   },
   PolymerDeclaration_accumulateInstanceAttributes_closure: {
-    "^": "Closure:74;this_0",
+    "^": "Closure:73;this_0",
     call$2: function($name, value) {
       if (C.Map_EJj5B.containsKey$1(0, $name) !== true && !J.startsWith$1$s($name, "on-"))
         this.this_0._instanceAttributes.$indexSet(0, $name, value);
     }
   },
   PolymerDeclaration_addAttributeDelegates_closure: {
-    "^": "Closure:74;delegates_0",
+    "^": "Closure:73;delegates_0",
     call$2: function($name, value) {
       var t1, start, end;
       t1 = J.getInterceptor$s($name);
@@ -18931,7 +18929,7 @@ var $$ = Object.create(null);
     }
   },
   PolymerDeclaration__lowerCaseMap_closure: {
-    "^": "Closure:115;map_0",
+    "^": "Closure:114;map_0",
     call$2: function(path, value) {
       this.map_0.$indexSet(0, H.S(path).toLowerCase(), value);
     }
@@ -19015,7 +19013,7 @@ var $$ = Object.create(null);
     }, "call$1", null, 2, 0, null, 2, "call"]
   },
   PolymerEventBindings_prepareEventBinding_closure: {
-    "^": "Closure:119;box_0,this_1,path_2",
+    "^": "Closure:118;box_0,this_1,path_2",
     call$3: [function(model, node, oneTime) {
       var t1, handler, t2;
       t1 = this.path_2;
@@ -19025,13 +19023,13 @@ var $$ = Object.create(null);
       if (oneTime === true)
         return;
       return new A._EventBindable(t1, node, t2.eventType_0, handler);
-    }, "call$3", null, 6, 0, null, 116, 117, 118, "call"]
+    }, "call$3", null, 6, 0, null, 115, 116, 117, "call"]
   },
   PolymerEventBindings_prepareEventBinding__closure: {
-    "^": "Closure:74;eventHandler_3",
+    "^": "Closure:73;eventHandler_3",
     call$2: [function(_, e) {
       return this.eventHandler_3.call$1(e);
-    }, "call$2", null, 4, 0, null, 78, 2, "call"]
+    }, "call$2", null, 4, 0, null, 77, 2, "call"]
   },
   _EventBindable: {
     "^": "Bindable;_polymer$_path,_polymer$_node,_polymer$_eventType,_polymer$_handler",
@@ -19226,7 +19224,7 @@ var $$ = Object.create(null);
         t1 = t1.get$name(decl);
         $.get$objectAccessor().write$3(receiver, t1, newValue);
       }
-    }, "call$2", "get$attributeToProperty", 4, 0, 120],
+    }, "call$2", "get$attributeToProperty", 4, 0, 119],
     propertyForAttribute$1: function(receiver, $name) {
       var publishLC = receiver.polymer$Polymer$_polymer$_element.get$_publishLC();
       if (publishLC == null)
@@ -19335,7 +19333,7 @@ var $$ = Object.create(null);
     },
     notifyPropertyChanges$3: [function(receiver, newValues, oldValues, paths) {
       J.forEach$1$ax(oldValues, new A.Polymer_notifyPropertyChanges_closure(receiver, newValues, oldValues, paths, J.get$_observe$x(receiver.polymer$Polymer$_polymer$_element), P.HashSet_HashSet(null, null, null, null)));
-    }, "call$3", "get$notifyPropertyChanges", 6, 0, 121],
+    }, "call$3", "get$notifyPropertyChanges", 6, 0, 120],
     _propertyChangeWorkaround$1: [function(receiver, records) {
       var t1, t2, record, $name;
       for (t1 = J.get$iterator$ax(records), t2 = receiver.polymer$Polymer$_properties; t1.moveNext$0();) {
@@ -19347,7 +19345,7 @@ var $$ = Object.create(null);
           continue;
         this._propertyChange$3(receiver, $name, record.newValue, record.oldValue);
       }
-    }, "call$1", "get$_propertyChangeWorkaround", 2, 0, 122, 114],
+    }, "call$1", "get$_propertyChangeWorkaround", 2, 0, 121, 113],
     _propertyChange$3: function(receiver, nameSymbol, newValue, oldValue) {
       var $name, reflect;
       $.get$_watchLog().info$1(new A.Polymer__propertyChange_closure(receiver, nameSymbol, newValue, oldValue));
@@ -19531,10 +19529,10 @@ var $$ = Object.create(null);
     "^": "Closure:57;this_0",
     call$1: [function(_) {
       return;
-    }, "call$1", null, 2, 0, null, 78, "call"]
+    }, "call$1", null, 2, 0, null, 77, "call"]
   },
   Polymer_copyInstanceAttributes_closure: {
-    "^": "Closure:74;this_0",
+    "^": "Closure:73;this_0",
     call$2: function($name, value) {
       var t1 = J.get$attributes$x(this.this_0);
       if (t1.containsKey$1(0, $name) !== true)
@@ -19567,7 +19565,7 @@ var $$ = Object.create(null);
     }, "call$0", null, 0, 0, null, "call"]
   },
   Polymer_notifyPropertyChanges_closure: {
-    "^": "Closure:74;this_0,newValues_1,oldValues_2,paths_3,observe_4,called_5",
+    "^": "Closure:73;this_0,newValues_1,oldValues_2,paths_3,observe_4,called_5",
     call$2: [function(i, oldValue) {
       var t1, newValue, t2, path, t3, methods, t4, t5, t6, t7, method;
       t1 = this.newValues_1;
@@ -19589,7 +19587,7 @@ var $$ = Object.create(null);
         t5.observeArrayValue$3(t4, path, newValue, oldValue);
         $.get$objectAccessor().invoke$5$adjust$namedArgs(t4, method, [oldValue, newValue, t1, t6, t2], true, null);
       }
-    }, "call$2", null, 4, 0, null, 123, 61, "call"]
+    }, "call$2", null, 4, 0, null, 122, 61, "call"]
   },
   Polymer__propertyChange_closure: {
     "^": "Closure:14;this_0,nameSymbol_1,newValue_2,oldValue_3",
@@ -19638,7 +19636,7 @@ var $$ = Object.create(null);
     }, "call$0", null, 0, 0, null, "call"]
   },
   Polymer_addHostListeners_closure0: {
-    "^": "Closure:74;this_2",
+    "^": "Closure:73;this_2",
     call$2: function(type, methodName) {
       var t1 = this.this_2;
       $.get$_PolymerGestures().callMethod$2("addEventListener", [t1, type, $.Zone__current.bindUnaryCallback$1(J.get$syntax$x(t1.polymer$Polymer$_polymer$_element).getEventHandler$3(t1, t1, methodName))]);
@@ -19678,7 +19676,7 @@ var $$ = Object.create(null);
           return;
         }
       }
-    }, "call$1", "get$_propertyValueChanged", 2, 0, 122, 114],
+    }, "call$1", "get$_propertyValueChanged", 2, 0, 121, 113],
     open$1: function(_, callback) {
       return J.open$1$x(this._polymer$_bindable, callback);
     },
@@ -19736,7 +19734,7 @@ var $$ = Object.create(null);
         this._timer = P.Timer_Timer(wait, this.get$complete(this));
     }, function($receiver, callback) {
       return this.start$2($receiver, callback, null);
-    }, "start$1", "call$2", "call$1", "get$start", 2, 2, 124, 19, 38, 125],
+    }, "start$1", "call$2", "call$1", "get$start", 2, 2, 123, 19, 38, 124],
     stop$0: function(_) {
       var t1, t2;
       t1 = this._id;
@@ -19768,7 +19766,7 @@ var $$ = Object.create(null);
         t1._callback$0();
       }
       return;
-    }, "call$1", null, 2, 0, null, 78, "call"]
+    }, "call$1", null, 2, 0, null, 77, "call"]
   },
   initPolymer_closure: {
     "^": "Closure:14;",
@@ -19783,13 +19781,13 @@ var $$ = Object.create(null);
     }, "call$0", null, 0, 0, null, "call"]
   },
   _hookJsPolymer_registerDart: {
-    "^": "Closure:128;zone_0,originalRegister_1",
+    "^": "Closure:127;zone_0,originalRegister_1",
     call$3: [function(jsElem, $name, extendee) {
       var type = $.get$_typesByName().$index(0, $name);
       if (type != null)
         return this.zone_0.run$1(new A._hookJsPolymer_registerDart_closure(jsElem, $name, type, $.get$_declarations().$index(0, extendee)));
       return this.originalRegister_1.apply$2$thisArg([$name, extendee], jsElem);
-    }, "call$3", null, 6, 0, null, 126, 60, 127, "call"]
+    }, "call$3", null, 6, 0, null, 125, 60, 126, "call"]
   },
   _hookJsPolymer_registerDart_closure: {
     "^": "Closure:14;jsElem_2,name_3,type_4,extendsDecl_5",
@@ -19863,10 +19861,10 @@ var $$ = Object.create(null);
     "^": "Closure:57;",
     call$1: [function(rec) {
       P.print(rec);
-    }, "call$1", null, 2, 0, null, 129, "call"]
+    }, "call$1", null, 2, 0, null, 128, "call"]
   },
   _watchWaitingFor_closure: {
-    "^": "Closure:131;box_0",
+    "^": "Closure:130;box_0",
     call$1: [function(timer) {
       var waiting, t1, t2;
       waiting = $.get$_Polymer().callMethod$2("waitingFor", [null]);
@@ -19884,7 +19882,7 @@ var $$ = Object.create(null);
         return;
       t2.lastAlert_1 = t2.lastWaiting_0;
       P.print("No elements registered in a while, but still waiting on " + H.S(t1.get$length(waiting)) + " elements to be registered. Check that you have a class with an @CustomTag annotation for each of the following tags: " + H.S(t1.map$1(waiting, new A._watchWaitingFor__closure()).join$1(0, ", ")));
-    }, "call$1", null, 2, 0, null, 130, "call"]
+    }, "call$1", null, 2, 0, null, 129, "call"]
   },
   _watchWaitingFor__closure: {
     "^": "Closure:57;",
@@ -19998,7 +19996,7 @@ var $$ = Object.create(null);
       var t1 = this.this_0;
       t1.setAttribute("bind", "");
       J.async$1$x(t1, new Y.AutoBindingElement$created__closure(t1));
-    }, "call$1", null, 2, 0, null, 78, "call"]
+    }, "call$1", null, 2, 0, null, 77, "call"]
   },
   AutoBindingElement$created__closure: {
     "^": "Closure:57;this_1",
@@ -20008,7 +20006,7 @@ var $$ = Object.create(null);
       t2 = J.getInterceptor$x(t1);
       t2.marshalNodeReferences$1(t1, t1.parentNode);
       t2.fire$1(t1, "template-bound");
-    }, "call$1", null, 2, 0, null, 78, "call"]
+    }, "call$1", null, 2, 0, null, 77, "call"]
   },
   _AutoBindingSyntax: {
     "^": "PolymerExpressions;_auto_binding$_node,_polymer$_delegate,_bindingMaps",
@@ -20049,7 +20047,7 @@ var $$ = Object.create(null);
     "^": "Closure:57;this_0",
     call$1: [function(data) {
       return this.this_0.injectLogs$1(data);
-    }, "call$1", null, 2, 0, null, 80, "call"]
+    }, "call$1", null, 2, 0, null, 79, "call"]
   },
   LogInjector_injectLogs_closure: {
     "^": "Closure:57;logsByLevel_0",
@@ -20063,7 +20061,7 @@ var $$ = Object.create(null);
       var t1 = this.logsByLevel_1;
       t1.putIfAbsent$2(0, log.get$level(), new F.LogInjector_injectLogs___closure());
       J.add$1$ax(t1.$index(0, log.get$level()), log);
-    }, "call$1", null, 2, 0, null, 132, "call"]
+    }, "call$1", null, 2, 0, null, 131, "call"]
   },
   LogInjector_injectLogs___closure: {
     "^": "Closure:14;",
@@ -20072,7 +20070,7 @@ var $$ = Object.create(null);
     }
   },
   LogInjector_injectLogs_closure0: {
-    "^": "Closure:74;this_2,menuWrapper_3,contentWrapper_4",
+    "^": "Closure:73;this_2,menuWrapper_3,contentWrapper_4",
     call$2: function(level, logs) {
       var levelClassName, t1, menuItem, contentItem, log, logHtml, t2, id, hashTag, message, val, t3, span, text, logElement, messageElement, t4, t5;
       levelClassName = J.toLowerCase$0$s(level);
@@ -20156,13 +20154,13 @@ var $$ = Object.create(null);
       }
       J.get$classes$x(t2).toggle$1(0, "active");
       J.get$classes$x(this.contentItem_7).toggle$1(0, "active");
-    }, "call$1", null, 2, 0, null, 78, "call"]
+    }, "call$1", null, 2, 0, null, 77, "call"]
   },
   LogInjector_injectLogs__closure0: {
     "^": "Closure:57;",
     call$1: [function(m) {
       return "<a href=\"" + H.S(m.group$1(0)) + "\" target=\"blank\">" + H.S(m.group$1(0)) + "</a>";
-    }, "call$1", null, 2, 0, null, 133, "call"]
+    }, "call$1", null, 2, 0, null, 132, "call"]
   },
   LogInjector_injectLogs__closure1: {
     "^": "Closure:57;messageElement_8",
@@ -20196,19 +20194,19 @@ var $$ = Object.create(null);
 
   },
   closure0: {
-    "^": "Closure:74;",
+    "^": "Closure:73;",
     call$2: function(x, _) {
       return x;
     }
   },
   closure1: {
-    "^": "Closure:74;",
+    "^": "Closure:73;",
     call$2: function(x, _) {
       return x;
     }
   },
   closure2: {
-    "^": "Closure:74;",
+    "^": "Closure:73;",
     call$2: function(x, def) {
       var t1, exception;
       try {
@@ -20222,13 +20220,13 @@ var $$ = Object.create(null);
     }
   },
   closure3: {
-    "^": "Closure:74;",
+    "^": "Closure:73;",
     call$2: function(x, _) {
       return !J.$eq(x, "false");
     }
   },
   closure4: {
-    "^": "Closure:74;",
+    "^": "Closure:73;",
     call$2: function(x, def) {
       return H.Primitives_parseInt(x, null, new Z._closure0(def));
     }
@@ -20240,7 +20238,7 @@ var $$ = Object.create(null);
     }
   },
   closure5: {
-    "^": "Closure:74;",
+    "^": "Closure:73;",
     call$2: function(x, def) {
       return H.Primitives_parseDouble(x, new Z._closure(def));
     }
@@ -20261,7 +20259,7 @@ var $$ = Object.create(null);
     else
       t1 = !!t1.$isIterable ? t1.join$1(v, " ") : v;
     return t1;
-  }, "call$1", "_classAttributeConverter$closure", 2, 0, 67, 70],
+  }, "call$1", "_classAttributeConverter$closure", 2, 0, 66, 69],
   _styleAttributeConverter: [function(v) {
     var t1 = J.getInterceptor(v);
     if (!!t1.$isMap)
@@ -20269,18 +20267,18 @@ var $$ = Object.create(null);
     else
       t1 = !!t1.$isIterable ? t1.join$1(v, ";") : v;
     return t1;
-  }, "call$1", "_styleAttributeConverter$closure", 2, 0, 67, 70],
+  }, "call$1", "_styleAttributeConverter$closure", 2, 0, 66, 69],
   _classAttributeConverter_closure: {
     "^": "Closure:57;v_0",
     call$1: [function(k) {
       return J.$eq(J.$index$asx(this.v_0, k), true);
-    }, "call$1", null, 2, 0, null, 134, "call"]
+    }, "call$1", null, 2, 0, null, 133, "call"]
   },
   _styleAttributeConverter_closure: {
     "^": "Closure:57;v_0",
     call$1: [function(k) {
       return H.S(k) + ": " + H.S(J.$index$asx(this.v_0, k));
-    }, "call$1", null, 2, 0, null, 134, "call"]
+    }, "call$1", null, 2, 0, null, 133, "call"]
   },
   PolymerExpressions0: {
     "^": "BindingDelegate;_scopeFactory,globals,_scopes,_scopeIdents,_bindingMaps",
@@ -20378,7 +20376,7 @@ var $$ = Object.create(null);
       }}
   },
   PolymerExpressions_prepareBinding_closure: {
-    "^": "Closure:135;this_1,identifier_2,bindExpr_3",
+    "^": "Closure:134;this_1,identifier_2,bindExpr_3",
     call$3: [function(model, node, oneTime) {
       var t1, scope;
       t1 = this.this_1;
@@ -20386,10 +20384,10 @@ var $$ = Object.create(null);
       scope = !!J.getInterceptor(model).$isScope ? model : K.Scope_Scope(model, t1.globals);
       t1._scopes.$indexSet(0, node, scope);
       return new T._Binding(scope, null, this.bindExpr_3, null, null, null, null);
-    }, "call$3", null, 6, 0, null, 116, 117, 118, "call"]
+    }, "call$3", null, 6, 0, null, 115, 116, 117, "call"]
   },
   PolymerExpressions_prepareBinding_closure0: {
-    "^": "Closure:135;this_4,expr_5",
+    "^": "Closure:134;this_4,expr_5",
     call$3: [function(model, node, oneTime) {
       var t1, scope;
       t1 = this.this_4;
@@ -20398,16 +20396,16 @@ var $$ = Object.create(null);
       if (oneTime === true)
         return T._Binding__oneTime(this.expr_5, scope, null);
       return new T._Binding(scope, null, this.expr_5, null, null, null, null);
-    }, "call$3", null, 6, 0, null, 116, 117, 118, "call"]
+    }, "call$3", null, 6, 0, null, 115, 116, 117, "call"]
   },
   PolymerExpressions_prepareBinding_closure1: {
-    "^": "Closure:135;box_0,this_6,expr_7",
+    "^": "Closure:134;box_0,this_6,expr_7",
     call$3: [function(model, node, oneTime) {
       var scope = this.this_6._getScopeForModel$2(node, model);
       if (oneTime === true)
         return T._Binding__oneTime(this.expr_7, scope, this.box_0.converter_0);
       return new T._Binding(scope, this.box_0.converter_0, this.expr_7, null, null, null, null);
-    }, "call$3", null, 6, 0, null, 116, 117, 118, "call"]
+    }, "call$3", null, 6, 0, null, 115, 116, 117, "call"]
   },
   PolymerExpressions_prepareInstanceModel_closure: {
     "^": "Closure:57;this_0,template_1",
@@ -20422,7 +20420,7 @@ var $$ = Object.create(null);
         return K.Scope_Scope(model, t1.globals);
       } else
         return t1._getScopeForModel$2(t2, model);
-    }, "call$1", null, 2, 0, null, 116, "call"]
+    }, "call$1", null, 2, 0, null, 115, "call"]
   },
   PolymerExpressions_prepareInstanceModel_closure0: {
     "^": "Closure:57;this_2,template_3,ident_4",
@@ -20436,7 +20434,7 @@ var $$ = Object.create(null);
         return existingScope.childScope$2(t3, model);
       else
         return t1._getParentScope$1(t2).childScope$2(t3, model);
-    }, "call$1", null, 2, 0, null, 116, "call"]
+    }, "call$1", null, 2, 0, null, 115, "call"]
   },
   _Binding: {
     "^": "Bindable;_scope,_converter,_polymer_expressions$_expr,_polymer_expressions$_callback,_polymer_expressions$_sub,_observer,_polymer_expressions$_value",
@@ -20458,7 +20456,7 @@ var $$ = Object.create(null);
       return false;
     }, function(newValue) {
       return this._convertAndCheck$2$skipChanges(newValue, false);
-    }, "_convertAndCheck$1", "call$2$skipChanges", "call$1", "get$_convertAndCheck", 2, 3, 136, 137, 62, 138],
+    }, "_convertAndCheck$1", "call$2$skipChanges", "call$1", "get$_convertAndCheck", 2, 3, 135, 136, 62, 137],
     get$value: function(_) {
       if (this._polymer_expressions$_callback != null) {
         this._polymer_expressions$_check$1$skipChanges(true);
@@ -20558,10 +20556,10 @@ var $$ = Object.create(null);
       }}
   },
   _Binding_open_closure: {
-    "^": "Closure:74;this_0",
+    "^": "Closure:73;this_0",
     call$2: [function(e, s) {
       H.setRuntimeTypeInfo(new P._AsyncCompleter(H.setRuntimeTypeInfo(new P._Future(0, $.Zone__current, null), [null])), [null]).completeError$2("Error evaluating expression '" + H.S(this.this_0._observer) + "': " + H.S(e), s);
-    }, "call$2", null, 4, 0, null, 2, 105, "call"]
+    }, "call$2", null, 4, 0, null, 2, 104, "call"]
   },
   ScopeFactory: {
     "^": "Object;"
@@ -20588,7 +20586,7 @@ var $$ = Object.create(null);
     call$1: [function(i) {
       var t1 = this.this_1;
       t1._observable_box$_value = F.notifyPropertyChangeHelper(t1, C.Symbol_value, t1._observable_box$_value, i);
-    }, "call$1", null, 2, 0, null, 123, "call"],
+    }, "call$1", null, 2, 0, null, 122, "call"],
     $signature: function() {
       return H.computeSignature(function(T) {
         return {func: "dynamic__T0", args: [T]};
@@ -20655,98 +20653,98 @@ var $$ = Object.create(null);
     t1 = t2;
     return t1;
   },
-  closure13: {
-    "^": "Closure:74;",
+  closure14: {
+    "^": "Closure:73;",
     call$2: function(a, b) {
       return J.$add$ns(a, b);
     }
   },
-  closure14: {
-    "^": "Closure:74;",
+  closure15: {
+    "^": "Closure:73;",
     call$2: function(a, b) {
       return J.$sub$n(a, b);
     }
   },
-  closure15: {
-    "^": "Closure:74;",
+  closure16: {
+    "^": "Closure:73;",
     call$2: function(a, b) {
       return J.$mul$ns(a, b);
     }
   },
-  closure16: {
-    "^": "Closure:74;",
+  closure17: {
+    "^": "Closure:73;",
     call$2: function(a, b) {
       return J.$div$n(a, b);
     }
   },
-  closure17: {
-    "^": "Closure:74;",
+  closure18: {
+    "^": "Closure:73;",
     call$2: function(a, b) {
       return J.$mod$n(a, b);
     }
   },
-  closure18: {
-    "^": "Closure:74;",
+  closure19: {
+    "^": "Closure:73;",
     call$2: function(a, b) {
       return J.$eq(a, b);
     }
   },
-  closure19: {
-    "^": "Closure:74;",
+  closure20: {
+    "^": "Closure:73;",
     call$2: function(a, b) {
       return !J.$eq(a, b);
     }
   },
-  closure20: {
-    "^": "Closure:74;",
+  closure21: {
+    "^": "Closure:73;",
     call$2: function(a, b) {
       return a == null ? b == null : a === b;
     }
   },
-  closure21: {
-    "^": "Closure:74;",
+  closure22: {
+    "^": "Closure:73;",
     call$2: function(a, b) {
       return a == null ? b != null : a !== b;
     }
   },
-  closure22: {
-    "^": "Closure:74;",
+  closure23: {
+    "^": "Closure:73;",
     call$2: function(a, b) {
       return J.$gt$n(a, b);
     }
   },
-  closure23: {
-    "^": "Closure:74;",
+  closure24: {
+    "^": "Closure:73;",
     call$2: function(a, b) {
       return J.$ge$n(a, b);
     }
   },
-  closure24: {
-    "^": "Closure:74;",
+  closure25: {
+    "^": "Closure:73;",
     call$2: function(a, b) {
       return J.$lt$n(a, b);
     }
   },
-  closure25: {
-    "^": "Closure:74;",
+  closure26: {
+    "^": "Closure:73;",
     call$2: function(a, b) {
       return J.$le$n(a, b);
     }
   },
-  closure26: {
-    "^": "Closure:74;",
+  closure27: {
+    "^": "Closure:73;",
     call$2: function(a, b) {
       return a === true || b === true;
     }
   },
-  closure27: {
-    "^": "Closure:74;",
+  closure28: {
+    "^": "Closure:73;",
     call$2: function(a, b) {
       return a === true && b === true;
     }
   },
-  closure28: {
-    "^": "Closure:74;",
+  closure29: {
+    "^": "Closure:73;",
     call$2: function(a, f) {
       var t1 = H.buildInterfaceType(P.Object);
       t1 = H.buildFunctionType(t1, [t1])._isTest$1(f);
@@ -20755,19 +20753,19 @@ var $$ = Object.create(null);
       throw H.wrapException(K.EvalException$("Filters must be a one-argument function."));
     }
   },
-  closure10: {
+  closure11: {
     "^": "Closure:57;",
     call$1: function(a) {
       return a;
     }
   },
-  closure11: {
+  closure12: {
     "^": "Closure:57;",
     call$1: function(a) {
       return J.$negate$n(a);
     }
   },
-  closure12: {
+  closure13: {
     "^": "Closure:57;",
     call$1: function(a) {
       return a !== true;
@@ -21196,7 +21194,7 @@ var $$ = Object.create(null);
     "^": "Closure:57;",
     call$1: [function(i) {
       return i.get$_eval$_value();
-    }, "call$1", null, 2, 0, null, 123, "call"]
+    }, "call$1", null, 2, 0, null, 122, "call"]
   },
   MapLiteralObserver: {
     "^": "ExpressionObserver;entries>,_eval$_expr,_parent,_eval$_subscription,_eval$_value,_eval$_controller",
@@ -21213,7 +21211,7 @@ var $$ = Object.create(null);
     $isExpression: true
   },
   MapLiteralObserver__updateSelf_closure: {
-    "^": "Closure:74;",
+    "^": "Closure:73;",
     call$2: function(m, e) {
       J.$indexSet$ax(m, J.get$key$x(e).get$_eval$_value(), e.get$entryValue().get$_eval$_value());
       return m;
@@ -21265,13 +21263,13 @@ var $$ = Object.create(null);
     call$1: [function(changes) {
       if (J.any$1$ax(changes, new K.IdentifierObserver__updateSelf__closure(this.symbol_2)) === true)
         this.this_0._invalidate$1(this.scope_1);
-    }, "call$1", null, 2, 0, null, 139, "call"]
+    }, "call$1", null, 2, 0, null, 138, "call"]
   },
   IdentifierObserver__updateSelf__closure: {
     "^": "Closure:57;symbol_3",
     call$1: [function(c) {
       return !!J.getInterceptor(c).$isPropertyChangeRecord && J.$eq(c.name, this.symbol_3);
-    }, "call$1", null, 2, 0, null, 140, "call"]
+    }, "call$1", null, 2, 0, null, 139, "call"]
   },
   UnaryObserver: {
     "^": "ExpressionObserver;child<,_eval$_expr,_parent,_eval$_subscription,_eval$_value,_eval$_controller",
@@ -21394,13 +21392,13 @@ var $$ = Object.create(null);
     call$1: [function(changes) {
       if (J.any$1$ax(changes, new K.GetterObserver__updateSelf__closure(this.symbol_2)) === true)
         this.this_0._invalidate$1(this.scope_1);
-    }, "call$1", null, 2, 0, null, 139, "call"]
+    }, "call$1", null, 2, 0, null, 138, "call"]
   },
   GetterObserver__updateSelf__closure: {
     "^": "Closure:57;symbol_3",
     call$1: [function(c) {
       return !!J.getInterceptor(c).$isPropertyChangeRecord && J.$eq(c.name, this.symbol_3);
-    }, "call$1", null, 2, 0, null, 140, "call"]
+    }, "call$1", null, 2, 0, null, 139, "call"]
   },
   IndexObserver: {
     "^": "ExpressionObserver;receiver<,argument<,_eval$_expr,_parent,_eval$_subscription,_eval$_value,_eval$_controller",
@@ -21436,20 +21434,20 @@ var $$ = Object.create(null);
     "^": "Closure:57;key_3",
     call$1: [function(c) {
       return c.indexChanged$1(this.key_3);
-    }, "call$1", null, 2, 0, null, 140, "call"]
+    }, "call$1", null, 2, 0, null, 139, "call"]
   },
   IndexObserver__updateSelf_closure: {
     "^": "Closure:57;this_4,scope_5,key_6",
     call$1: [function(changes) {
       if (J.any$1$ax(changes, new K.IndexObserver__updateSelf__closure(this.key_6)) === true)
         this.this_4._invalidate$1(this.scope_5);
-    }, "call$1", null, 2, 0, null, 139, "call"]
+    }, "call$1", null, 2, 0, null, 138, "call"]
   },
   IndexObserver__updateSelf__closure: {
     "^": "Closure:57;key_7",
     call$1: [function(c) {
       return !!J.getInterceptor(c).$isMapChangeRecord && J.$eq(c.key, this.key_7);
-    }, "call$1", null, 2, 0, null, 140, "call"]
+    }, "call$1", null, 2, 0, null, 139, "call"]
   },
   InvokeObserver: {
     "^": "ExpressionObserver;receiver<,arguments<,_eval$_expr,_parent,_eval$_subscription,_eval$_value,_eval$_controller",
@@ -21496,17 +21494,17 @@ var $$ = Object.create(null);
     }, "call$1", null, 2, 0, null, 48, "call"]
   },
   InvokeObserver__updateSelf_closure0: {
-    "^": "Closure:141;this_0,scope_1,symbol_2",
+    "^": "Closure:140;this_0,scope_1,symbol_2",
     call$1: [function(changes) {
       if (J.any$1$ax(changes, new K.InvokeObserver__updateSelf__closure(this.symbol_2)) === true)
         this.this_0._invalidate$1(this.scope_1);
-    }, "call$1", null, 2, 0, null, 139, "call"]
+    }, "call$1", null, 2, 0, null, 138, "call"]
   },
   InvokeObserver__updateSelf__closure: {
     "^": "Closure:57;symbol_3",
     call$1: [function(c) {
       return !!J.getInterceptor(c).$isPropertyChangeRecord && J.$eq(c.name, this.symbol_3);
-    }, "call$1", null, 2, 0, null, 140, "call"]
+    }, "call$1", null, 2, 0, null, 139, "call"]
   },
   EvalException: {
     "^": "Object;message>",
@@ -21560,7 +21558,7 @@ var $$ = Object.create(null);
     "^": "Object;",
     index$2: [function(_, e, a) {
       return new U.Index(e, a);
-    }, "call$2", "get$index", 4, 0, 142, 2, 48]
+    }, "call$2", "get$index", 4, 0, 141, 2, 48]
   },
   Expression: {
     "^": "Object;",
@@ -21891,7 +21889,7 @@ var $$ = Object.create(null);
     $isInvoke: true
   },
   _hashList_closure: {
-    "^": "Closure:74;",
+    "^": "Closure:73;",
     call$2: function(h, item) {
       return U._JenkinsSmiHash_combine1(h, J.get$hashCode$(item));
     }
@@ -22211,7 +22209,7 @@ var $$ = Object.create(null);
   "^": "",
   enumerate: [function(iterable) {
     return H.setRuntimeTypeInfo(new K.EnumerateIterable(iterable), [null]);
-  }, "call$1", "enumerate$closure", 2, 0, 71, 72],
+  }, "call$1", "enumerate$closure", 2, 0, 70, 71],
   IndexedValue: {
     "^": "Object;index>,value>",
     $eq: function(_, o) {
@@ -22502,7 +22500,7 @@ var $$ = Object.create(null);
     "^": "Object;",
     visit$1: [function(s) {
       return J.accept$1$x(s, this);
-    }, "call$1", "get$visit", 2, 0, 143, 105]
+    }, "call$1", "get$visit", 2, 0, 142, 104]
   },
   RecursiveVisitor: {
     "^": "Visitor;",
@@ -22711,7 +22709,7 @@ var $$ = Object.create(null);
       }}
   },
   StaticConfiguration_closure: {
-    "^": "Closure:74;this_0",
+    "^": "Closure:73;this_0",
     call$2: function(k, v) {
       this.this_0._symbols.$indexSet(0, v, k);
     }
@@ -23017,7 +23015,7 @@ var $$ = Object.create(null);
       return t1.charCodeAt(0) == 0 ? t1 : t1;
     }, function($receiver, message) {
       return this.message$2$color($receiver, message, null);
-    }, "message$1", "call$2$color", "call$1", "get$message", 2, 3, 144, 19],
+    }, "message$1", "call$2$color", "call$1", "get$message", 2, 3, 143, 19],
     $eq: function(_, other) {
       var t1;
       if (other == null)
@@ -23459,7 +23457,7 @@ var $$ = Object.create(null);
     "^": "Closure:57;callback_3",
     call$1: [function(x) {
       return this.callback_3.apply$1([x]);
-    }, "call$1", null, 2, 0, null, 110, "call"]
+    }, "call$1", null, 2, 0, null, 109, "call"]
   },
   bindableToJsObject_closure0: {
     "^": "Closure:14;bindable_4",
@@ -23478,7 +23476,7 @@ var $$ = Object.create(null);
     call$1: [function(x) {
       J.set$value$x(this.bindable_6, x);
       return x;
-    }, "call$1", null, 2, 0, null, 110, "call"]
+    }, "call$1", null, 2, 0, null, 109, "call"]
   },
   bindableToJsObject_closure3: {
     "^": "Closure:14;bindable_7",
@@ -23794,7 +23792,7 @@ var $$ = Object.create(null);
       var t1 = this.this_0;
       J.get$attributes$x(t1._node)._element.setAttribute("ref", ref);
       t1._refChanged$0();
-    }, "call$1", null, 2, 0, null, 145, "call"]
+    }, "call$1", null, 2, 0, null, 144, "call"]
   },
   TemplateBindExtension_bootstrap__bootstrap: {
     "^": "Closure:16;",
@@ -23807,17 +23805,17 @@ var $$ = Object.create(null);
     "^": "Closure:57;",
     call$1: [function(k) {
       return H.S(k) + "[template]";
-    }, "call$1", null, 2, 0, null, 134, "call"]
+    }, "call$1", null, 2, 0, null, 133, "call"]
   },
-  closure8: {
-    "^": "Closure:74;",
+  closure9: {
+    "^": "Closure:73;",
     call$2: [function(records, _) {
       var t1;
       for (t1 = J.get$iterator$ax(records); t1.moveNext$0();)
         M.nodeBindFallback(J.get$target$x(t1.get$current()))._refChanged$0();
-    }, "call$2", null, 4, 0, null, 114, 78, "call"]
+    }, "call$2", null, 4, 0, null, 113, 77, "call"]
   },
-  closure9: {
+  closure10: {
     "^": "Closure:14;",
     call$0: function() {
       var empty = document.createDocumentFragment();
@@ -23835,7 +23833,7 @@ var $$ = Object.create(null);
     }
   },
   _parseAttributeBindings_closure: {
-    "^": "Closure:74;box_0,element_1,delegate_2,isTemplateNode_3",
+    "^": "Closure:73;box_0,element_1,delegate_2,isTemplateNode_3",
     call$2: function($name, value) {
       var t1, tokens, t2, bindings;
       for (; t1 = J.getInterceptor$asx($name), J.$eq(t1.$index($name, 0), "_");)
@@ -23945,7 +23943,7 @@ var $$ = Object.create(null);
         return;
       }
       this._updateValue$1(this._getUpdatedValue$0());
-    }, "call$1", "get$_updateIfValue", 2, 0, 16, 146],
+    }, "call$1", "get$_updateIfValue", 2, 0, 16, 145],
     _updateIteratedValue$1: [function(value) {
       var ifValue;
       if (this._hasIf === true) {
@@ -24089,7 +24087,7 @@ var $$ = Object.create(null);
       values = H.Primitives_getProperty(instance, "expando$values");
       for (t1 = J.get$iterator$ax((values == null ? null : H.Primitives_getProperty(values, t1._getKey$0())).get$_bindings()); t1.moveNext$0();)
         J.close$0$x(t1.get$current());
-    }, "call$1", "get$_closeInstanceBindings", 2, 0, 147],
+    }, "call$1", "get$_closeInstanceBindings", 2, 0, 146],
     _unobserve$0: function() {
       return;
     },
@@ -24177,7 +24175,7 @@ var $$ = Object.create(null);
       if (t4 >= t3)
         return H.ioore(t1, t4);
       return t2 + H.S(t1[t4]);
-    }, "call$1", "get$_singleCombinator", 2, 0, 148, 17],
+    }, "call$1", "get$_singleCombinator", 2, 0, 147, 17],
     _listCombinator$1: [function(values) {
       var t1, newValue, len, t2, i, value, t3, str;
       t1 = this._mustache_tokens$_tokens;
@@ -24198,7 +24196,7 @@ var $$ = Object.create(null);
       }
       t1 = newValue._contents;
       return t1.charCodeAt(0) == 0 ? t1 : t1;
-    }, "call$1", "get$_listCombinator", 2, 0, 149, 150],
+    }, "call$1", "get$_listCombinator", 2, 0, 148, 149],
     MustacheTokens$_$2: function(_tokens, onlyOneTime) {
       this._combinator = this._mustache_tokens$_tokens.length === 5 ? this.get$_singleCombinator() : this.get$_listCombinator();
     },
@@ -24249,6 +24247,19 @@ var $$ = Object.create(null);
         t1.MustacheTokens$_$2(tokens, onlyOneTime);
         return t1;
       }}
+  }
+}],
+["tools", "package:chi/tools.dart", , U, {
+  "^": "",
+  closure8: {
+    "^": "Closure:3;",
+    call$1: function(s) {
+      if (0 >= s.length)
+        return H.ioore(s, 0);
+      if (s[0] !== "#")
+        P.print("possibly wrong selector " + s);
+      return document.querySelector(s);
+    }
   }
 }],
 ["utf.list_range", "package:utf/src/list_range.dart", , G, {
@@ -25700,10 +25711,10 @@ Isolate.$lazy($, "_typeHandlers", "_typeHandlers", "get$_typeHandlers", function
   return P.LinkedHashMap_LinkedHashMap$_literal([C.Type_Ejg, new Z.closure0(), C.Type_eZO, new Z.closure1(), C.Type_dVs, new Z.closure2(), C.Type_EsU, new Z.closure3(), C.Type_SnA, new Z.closure4(), C.Type_qq1, new Z.closure5()], null, null);
 });
 Isolate.$lazy($, "_BINARY_OPERATORS", "_BINARY_OPERATORS", "get$_BINARY_OPERATORS", function() {
-  return P.LinkedHashMap_LinkedHashMap$_literal(["+", new K.closure13(), "-", new K.closure14(), "*", new K.closure15(), "/", new K.closure16(), "%", new K.closure17(), "==", new K.closure18(), "!=", new K.closure19(), "===", new K.closure20(), "!==", new K.closure21(), ">", new K.closure22(), ">=", new K.closure23(), "<", new K.closure24(), "<=", new K.closure25(), "||", new K.closure26(), "&&", new K.closure27(), "|", new K.closure28()], null, null);
+  return P.LinkedHashMap_LinkedHashMap$_literal(["+", new K.closure14(), "-", new K.closure15(), "*", new K.closure16(), "/", new K.closure17(), "%", new K.closure18(), "==", new K.closure19(), "!=", new K.closure20(), "===", new K.closure21(), "!==", new K.closure22(), ">", new K.closure23(), ">=", new K.closure24(), "<", new K.closure25(), "<=", new K.closure26(), "||", new K.closure27(), "&&", new K.closure28(), "|", new K.closure29()], null, null);
 });
 Isolate.$lazy($, "_UNARY_OPERATORS", "_UNARY_OPERATORS", "get$_UNARY_OPERATORS", function() {
-  return P.LinkedHashMap_LinkedHashMap$_literal(["+", new K.closure10(), "-", new K.closure11(), "!", new K.closure12()], null, null);
+  return P.LinkedHashMap_LinkedHashMap$_literal(["+", new K.closure11(), "-", new K.closure12(), "!", new K.closure13()], null, null);
 });
 Isolate.$lazy($, "_instance", "Closer__instance", "get$Closer__instance", function() {
   return new K.Closer();
@@ -25730,10 +25741,10 @@ Isolate.$lazy($, "_allTemplatesSelectors", "TemplateBindExtension__allTemplatesS
   return C.JSString_methods.$add("template, ", J.map$1$ax(C.Map_05U44.get$keys(C.Map_05U44), new M.closure6()).join$1(0, ", "));
 });
 Isolate.$lazy($, "_templateObserver", "TemplateBindExtension__templateObserver", "get$TemplateBindExtension__templateObserver", function() {
-  return new (window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver)(H.convertDartClosureToJS(W._wrapBinaryZone(new M.closure8()), 2));
+  return new (window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver)(H.convertDartClosureToJS(W._wrapBinaryZone(new M.closure9()), 2));
 });
 Isolate.$lazy($, "_emptyInstance", "_emptyInstance", "get$_emptyInstance", function() {
-  return new M.closure9().call$0();
+  return new M.closure10().call$0();
 });
 Isolate.$lazy($, "_instanceExtension", "_instanceExtension", "get$_instanceExtension", function() {
   return H.setRuntimeTypeInfo(new P.Expando(null), [null]);
@@ -25743,6 +25754,9 @@ Isolate.$lazy($, "_isStagingDocument", "_isStagingDocument", "get$_isStagingDocu
 });
 Isolate.$lazy($, "_expando", "_expando", "get$_expando", function() {
   return H.setRuntimeTypeInfo(new P.Expando("template_binding"), [null]);
+});
+Isolate.$lazy($, "Q", "Q", "get$Q", function() {
+  return new U.closure8();
 });
 Isolate.$lazy($, "_doc", "_doc", "get$_doc", function() {
   return P.JsObject_JsObject$fromBrowserObject(document);
@@ -25813,7 +25827,6 @@ init.metadata = ["object",
 "name",
 "oldValue",
 "newValue",
-{func: "Element__String", ret: W.Element, args: [P.String]},
 "captureThis",
 "arguments",
 "o",

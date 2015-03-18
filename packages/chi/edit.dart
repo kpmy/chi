@@ -53,6 +53,7 @@ class Port {
   Color lastPen;
 
   Map<Tuple2<int, int>, Point> data = new Map();
+  Tuple2<int, int> size = new Tuple2(50, 40);
 
   void prepare(int w, int h){
     ctx.imageSmoothingEnabled = false;
@@ -109,6 +110,12 @@ class Port {
      img.clearRect(0, 0, width, height);
      // Restore the transform
      img.restore();
+
+     if(size != null){
+       img.setStrokeColorRgb(0xFF, 0, 0);
+       img.strokeRect(2 * OUTER_MARGIN, 2 * OUTER_MARGIN, size.i1 * DOT - 2, size.i2 * DOT - 2);
+     }
+
      int w = 0;
      int h = 0;
      int y = 2*OUTER_MARGIN;
@@ -134,6 +141,10 @@ class Port {
      }
   }
 
+  void limit(int x, int y){
+    size = new Tuple2(x, y);
+  }
+
   void move(int x, int y){
     // Store the current transformation matrix
     via.save();
@@ -146,6 +157,8 @@ class Port {
     via.setStrokeColorRgb(c.r, c.g, c.b);
     via.strokeRect(x*DOT+1, y*DOT+1, DOT, DOT);
     via.strokeRect(x*DOT+1+OUTER_STROKE+INNER_MARGIN, y*DOT+1+OUTER_STROKE+INNER_MARGIN, INNER_SIDE+2*INNER_MARGIN, INNER_SIDE+2*INNER_MARGIN);
+    (querySelector("#pos") as SpanElement).text = "$x:$y";
+    (querySelector("#size") as SpanElement).text = "$size";
   }
 
   void leave(){
@@ -201,6 +214,7 @@ class Port {
         name="noname";
       }
       r["name"]=name;
+      r["size"]=size.toList();
       r["data"]=ret;
       return JSON.encode(r);
     }else{
@@ -216,6 +230,11 @@ class Port {
       name = "noname";
     }
     (querySelector("#root_name") as InputElement).value = name;
+    if (r.containsKey("size"))
+      size = new Tuple2.fromList(r["size"]);
+    else
+      size = new Tuple2(50, 40);
+
     data.clear();
     List<Map<String, Object>> pl = r["data"];
     if(pl!=null){
@@ -277,6 +296,8 @@ void run(){
      var c = port.mapCoord(e.offset.x, e.offset.y);
      if(e.button==0){
        port.put(c.i1, c.i2);
+     }else if (e.button == 1){
+       port.limit(c.i1+1, c.i2+1);
      }else{
        port.clear(c.i1, c.i2);
      }
