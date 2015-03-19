@@ -20,6 +20,13 @@ class Frame {
   }
 }
 
+class Transformata{
+  ChiCanvas _c;
+  ChiCanvas get canvas => _c;
+  int frame = 0;
+  Transformata(this._c);
+}
+
 @CustomTag("chi-canvas")
 class ChiCanvas extends PolymerElement implements ChiEventListener {
 
@@ -36,7 +43,7 @@ class ChiCanvas extends PolymerElement implements ChiEventListener {
   @published bool transparent = true;
   @published int top = 0;
   @published int left = 0;
-  @published int duration = Duration.MILLISECONDS_PER_SECOND;
+//  @published int duration = Duration.MILLISECONDS_PER_SECOND;
 
   int get INNER_SIDE => base;
   int get OUTER_SIDE => INNER_SIDE + 2 * INNER_MARGIN + 2 * OUTER_STROKE;
@@ -138,34 +145,30 @@ class ChiCanvas extends PolymerElement implements ChiEventListener {
     height = h;
   }
 
-  void redrawLater(int frameIdx){
-    window.animationFrame.then((num n){
-      int laterIdx = 0;
-      if (!transparent) back(); else clear();
-      if(frames.containsKey(frameIdx)){
-        Frame f = frames[frameIdx];
-        front(f.img);
-        Frame next = frames[f.order+1];
-        if(next != null)
-          laterIdx = next.order;
-      }
-      var delay = new Duration(seconds: 1);
-      if(frames.length>0)
-        delay = new Duration(milliseconds: duration ~/ frames.length);
-      new Future.delayed(delay, (){
-        redrawLater(laterIdx);
-      });
-    });
+  void eventDraw(Transformata t){
+    if (!transparent) back(); else clear();
+    if(frames.containsKey(t.frame)){
+      Frame f = frames[t.frame];
+      front(f.img);
+    }
   }
 
   @override
   void attached() {
     prepare(_div.clientWidth, _div.clientHeight);
-    redrawLater(0);
+    eventDraw(new Transformata(this));
   }
+
 
   @override
   void listen(event) {
+    if(event is Transformata && event.canvas == this){
+      eventDraw(event);
+    }
+  }
+
+  void doClick(Event e, var detail, Node target){
+    e.preventDefault();
   }
 
   ChiCanvas.created() : super.created() {

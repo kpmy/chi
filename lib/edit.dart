@@ -202,6 +202,18 @@ class Port {
       lastPen = SHADE_COLOR;
   }
 
+  void shift(dx, dy){
+    Map<Tuple2<int, int>, Point> tmp = new Map();
+    data.keys.forEach((t){
+      var p = data[t];
+      var nt = new Tuple2<int, int>(t.i1 + dx, t.i2+dy);
+      var np = new Point(nt.i1, nt.i2);
+      np.col = p.col;
+      tmp[nt] = np;
+    });
+    data = tmp;
+  }
+
   String export(){
     if (data.values!=null){
       Map<String, Object> r = new Map();
@@ -300,6 +312,25 @@ void run(){
        port.limit(c.i1+1, c.i2+1);
      }else{
        port.clear(c.i1, c.i2);
+     }
+     port.front();
+     e.preventDefault();
+   });
+
+   window.onKeyDown.listen((KeyboardEvent e){
+     switch(e.keyCode){
+       case 37:
+         port.shift(-1, 0);
+         break;
+       case 39:
+         port.shift(1, 0);
+         break;
+       case 40:
+         port.shift(0, 1);
+         break;
+       case 38:
+         port.shift(0, -1);
+         break;
      }
      port.front();
      e.preventDefault();
