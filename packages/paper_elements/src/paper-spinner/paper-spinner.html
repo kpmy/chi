@@ -37,53 +37,59 @@ that it uses one color only.
 
 <polymer-element name="paper-spinner" attributes="active">
 
-  <template>
-    <link rel="stylesheet" href="paper-spinner.css">
+<template>
+<link rel="stylesheet" href="paper-spinner.css">
 
-    <div id="spinnerContainer">
-      <div class="spinner-layer blue">
-        <div class="circle-clipper left">
-          <div class="circle" fit></div>
-        </div><div class="gap-patch">
-          <div class="circle" fit></div>
-        </div><div class="circle-clipper right">
-          <div class="circle" fit></div>
-        </div>
-      </div>
-
-      <div class="spinner-layer red">
-        <div class="circle-clipper left">
-          <div class="circle" fit></div>
-        </div><div class="gap-patch">
-          <div class="circle" fit></div>
-        </div><div class="circle-clipper right">
-          <div class="circle" fit></div>
-        </div>
-      </div>
-
-      <div class="spinner-layer yellow">
-        <div class="circle-clipper left">
-          <div class="circle" fit></div>
-        </div><div class="gap-patch">
-          <div class="circle" fit></div>
-        </div><div class="circle-clipper right">
-          <div class="circle" fit></div>
-        </div>
-      </div>
-
-      <div class="spinner-layer green">
-        <div class="circle-clipper left">
-          <div class="circle" fit></div>
-        </div><div class="gap-patch">
-          <div class="circle" fit></div>
-        </div><div class="circle-clipper right">
-          <div class="circle" fit></div>
-        </div>
-      </div>
+<div id="spinnerContainer">
+  <div class="spinner-layer blue">
+    <div class="circle-clipper left">
+      <div class="circle" fit></div>
     </div>
-  </template>
+    <div class="gap-patch">
+      <div class="circle" fit></div>
+    </div>
+    <div class="circle-clipper right">
+      <div class="circle" fit></div>
+    </div>
+  </div>
 
-  <script>
+  <div class="spinner-layer red">
+    <div class="circle-clipper left">
+      <div class="circle" fit></div>
+    </div>
+    <div class="gap-patch">
+      <div class="circle" fit></div>
+    </div>
+    <div class="circle-clipper right">
+      <div class="circle" fit></div>
+    </div>
+  </div>
+
+  <div class="spinner-layer yellow">
+    <div class="circle-clipper left">
+      <div class="circle" fit></div>
+    </div>
+    <div class="gap-patch">
+      <div class="circle" fit></div>
+    </div>
+    <div class="circle-clipper right">
+      <div class="circle" fit></div>
+    </div>
+  </div>
+
+  <div class="spinner-layer green">
+    <div class="circle-clipper left">
+      <div class="circle" fit></div>
+    </div>
+    <div class="gap-patch">
+      <div class="circle" fit></div>
+    </div>
+    <div class="circle-clipper right">
+      <div class="circle" fit></div>
+    </div>
+  </div>
+</div>
+</template> <script>
     Polymer({
       eventDelegates: {
         'animationend': 'reset',
@@ -112,5 +118,4 @@ that it uses one color only.
         this.$.spinnerContainer.classList.remove('active', 'warmdown');
       }
     });
-  </script>
-</polymer-element>
+  </script> </polymer-element>

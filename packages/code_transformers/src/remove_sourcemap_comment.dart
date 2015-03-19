@@ -5,7 +5,6 @@
 /// Transformer that removes any sourcemap comments from javascript files.
 library code_transformers.src.remove_sourcemap_comment;
 
-import 'dart:async';
 import 'package:barback/barback.dart';
 
 /// Transformer that removes any sourcemap comments from javascript files.
@@ -22,8 +21,8 @@ class RemoveSourcemapComment extends Transformer {
     var id = transform.primaryInput.id;
     return transform.readInputAsString(id).then((file) {
       if (file.contains(_SOURCE_MAP_COMMENT)) {
-        transform.addOutput(new Asset.fromString(
-            id, file.replaceAll(_SOURCE_MAP_COMMENT, '')));
+        transform.addOutput(
+            new Asset.fromString(id, file.replaceAll(_SOURCE_MAP_COMMENT, '')));
       }
     });
   }

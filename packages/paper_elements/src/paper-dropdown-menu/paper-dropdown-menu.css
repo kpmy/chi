@@ -7,7 +7,6 @@
  * Code distributed by Google as part of the polymer project is also
  * subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
  */
-
 :host {
   position: relative;
   display: inline-block;
@@ -31,7 +30,7 @@
   color: #000;
 }
 
-#control > div {
+#control>div {
   padding: 0.5em 0 0.25em;
   overflow: hidden;
   /* FIXME not working for some reason */

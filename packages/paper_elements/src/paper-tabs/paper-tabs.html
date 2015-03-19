@@ -84,30 +84,37 @@ To change the ink ripple color:
 <link rel="import" href="../paper-icon-button/paper-icon-button.html">
 <link rel="import" href="paper-tab.html">
 
-<polymer-element name="paper-tabs" extends="core-selector" attributes="noink nobar noslide scrollable hideScrollButton" role="tablist" horizontal center layout>
-<template>
+<polymer-element name="paper-tabs" extends="core-selector"
+  attributes="noink nobar noslide scrollable hideScrollButton"
+  role="tablist" horizontal center layout> <template>
 
-  <link rel="stylesheet" href="paper-tabs.css">
-  
-  <div class="scroll-button" hidden?="{{!scrollable || hideScrollButton}}">
-    <paper-icon-button icon="chevron-left" class="{{ {hidden: leftHidden} | tokenList }}" on-down="{{holdLeft}}" on-up="{{releaseHold}}"></paper-icon-button>
+<link rel="stylesheet" href="paper-tabs.css">
+
+<div class="scroll-button" hidden?="{{!scrollable || hideScrollButton}}">
+  <paper-icon-button icon="chevron-left"
+    class="{{ {hidden: leftHidden} | tokenList }}"
+    on-down="{{holdLeft}}" on-up="{{releaseHold}}"></paper-icon-button>
+</div>
+
+<div id="tabsContainer"
+  class="{{ {scrollable: scrollable} | tokenList }}" flex
+  on-scroll="{{scroll}}" on-trackstart="{{trackStart}}">
+
+  <div id="tabsContent" horizontal layout?="{{!scrollable}}">
+    <shadow></shadow>
+    <div id="selectionBar" hidden?="{{nobar}}"
+      on-transitionend="{{barTransitionEnd}}"></div>
   </div>
-  
-  <div id="tabsContainer" class="{{ {scrollable: scrollable} | tokenList }}" flex on-scroll="{{scroll}}" on-trackstart="{{trackStart}}">
-  
-    <div id="tabsContent" horizontal layout?="{{!scrollable}}">
-      <shadow></shadow>
-      <div id="selectionBar" hidden?="{{nobar}}" on-transitionend="{{barTransitionEnd}}"></div>
-    </div>
-    
-  </div>
-  
-  <div class="scroll-button" hidden?="{{!scrollable || hideScrollButton}}">
-    <paper-icon-button icon="chevron-right" class="{{ {hidden: rightHidden} | tokenList }}" on-down="{{holdRight}}" on-up="{{releaseHold}}"></paper-icon-button>
-  </div>
-    
-</template>
-<script>
+
+</div>
+
+<div class="scroll-button" hidden?="{{!scrollable || hideScrollButton}}">
+  <paper-icon-button icon="chevron-right"
+    class="{{ {hidden: rightHidden} | tokenList }}"
+    on-down="{{holdRight}}" on-up="{{releaseHold}}"></paper-icon-button>
+</div>
+
+</template> <script>
 
   Polymer('paper-tabs', {
     
@@ -324,5 +331,4 @@ To change the ink ripple color:
     
   });
   
-</script>
-</polymer-element>
+</script> </polymer-element>

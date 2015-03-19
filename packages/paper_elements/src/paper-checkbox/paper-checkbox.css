@@ -6,16 +6,55 @@ The complete set of contributors may be found at http://polymer.github.io/CONTRI
 Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 */
-
 :host {
   display: inline-block;
   white-space: nowrap;
 }
 
-:host(:focus) {
-  outline: 0;
-}
+:host
 
+
+
+
+ 
+
+
+
+
+(
+:focus
+
+
+
+
+ 
+
+
+
+
+)
+{
+outline
+
+
+
+
+
+
+
+
+:
+
+
+
+
+ 
+
+
+
+
+0;
+}
 #checkboxContainer {
   position: relative;
   width: 18px;
@@ -47,7 +86,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   position: absolute;
   box-sizing: border-box;
   top: 0px;
-  left: 0px; 
+  left: 0px;
   width: 18px;
   height: 18px;
   border: solid 2px;
@@ -62,40 +101,410 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   animation: box-shrink 140ms ease-out forwards;
 }
 
-@-webkit-keyframes box-shrink {
-  0% {
-    -webkit-transform: rotate(0deg);
-    top: 0px;
-    left: 0px;
-    width: 18px;
-    height: 18px;
-  }
-  100% {
-    -webkit-transform: rotate(45deg);
-    top: 13px;
-    left: 5px;
-    width: 4px;
-    height: 4px;
-  }
+@
+-webkit-keyframes box-shrink { 0% {
+  -webkit-transform: rotate(0deg);
+  top: 0px;
+  left: 0px;
+  width: 18px;
+  height: 18px;
 }
 
-@keyframes box-shrink {
-  0% {
-    transform: rotate(0deg);
-    top: 0px;
-    left: 0px;
-    width: 18px;
-    height: 18px;
-  }
-  100% {
-    transform: rotate(45deg);
-    top: 13px;
-    left: 5px;
-    width: 4px;
-    height: 4px;
-  }
+100%
+{
+-webkit-transform
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+ 
+
+
+
+
+
+rotate
+
+
+
+
+
+
+
+
+
+
+(45
+deg
+
+
+
+
+
+
+
+
+);
+top
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+ 
+
+
+
+
+
+13
+px
+
+
+
+
+
+
+
+
+
+
+;
+left
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+ 
+
+
+
+
+
+5
+px
+
+
+
+
+
+
+
+
+
+
+;
+width
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+ 
+
+
+
+
+
+4
+px
+
+
+
+
+
+
+
+
+
+
+;
+height
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+ 
+
+
+
+
+
+4
+px
+
+
+
+
+
+
+
+
+
+
+;
+}
+}
+@
+keyframes box-shrink { 0% {
+  transform: rotate(0deg);
+  top: 0px;
+  left: 0px;
+  width: 18px;
+  height: 18px;
 }
 
+100%
+{
+transform
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+ 
+
+
+
+
+
+rotate
+
+
+
+
+
+
+
+
+
+
+(45
+deg
+
+
+
+
+
+
+
+
+);
+top
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+ 
+
+
+
+
+
+13
+px
+
+
+
+
+
+
+
+
+
+
+;
+left
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+ 
+
+
+
+
+
+5
+px
+
+
+
+
+
+
+
+
+
+
+;
+width
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+ 
+
+
+
+
+
+4
+px
+
+
+
+
+
+
+
+
+
+
+;
+height
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+ 
+
+
+
+
+
+4
+px
+
+
+
+
+
+
+
+
+
+
+;
+}
+}
 #checkbox.checked.checkmark {
   border-left: none;
   border-top: none;
@@ -103,44 +512,554 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   animation: checkmark-expand 140ms ease-out forwards;
 }
 
-@-webkit-keyframes checkmark-expand {
-  0% {
-    -webkit-transform: rotate(45deg);
-    top: 13px;
-    left: 5px;
-    width: 4px;
-    height: 4px;
-  }
-  100% {
-    -webkit-transform: rotate(45deg);
-    top: -4px;
-    left: 6px; 
-    width: 10px;
-    height: 21px;
-    border-right-width: 2px;
-    border-bottom-width: 2px;
-  }
+@
+-webkit-keyframes checkmark-expand { 0% {
+  -webkit-transform: rotate(45deg);
+  top: 13px;
+  left: 5px;
+  width: 4px;
+  height: 4px;
 }
 
-@keyframes checkmark-expand {
-  0% {
-    transform: rotate(45deg);
-    top: 13px;
-    left: 5px;
-    width: 4px;
-    height: 4px;
-  }
-  100% {
-    transform: rotate(45deg);
-    top: -4px;
-    left: 6px; 
-    width: 10px;
-    height: 21px;
-    border-right-width: 2px;
-    border-bottom-width: 2px;
-  }
+100%
+{
+-webkit-transform
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+ 
+
+
+
+
+
+rotate
+
+
+
+
+
+
+
+
+
+
+(45
+deg
+
+
+
+
+
+
+
+
+);
+top
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+ 
+
+
+
+
+
+-4
+px
+
+
+
+
+
+
+
+
+
+
+;
+left
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+ 
+
+
+
+
+
+6
+px
+
+
+
+
+
+
+
+
+
+
+;
+width
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+ 
+
+
+
+
+
+10
+px
+
+
+
+
+
+
+
+
+
+
+;
+height
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+ 
+
+
+
+
+
+21
+px
+
+
+
+
+
+
+
+
+
+
+;
+border-right-width
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+ 
+
+
+
+
+
+2
+px
+
+
+
+
+
+
+
+
+
+
+;
+border-bottom-width
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+ 
+
+
+
+
+
+2
+px
+
+
+
+
+
+
+
+
+
+
+;
+}
+}
+@
+keyframes checkmark-expand { 0% {
+  transform: rotate(45deg);
+  top: 13px;
+  left: 5px;
+  width: 4px;
+  height: 4px;
 }
 
+100%
+{
+transform
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+ 
+
+
+
+
+
+rotate
+
+
+
+
+
+
+
+
+
+
+(45
+deg
+
+
+
+
+
+
+
+
+);
+top
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+ 
+
+
+
+
+
+-4
+px
+
+
+
+
+
+
+
+
+
+
+;
+left
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+ 
+
+
+
+
+
+6
+px
+
+
+
+
+
+
+
+
+
+
+;
+width
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+ 
+
+
+
+
+
+10
+px
+
+
+
+
+
+
+
+
+
+
+;
+height
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+ 
+
+
+
+
+
+21
+px
+
+
+
+
+
+
+
+
+
+
+;
+border-right-width
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+ 
+
+
+
+
+
+2
+px
+
+
+
+
+
+
+
+
+
+
+;
+border-bottom-width
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+ 
+
+
+
+
+
+2
+px
+
+
+
+
+
+
+
+
+
+
+;
+}
+}
 #checkbox.checked {
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
@@ -165,77 +1084,730 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   animation: checkmark-shrink 140ms ease-out forwards;
 }
 
-@-webkit-keyframes checkmark-shrink {
-  0% {
-    top: -4px;
-    left: 6px; 
-    width: 10px;
-    height: 21px;
-    border-right-width: 2px;
-    border-bottom-width: 2px;
-  }
-  100% {
-    top: 13px;
-    left: 5px;
-    width: 4px;
-    height: 4px;
-  }
+@
+-webkit-keyframes checkmark-shrink { 0% {
+  top: -4px;
+  left: 6px;
+  width: 10px;
+  height: 21px;
+  border-right-width: 2px;
+  border-bottom-width: 2px;
 }
 
-@keyframes checkmark-shrink {
-  0% {
-    top: -4px;
-    left: 6px; 
-    width: 10px;
-    height: 21px;
-    border-right-width: 2px;
-    border-bottom-width: 2px;
-  }
-  100% {
-    top: 13px;
-    left: 5px;
-    width: 4px;
-    height: 4px;
-  }
+100%
+{
+top
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+ 
+
+
+
+
+
+13
+px
+
+
+
+
+
+
+
+
+
+
+;
+left
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+ 
+
+
+
+
+
+5
+px
+
+
+
+
+
+
+
+
+
+
+;
+width
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+ 
+
+
+
+
+
+4
+px
+
+
+
+
+
+
+
+
+
+
+;
+height
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+ 
+
+
+
+
+
+4
+px
+
+
+
+
+
+
+
+
+
+
+;
+}
+}
+@
+keyframes checkmark-shrink { 0% {
+  top: -4px;
+  left: 6px;
+  width: 10px;
+  height: 21px;
+  border-right-width: 2px;
+  border-bottom-width: 2px;
 }
 
+100%
+{
+top
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+ 
+
+
+
+
+
+13
+px
+
+
+
+
+
+
+
+
+
+
+;
+left
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+ 
+
+
+
+
+
+5
+px
+
+
+
+
+
+
+
+
+
+
+;
+width
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+ 
+
+
+
+
+
+4
+px
+
+
+
+
+
+
+
+
+
+
+;
+height
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+ 
+
+
+
+
+
+4
+px
+
+
+
+
+
+
+
+
+
+
+;
+}
+}
 #checkbox.unchecked.box {
   -webkit-animation: box-expand 140ms ease-out forwards;
   animation: box-expand 140ms ease-out forwards;
 }
 
-@-webkit-keyframes box-expand {
-  0% {
-    -webkit-transform: rotate(45deg);
-    top: 13px;
-    left: 5px;
-    width: 4px;
-    height: 4px;
-  }
-  100% {
-    -webkit-transform: rotate(0deg);
-    top: 0px;
-    left: 0px;
-    width: 18px;
-    height: 18px;
-  }
+@
+-webkit-keyframes box-expand { 0% {
+  -webkit-transform: rotate(45deg);
+  top: 13px;
+  left: 5px;
+  width: 4px;
+  height: 4px;
 }
 
-@keyframes box-expand {
-  0% {
-    transform: rotate(45deg);
-    top: 13px;
-    left: 5px;
-    width: 4px;
-    height: 4px;
-  }
-  100% {
-    transform: rotate(0deg);
-    top: 0px;
-    left: 0px;
-    width: 18px;
-    height: 18px;
-  }
+100%
+{
+-webkit-transform
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+ 
+
+
+
+
+
+rotate
+
+
+
+
+
+
+
+
+
+
+(0
+deg
+
+
+
+
+
+
+
+
+);
+top
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+ 
+
+
+
+
+
+0
+px
+
+
+
+
+
+
+
+
+
+
+;
+left
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+ 
+
+
+
+
+
+0
+px
+
+
+
+
+
+
+
+
+
+
+;
+width
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+ 
+
+
+
+
+
+18
+px
+
+
+
+
+
+
+
+
+
+
+;
+height
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+ 
+
+
+
+
+
+18
+px
+
+
+
+
+
+
+
+
+
+
+;
+}
+}
+@
+keyframes box-expand { 0% {
+  transform: rotate(45deg);
+  top: 13px;
+  left: 5px;
+  width: 4px;
+  height: 4px;
+}
+
+100%
+{
+transform
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+ 
+
+
+
+
+
+rotate
+
+
+
+
+
+
+
+
+
+
+(0
+deg
+
+
+
+
+
+
+
+
+);
+top
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+ 
+
+
+
+
+
+0
+px
+
+
+
+
+
+
+
+
+
+
+;
+left
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+ 
+
+
+
+
+
+0
+px
+
+
+
+
+
+
+
+
+
+
+;
+width
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+ 
+
+
+
+
+
+18
+px
+
+
+
+
+
+
+
+
+
+
+;
+height
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+ 
+
+
+
+
+
+18
+px
+
+
+
+
+
+
+
+
+
+
+;
+}
 }
 
 /* label */
@@ -253,11 +1825,62 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 }
 
 /* disabled state */
-:host([disabled]) {
-  pointer-events: none;
-}
+:host
 
-:host([disabled]) #checkbox {
+
+
+
+ 
+
+
+
+
+(
+[
+disabled
+]
+
+
+
+
+ 
+
+
+
+
+)
+{
+pointer-events
+
+
+
+
+
+
+
+
+:
+
+
+
+
+ 
+
+
+
+
+none
+
+
+
+
+
+
+
+
+;
+}
+:host      ([disabled]      ) #checkbox {
   opacity: 0.33;
   border-color: #5a5a5a;
 }

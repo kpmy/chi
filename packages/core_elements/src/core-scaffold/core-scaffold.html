@@ -69,64 +69,50 @@ To have the content fit to the main area, use `fit` attribute.
 <link rel="import" href="../core-header-panel/core-header-panel.html">
 <link rel="import" href="../core-icon-button/core-icon-button.html">
 
-<polymer-element name="core-scaffold">
-<template>
+<polymer-element name="core-scaffold"> <template>
 
-  <style>
-    
-    :host {
-      display: block;
-    }
-    
-    [drawer] {
-      background-color: #fff;
-      box-shadow: 1px 0 1px rgba(0, 0, 0, 0.1);
-    }
-    
-    [main] {
-      height: 100%;
-      background-color: #eee;
-    }
-    
-    core-toolbar {
-      background-color: #526E9C;
-      color: #fff;
-    }
-    
-    #drawerPanel:not([narrow]) #menuButton {
-      display: none;
-    }
-    
-  </style>
+<style>
+:host {
+  display: block;
+}
 
-  <core-drawer-panel id="drawerPanel" narrow="{{narrow}}" drawerWidth="{{drawerWidth}}" rightDrawer="{{rightDrawer}}" responsiveWidth="{{responsiveWidth}}" disableSwipe="{{disableSwipe}}">
+[drawer] {
+  background-color: #fff;
+  box-shadow: 1px 0 1px rgba(0, 0, 0, 0.1);
+}
 
-    <div vertical layout drawer>
+[main] {
+  height: 100%;
+  background-color: #eee;
+}
 
-      <content select="[navigation], nav"></content>
+core-toolbar {
+  background-color: #526E9C;
+  color: #fff;
+}
 
-    </div>
-    
-    <core-header-panel id="headerPanel" main mode="{{mode}}">
+#drawerPanel:not      ([narrow]      ) #menuButton {
+  display: none;
+}
+</style>
 
-      <core-toolbar>
-        <template if="{{!rightDrawer}}">
-          <core-icon-button id="menuButton" icon="menu" on-tap="{{togglePanel}}"></core-icon-button>
-        </template>
-        <content select="[tool]"></content>
-        <template if="{{rightDrawer}}">
-          <core-icon-button id="menuButton" icon="menu" on-tap="{{togglePanel}}"></core-icon-button>
-        </template>
-      </core-toolbar>
-      
-      <content select="*"></content>
-      
-    </core-header-panel>
+<core-drawer-panel id="drawerPanel" narrow="{{narrow}}"
+  drawerWidth="{{drawerWidth}}" rightDrawer="{{rightDrawer}}"
+  responsiveWidth="{{responsiveWidth}}" disableSwipe="{{disableSwipe}}">
 
-  </core-drawer-panel>
+<div vertical layout drawer>
 
-</template>
-<script>
+  <content select="[navigation], nav"></content>
+
+</div>
+
+<core-header-panel id="headerPanel" main mode="{{mode}}">
+
+<core-toolbar> <template if="{{!rightDrawer}}">
+<core-icon-button id="menuButton" icon="menu" on-tap="{{togglePanel}}"></core-icon-button>
+</template> <content select="[tool]"></content> <template if="{{rightDrawer}}">
+<core-icon-button id="menuButton" icon="menu" on-tap="{{togglePanel}}"></core-icon-button>
+</template> </core-toolbar> <content select="*"></content> </core-header-panel> </core-drawer-panel> </template> <script>
 
   Polymer('core-scaffold', {
     
@@ -248,5 +234,4 @@ To have the content fit to the main area, use `fit` attribute.
     
   });
 
-</script>
-</polymer-element>
+</script> </polymer-element>

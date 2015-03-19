@@ -106,95 +106,65 @@ conflict with this element.
 <link href="../core-input/core-input.html" rel="import">
 <link href="../core-style/core-style.html" rel="import">
 
-<core-style id="paper-input-decorator">
-
-.label-text,
-.error {
-  color: {{g.paperInput.labelColor}};
-}
-
-::-webkit-input-placeholder {
-  color: {{g.paperInput.labelColor}};
-}
-
-::-moz-placeholder {
-  color: {{g.paperInput.labelColor}};
-}
-
-:-ms-input-placeholder {
-  color: {{g.paperInput.labelColor}};
-}
-
-.unfocused-underline {
-  background-color: {{g.paperInput.labelColor}};
-}
-
-:host([focused]) .floated-label .label-text {
-  color: {{g.paperInput.focusedColor}};
-}
-
-.focused-underline {
-  background-color: {{g.paperInput.focusedColor}};
-}
-
-.cursor {
-  background-color: {{g.paperInput.cursorColor}};
-}
-
-:host(.invalid) .floated-label .label-text,
-.error {
-  color: {{g.paperInput.invalidColor}};
-}
-
-:host(.invalid) .unfocused-underline,
-:host(.invalid) .focused-underline,
-:host(.invalid) .cursor {
-  background-color: {{g.paperInput.invalidColor}};
-}
-
-</core-style>
+<core-style id="paper-input-decorator"> .label-text, .error
+{ color: {{g.paperInput.labelColor}}; } ::-webkit-input-placeholder {
+color: {{g.paperInput.labelColor}}; } ::-moz-placeholder { color:
+{{g.paperInput.labelColor}}; } :-ms-input-placeholder { color:
+{{g.paperInput.labelColor}}; } .unfocused-underline { background-color:
+{{g.paperInput.labelColor}}; } :host([focused]) .floated-label
+.label-text { color: {{g.paperInput.focusedColor}}; } .focused-underline
+{ background-color: {{g.paperInput.focusedColor}}; } .cursor {
+background-color: {{g.paperInput.cursorColor}}; } :host(.invalid)
+.floated-label .label-text, .error { color:
+{{g.paperInput.invalidColor}}; } :host(.invalid) .unfocused-underline,
+:host(.invalid) .focused-underline, :host(.invalid) .cursor {
+background-color: {{g.paperInput.invalidColor}}; } </core-style>
 
 <polymer-element name="paper-input-decorator" layout vertical
-  on-transitionEnd="{{transitionEndAction}}" on-webkitTransitionEnd="{{transitionEndAction}}"
-  on-input="{{inputAction}}"
-  on-down="{{downAction}}">
+  on-transitionEnd="{{transitionEndAction}}"
+  on-webkitTransitionEnd="{{transitionEndAction}}"
+  on-input="{{inputAction}}" on-down="{{downAction}}">
 
-  <template>
+<template>
 
-    <link href="paper-input-decorator.css" rel="stylesheet">
-    <core-style ref="paper-input-decorator"></core-style>
+<link href="paper-input-decorator.css" rel="stylesheet">
+<core-style ref="paper-input-decorator"></core-style>
 
-    <div class="floated-label" aria-hidden="true" hidden?="{{!floatingLabel}}" invisible?="{{!floatingLabelVisible || labelAnimated}}">
-      <!-- needed for floating label animation measurement -->
-      <span id="floatedLabelText" class="label-text">{{label}}</span>
-    </div>
+<div class="floated-label" aria-hidden="true"
+  hidden?="{{!floatingLabel}}"
+  invisible?="{{!floatingLabelVisible || labelAnimated}}">
+  <!-- needed for floating label animation measurement -->
+  <span id="floatedLabelText" class="label-text">{{label}}</span>
+</div>
 
-    <div class="input-body" flex auto relative>
+<div class="input-body" flex auto relative>
 
-      <div class="label" fit invisible aria-hidden="true">
-        <!-- needed for floating label animation measurement -->
-        <span id="labelText" class="label-text" invisible?="{{!_labelVisible}}" animated?="{{labelAnimated}}">{{label}}</span>
-      </div>
+  <div class="label" fit invisible aria-hidden="true">
+    <!-- needed for floating label animation measurement -->
+    <span id="labelText" class="label-text"
+      invisible?="{{!_labelVisible}}" animated?="{{labelAnimated}}">{{label}}</span>
+  </div>
 
-      <div class="cursor" invisible?="{{!cursorAnimated}}" animated?="{{cursorAnimated}}"></div>
+  <div class="cursor" invisible?="{{!cursorAnimated}}"
+    animated?="{{cursorAnimated}}"></div>
 
-      <content></content>
+  <content></content>
 
-    </div>
+</div>
 
-    <div id="underline" class="underline" relative>
-      <div class="unfocused-underline" fit invisible?="{{disabled}}"></div>
-      <div id="focusedUnderline" class="focused-underline" fit invisible?="{{!focused}}" animated?="{{underlineAnimated}}"></div>
-    </div>
+<div id="underline" class="underline" relative>
+  <div class="unfocused-underline" fit invisible?="{{disabled}}"></div>
+  <div id="focusedUnderline" class="focused-underline" fit
+    invisible?="{{!focused}}" animated?="{{underlineAnimated}}"></div>
+</div>
 
-    <div class="error" layout horizontal center hidden?="{{!isInvalid}}">
-      <div class="error-text" flex auto role="alert" aria-hidden="{{!isInvalid}}">{{error}}</div>
-      <core-icon class="error-icon" icon="warning"></core-icon>
-    </div>
+<div class="error" layout horizontal center hidden?="{{!isInvalid}}">
+  <div class="error-text" flex auto role="alert"
+    aria-hidden="{{!isInvalid}}">{{error}}</div>
+  <core-icon class="error-icon" icon="warning"></core-icon>
+</div>
 
-  </template>
-
-  <script>
+</template> <script>
 
   (function() {
 
@@ -463,6 +433,4 @@ conflict with this element.
 
   }());
 
-  </script>
-
-</polymer-element>
+  </script> </polymer-element>

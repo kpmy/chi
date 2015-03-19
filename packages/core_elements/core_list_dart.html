@@ -190,11 +190,10 @@ Important Notes:
 <link rel="import" href="core_selection.html">
 
 <polymer-element name="core-list-dart" on-tap="{{tapHandler}}">
-  <template>
-    <core-selection id="selection" multi="{{multi}}"
-        on-core-select="{{selectedHandler}}"></core-selection>
-    <link rel="stylesheet" href="src/core-list/core-list.css">
-    <div id="viewport" class="core-list-viewport"><content></content></div>
-  </template>
-  <script type="application/dart" src="core_list_dart.dart"></script>
-</polymer-element>
+<template> <core-selection id="selection" multi="{{multi}}"
+  on-core-select="{{selectedHandler}}"></core-selection>
+<link rel="stylesheet" href="src/core-list/core-list.css">
+<div id="viewport" class="core-list-viewport">
+  <content></content>
+</div>
+</template> <script type="application/dart" src="core_list_dart.dart"></script> </polymer-element>

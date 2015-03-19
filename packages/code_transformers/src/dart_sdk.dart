@@ -13,7 +13,6 @@ import 'package:analyzer/src/generated/sdk_io.dart' show DirectoryBasedDartSdk;
 import 'package:analyzer/src/generated/source.dart';
 import 'package:cli_util/cli_util.dart' as cli_util;
 
-
 /// Attempts to provide the current Dart SDK directory.
 ///
 /// This will return null if the SDK cannot be found
@@ -44,11 +43,10 @@ class DirectoryBasedDartSdkProxy extends DirectoryBasedDartSdk {
 /// with URIs.
 class DartUriResolverProxy implements DartUriResolver {
   final DartUriResolver _proxy;
-  DartUriResolverProxy(DartSdk sdk) :
-      _proxy = new DartUriResolver(sdk);
+  DartUriResolverProxy(DartSdk sdk) : _proxy = new DartUriResolver(sdk);
 
   Source resolveAbsolute(Uri uri) =>
-    DartSourceProxy.wrap(_proxy.resolveAbsolute(uri), uri);
+      DartSourceProxy.wrap(_proxy.resolveAbsolute(uri), uri);
 
   DartSdk get dartSdk => _proxy.dartSdk;
 
@@ -70,6 +68,8 @@ class DartSourceProxy implements UriAnnotatedSource {
 
   /// Underlying source object.
   final Source _proxy;
+
+  Source get source => this;
 
   DartSourceProxy(this._proxy, this.uri);
 
@@ -98,7 +98,7 @@ class DartSourceProxy implements UriAnnotatedSource {
   bool exists() => _proxy.exists();
 
   bool operator ==(Object other) =>
-    (other is DartSourceProxy && _proxy == other._proxy);
+      (other is DartSourceProxy && _proxy == other._proxy);
 
   int get hashCode => _proxy.hashCode;
 
@@ -116,7 +116,6 @@ class DartSourceProxy implements UriAnnotatedSource {
 
   bool get isInSystemLibrary => _proxy.isInSystemLibrary;
 }
-
 
 /// Dart SDK which contains a mock implementation of the SDK libraries. May be
 /// used to speed up resultion when most of the core libraries is not needed.
@@ -157,8 +156,8 @@ class MockDartSdk implements DartSdk {
     var src = _sources[uri];
     if (src == null) {
       if (reportMissing) print('warning: missing mock for $uri.');
-      _sources[uri] = src =
-          new _MockSdkSource(uri, 'library dart.${uri.path};');
+      _sources[uri] =
+          src = new _MockSdkSource(uri, 'library dart.${uri.path};');
     }
     return src;
   }
@@ -173,6 +172,8 @@ class _MockSdkSource implements UriAnnotatedSource {
   /// Absolute URI which this source can be imported from.
   final Uri uri;
   final String _contents;
+
+  Source get source => this;
 
   _MockSdkSource(this.uri, this._contents);
 
@@ -201,3 +202,57 @@ class _MockSdkSource implements UriAnnotatedSource {
   Uri resolveRelativeUri(Uri relativeUri) =>
       throw new UnsupportedError('not expecting relative urls in dart: mocks');
 }
+
+/// Sample mock SDK sources.
+final Map<String, String> mockSdkSources = {
+  // The list of types below is derived from types that are used internally by
+  // the resolver (see _initializeFrom in analyzer/src/generated/resolver.dart).
+  'dart:core': '''
+        library dart.core;
+
+        void print(Object o) {}
+
+        class Object {
+          String toString(){}
+        }
+        class Function {}
+        class StackTrace {}
+        class Symbol {}
+        class Type {}
+
+        class String {}
+        class bool {}
+        class num {
+          num operator +(num other) {}
+        }
+        class int extends num {
+          int operator-() {}
+        }
+        class double extends num {}
+        class DateTime {}
+        class Null {}
+
+        class Deprecated {
+          final String expires;
+          const Deprecated(this.expires);
+        }
+        const Object deprecated = const Deprecated("next release");
+        class _Override { const _Override(); }
+        const Object override = const _Override();
+        class _Proxy { const _Proxy(); }
+        const Object proxy = const _Proxy();
+
+        class Iterable<E> {}
+        class List<E> implements Iterable<E> {}
+        class Map<K, V> {}
+        ''',
+  'dart:async': '''
+        class Future<T> {
+          Future then(callback) {}
+        class Stream<T> {}
+  ''',
+  'dart:html': '''
+        library dart.html;
+        class HtmlElement {}
+        ''',
+};

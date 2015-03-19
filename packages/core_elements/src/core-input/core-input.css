@@ -7,7 +7,6 @@
  * Code distributed by Google as part of the polymer project is also
  * subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
  */
-
 :host {
   display: inline-block;
   text-align: inherit;
@@ -19,8 +18,7 @@
   cursor: text;
 }
 
-input,
-textarea {
+input,textarea {
   font: inherit;
   color: inherit;
   width: 100%;

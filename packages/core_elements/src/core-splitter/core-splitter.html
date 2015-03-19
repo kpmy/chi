@@ -43,15 +43,14 @@ Example:
 
 <link rel="import" href="../polymer/polymer.html">
 
-<polymer-element name="core-splitter" attributes="direction locked minSize allowOverflow"
-    on-trackstart="{{trackStart}}" on-track="{{track}}" on-down="{{preventSelection}}">
+<polymer-element name="core-splitter"
+  attributes="direction locked minSize allowOverflow"
+  on-trackstart="{{trackStart}}" on-track="{{track}}"
+  on-down="{{preventSelection}}"> <template>
 
-<template>
+<link rel="stylesheet" href="core-splitter.css">
 
-  <link rel="stylesheet" href="core-splitter.css">
-
-</template>
-<script>
+</template> <script>
 
   Polymer('core-splitter', {
 
@@ -144,5 +143,4 @@ Example:
     }
   });
 
-</script>
-</polymer-element>
+</script> </polymer-element>

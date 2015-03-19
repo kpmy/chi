@@ -66,62 +66,98 @@ animation finishes to perform some action.
 @param {Object} detail.node The animated node
 -->
 
-<link rel="import" href="../polymer/polymer.html" >
+<link rel="import" href="../polymer/polymer.html">
 
-<polymer-element name="paper-ripple" attributes="initialOpacity opacityDecayVelocity">
-<template>
+<polymer-element name="paper-ripple"
+  attributes="initialOpacity opacityDecayVelocity"> <template>
 
-  <style>
+<style>
+:host {
+  display: block;
+  position: relative;
+  border-radius: inherit;
+  overflow: hidden;
+}
 
-    :host {
-      display: block;
-      position: relative;
-      border-radius: inherit;
-      overflow: hidden;
-    }
+:host-context
 
-    :host-context([noink]) {
-      pointer-events: none;
-    }
 
-    #bg, #waves, .wave-container, .wave {
-      pointer-events: none;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
 
-    #bg, .wave {
-      opacity: 0;
-    }
+ 
 
-    #waves, .wave {
-      overflow: hidden;
-    }
 
-    .wave-container, .wave {
-      border-radius: 50%;
-    }
 
-    :host(.circle) #bg,
-    :host(.circle) #waves {
-      border-radius: 50%;
-    }
+(
+[
+noink
+]
 
-    :host(.circle) .wave-container {
-      overflow: hidden;
-    }
 
-  </style>
 
-  <div id="bg"></div>
-  <div id="waves">
-  </div>
+ 
 
-</template>
-<script>
+
+
+)
+{
+pointer-events
+
+
+
+
+
+
+:
+
+
+
+ 
+
+
+
+none
+
+
+
+
+
+
+;
+}
+#bg,#waves,.wave-container,.wave {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#bg,.wave {
+  opacity: 0;
+}
+
+#waves,.wave {
+  overflow: hidden;
+}
+
+.wave-container,.wave {
+  border-radius: 50%;
+}
+
+:host     (.circle     ) #bg,:host     (.circle     ) #waves {
+  border-radius: 50%;
+}
+
+:host     (.circle     ) .wave-container {
+  overflow: hidden;
+}
+</style>
+
+<div id="bg"></div>
+<div id="waves"></div>
+
+</template> <script>
 
   (function() {
 
@@ -472,5 +508,4 @@ animation finishes to perform some action.
 
   })();
 
-</script>
-</polymer-element>
+</script> </polymer-element>

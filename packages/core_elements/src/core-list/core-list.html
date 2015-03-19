@@ -167,12 +167,13 @@ the following abstract API:
 <link rel="import" href="../core-selection/core-selection.html">
 
 <polymer-element name="core-list" on-tap="{{tapHandler}}" tabindex="-1">
-<template>
-  <core-selection id="selection" multi="{{multi}}" on-core-select="{{selectedHandler}}"></core-selection>
-  <link rel="stylesheet" href="core-list.css">
-  <div id="viewport" class="core-list-viewport"><content></content></div>
-</template>
-<script>
+<template> <core-selection id="selection" multi="{{multi}}"
+  on-core-select="{{selectedHandler}}"></core-selection>
+<link rel="stylesheet" href="core-list.css">
+<div id="viewport" class="core-list-viewport">
+  <content></content>
+</div>
+</template> <script>
 (function() {
 
   var IOS = navigator.userAgent.match(/iP(?:hone|ad;(?: U;)? CPU) OS (\d+)/);
@@ -1289,5 +1290,4 @@ the following abstract API:
   });
 
 })();
-</script>
-</polymer-element>
+</script> </polymer-element>

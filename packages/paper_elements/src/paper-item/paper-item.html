@@ -47,66 +47,189 @@ Example:
 
 <polymer-element name="paper-item" extends="paper-button-base">
 
-  <template>
+<template>
 
-    <style>
+<style>
+:host {
+  display: block;
+  position: relative;
+  font-size: 16px;
+  box-sizing: border-box;
+  min-width: 7em;
+  outline: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  z-index: 0;
+}
 
-      :host {
-        display: block;
-        position: relative;
-        font-size: 16px;
-        box-sizing: border-box;
-        min-width: 7em;
-        outline: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        -webkit-user-select: none;
-        user-select: none;
-        cursor: pointer;
-        z-index: 0;
-      }
+:host
 
-      :host([disabled]) {
-        color: #a8a8a8;
-        cursor: auto;
-        pointer-events: none;
-      }
 
-      :host(.core-selected) {
-        background-color: #eaeaea;
-      }
 
-      #ripple {
-        pointer-events: none;
-        z-index: -1;
-      }
+ 
 
-      .button-content {
-        height: 100%;
-        padding: 0.9em 1em;
-      }
 
-      polyfill-next-selector { content: '.button-content > a'; }
-      ::content > a {
-        height: 100%;
-        /* flex */
-        -ms-flex: 1 1 0.000000001px;
-        -webkit-flex: 1;
-        flex: 1;
-        -webkit-flex-basis: 0.000000001px;
-        flex-basis: 0.000000001px;
-      }
 
-    </style>
+(
+[
+disabled
+]
 
-    <!-- this div is needed to position the ripple behind text content -->
-    <div class="button-content" relative layout horizontal center>
-      <content></content>
-    </div>
 
-  </template>
 
-  <script>
+ 
+
+
+
+)
+{
+color
+
+
+
+
+
+
+:
+
+
+
+ 
+
+
+
+#a8a8a8
+
+
+
+
+
+
+;
+cursor
+
+
+
+
+
+
+:
+
+
+
+ 
+
+
+
+auto
+
+
+
+
+
+
+;
+pointer-events
+
+
+
+
+
+
+:
+
+
+
+ 
+
+
+
+none
+
+
+
+
+
+
+;
+}
+:host
+
+
+
+ 
+
+
+
+(
+.core-selected
+
+
+
+ 
+
+
+
+)
+{
+background-color
+
+
+
+
+
+
+:
+
+
+
+ 
+
+
+
+#eaeaea
+
+
+
+
+
+
+;
+}
+#ripple {
+  pointer-events: none;
+  z-index: -1;
+}
+
+.button-content {
+  height: 100%;
+  padding: 0.9em 1em;
+}
+
+polyfill-next-selector {
+  content: '.button-content > a';
+}
+
+::content>a {
+  height: 100%;
+  /* flex */
+  -ms-flex: 1 1 0.000000001px;
+  -webkit-flex: 1;
+  flex: 1;
+  -webkit-flex-basis: 0.000000001px;
+  flex-basis: 0.000000001px;
+}
+</style>
+
+<!-- this div is needed to position the ripple behind text content -->
+<div class="button-content" relative layout horizontal center>
+  <content></content>
+</div>
+
+</template> <script>
     Polymer({
 
       publish: {
@@ -143,5 +266,4 @@ Example:
       }
 
     });
-  </script>
-</polymer-element>
+  </script> </polymer-element>

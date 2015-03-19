@@ -6,7 +6,6 @@ The complete set of contributors may be found at http://polymer.github.io/CONTRI
 Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 */
-
 :host {
   display: inline-block;
   overflow: hidden;
@@ -17,6 +16,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   background-color: inherit;
   opacity: 1;
 }
+
 #placeholder.fadein {
   transition: opacity 0.5s linear;
   opacity: 0;

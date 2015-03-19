@@ -9,48 +9,53 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 <html>
 <head>
-  <title>core-list</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-  <script src="../../webcomponentsjs/webcomponents.js"></script>
-  <script src="../../web-component-tester/browser.js"></script>
-  <link rel="import" href="../core-list.html">
-  <style>
-    body {
-      margin: 0;
-      height: 100%;
-    }
-    core-list {
-      display: block;
-      height: 100%;
-      margin: 0 auto;
-    }
-    input {
-      width: 20px;
-    }
-    .item {
-      height: 80px;
-      background: lightblue;
-    }
-    .item.selected {
-      background: orange;
-    }
-  </style>
+<title>core-list</title>
+<meta name="viewport"
+  content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<script src="../../webcomponentsjs/webcomponents.js"></script>
+<script src="../../web-component-tester/browser.js"></script>
+<link rel="import" href="../core-list.html">
+<style>
+body {
+  margin: 0;
+  height: 100%;
+}
+
+core-list {
+  display: block;
+  height: 100%;
+  margin: 0 auto;
+}
+
+input {
+  width: 20px;
+}
+
+.item {
+  height: 80px;
+  background: lightblue;
+}
+
+.item.selected {
+  background: orange;
+}
+</style>
 </head>
 <body fit>
 
-<core-list id="list">
-  <template>
-    <div class="item {{ {selected: selected} | tokenList }}">
-      <span id="index">{{index}}</span><br>
-      <span id="id">{{model.id}}</span><br>
-      <input id="checkbox" type="checkbox" checked="{{model.checked}}">
-      <input id="input" type="number" _value="{{model.value}}" class="narrow">
-      <select id="select" selectedIndex="{{model.type}}"><option>a</option><option>b</option><option>c</option></select>
-    </div>
-  </template>
-</core-list>
+  <core-list id="list"> <template>
+  <div class="item {{ {selected: selected} | tokenList }}">
+    <span id="index">{{index}}</span><br> <span id="id">{{model.id}}</span><br>
+    <input id="checkbox" type="checkbox" checked="{{model.checked}}">
+    <input id="input" type="number" _value="{{model.value}}"
+      class="narrow"> <select id="select"
+      selectedIndex="{{model.type}}"><option>a</option>
+      <option>b</option>
+      <option>c</option></select>
+  </div>
+  </template> </core-list>
 
-<script>
+  <script>
   test('core-list-basic', function(done) {
     // Initial setup
     var list = document.querySelector('core-list');

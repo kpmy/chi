@@ -95,24 +95,23 @@ object like this: `{v: 'top', h: 'right'}`.
 @param {Object} detail.opened the opened state
 -->
 <style>
-  .core-overlay-backdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: black;
-    opacity: 0;
-    transition: opacity 0.2s;
-  }
+.core-overlay-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
 
-  .core-overlay-backdrop.core-opened {
-    opacity: 0.6;
-  }
+.core-overlay-backdrop.core-opened {
+  opacity: 0.6;
+}
 </style>
 
-<polymer-element name="core-overlay">
-<script>
+<polymer-element name="core-overlay"> <script>
 (function() {
 
   Polymer('core-overlay', {
@@ -756,5 +755,4 @@ object like this: `{v: 'top', h: 'right'}`.
     return backdrops;
   }
 })();
-</script>
-</polymer-element>
+</script> </polymer-element>

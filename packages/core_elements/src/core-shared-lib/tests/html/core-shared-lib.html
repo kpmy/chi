@@ -9,21 +9,22 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 <html>
 <head>
-  <title>core-shared-lib</title>
+<title>core-shared-lib</title>
 
-  <script src="../../../webcomponentsjs/webcomponents.js"></script>
-  <script src="../../../polymer-test-tools/chai/chai.js"></script>
-  <script src="../../../polymer-test-tools/htmltest.js"></script>
+<script src="../../../webcomponentsjs/webcomponents.js"></script>
+<script src="../../../polymer-test-tools/chai/chai.js"></script>
+<script src="../../../polymer-test-tools/htmltest.js"></script>
 
-  <link rel="import" href="../../core-shared-lib.html">
+<link rel="import" href="../../core-shared-lib.html">
 
 </head>
 <body>
 
-  <core-shared-lib url="https://apis.google.com/js/client.js?onload=%%callback%%"></core-shared-lib>
+  <core-shared-lib
+    url="https://apis.google.com/js/client.js?onload=%%callback%%"></core-shared-lib>
 
-  <template id="t" bind="{{}}">
-    <core-shared-lib url="https://apis.google.com/js/client.js?onload=%%callback%%"></core-shared-lib>
+  <template id="t" bind="{{}}"> <core-shared-lib
+    url="https://apis.google.com/js/client.js?onload=%%callback%%"></core-shared-lib>
   </template>
 
   <script>

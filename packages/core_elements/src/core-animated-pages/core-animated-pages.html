@@ -233,17 +233,12 @@ Fired when a page transition completes.
 
 @event core-animated-pages-transition-end
 -->
-<polymer-element name="core-animated-pages" extends="core-selector" notap attributes="transitions">
+<polymer-element name="core-animated-pages" extends="core-selector"
+  notap attributes="transitions"> <template>
 
-<template>
+<link href="core-animated-pages.css" rel="stylesheet">
 
-  <link href="core-animated-pages.css" rel="stylesheet">
-
-  <shadow></shadow>
-
-</template>
-
-<script>
+<shadow></shadow> </template> <script>
 
   Polymer({
 
@@ -431,6 +426,4 @@ Fired when a page transition completes.
 
   });
 
-</script>
-
-</polymer-element>
+</script> </polymer-element>

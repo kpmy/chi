@@ -7,21 +7,19 @@
  * Code distributed by Google as part of the polymer project is also
  * subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
  */
-
-html /deep/ paper-shadow,
-html /deep/ paper-animated-shadow {
+html /deep/ paper-shadow,html /deep/ paper-animated-shadow {
   display: block;
   position: relative;
 }
 
-html /deep/ paper-shadow::shadow #shadow-bottom,
-html /deep/ paper-shadow::shadow #shadow-top {
+html /deep/ paper-shadow::shadow #shadow-bottom,html /deep/ paper-shadow::shadow #shadow-top
+  {
   border-radius: inherit;
   pointer-events: none;
 }
 
-html /deep/ paper-shadow::shadow #shadow-bottom[animated],
-html /deep/ paper-shadow::shadow #shadow-top[animated] {
+html /deep/ paper-shadow::shadow #shadow-bottom[animated],html /deep/ paper-shadow::shadow #shadow-top[animated]
+  {
   transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
 

@@ -34,31 +34,27 @@ information about `paper-radio-button`.
 <link rel="import" href="../core-selector/core-selector.html">
 <link rel="import" href="../paper-radio-button/paper-radio-button.html">
 
-<polymer-element name="paper-radio-group" extends="core-selector" role="radiogroup">
+<polymer-element name="paper-radio-group" extends="core-selector"
+  role="radiogroup"> <template> <core-a11y-keys
+  target="{{}}" keys="up left" on-keys-pressed="{{selectPrevious}}"></core-a11y-keys>
+<core-a11y-keys target="{{}}" keys="down right"
+  on-keys-pressed="{{selectNext}}"></core-a11y-keys>
 
-  <template>
+<style>
+:host {
+  display: inline-block;
+}
 
-    <core-a11y-keys target="{{}}" keys="up left" on-keys-pressed="{{selectPrevious}}"></core-a11y-keys>
-    <core-a11y-keys target="{{}}" keys="down right" on-keys-pressed="{{selectNext}}"></core-a11y-keys>
-  
-    <style>
-    
-      :host {
-        display: inline-block;
-      }
-  
-      polyfill-next-selector { content: ':host > *'; }
-      ::content > * {
-        padding: 12px;
-      }
-    
-    </style>
-  
-    <shadow></shadow>
-    
-  </template>
-  
-  <script>
+polyfill-next-selector {
+  content: ':host > *';
+}
+
+::content>* {
+  padding: 12px;
+}
+</style>
+
+<shadow></shadow> </template> <script>
   
     Polymer('paper-radio-group', {
       nextIndex: function(index) {
@@ -96,6 +92,4 @@ information about `paper-radio-button`.
       
     });
   
-  </script>
-  
-</polymer-element>
+  </script> </polymer-element>

@@ -46,19 +46,20 @@
 
 
 
+
 <link rel="stylesheet" type="text/css" href="packages/polymer/src/build/log_injector.css"></head>
 <body unresolved=""><div hidden=""><style shim-shadowdom="">
 /*******************************
           Flex Layout
 *******************************/
-
-html /deep/ [layout][horizontal], html /deep/ [layout][vertical] {
+html /deep/ [layout][horizontal],html /deep/ [layout][vertical] {
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
 }
 
-html /deep/ [layout][horizontal][inline], html /deep/ [layout][vertical][inline] {
+html /deep/ [layout][horizontal][inline],html /deep/ [layout][vertical][inline]
+  {
   display: -ms-inline-flexbox;
   display: -webkit-inline-flex;
   display: inline-flex;
@@ -108,7 +109,8 @@ html /deep/ [flex] {
   flex-basis: 0.000000001px;
 }
 
-html /deep/ [vertical][layout] > [flex][auto-vertical], html /deep/ [vertical][layout]::shadow [flex][auto-vertical] {
+html /deep/ [vertical][layout]>[flex][auto-vertical],html /deep/ [vertical][layout]::shadow [flex][auto-vertical]
+  {
   -ms-flex: 1 1 auto;
   -webkit-flex-basis: auto;
   flex-basis: auto;
@@ -199,14 +201,13 @@ html /deep/ [flex][twelve] {
 }
 
 /* alignment in cross axis */
-
 html /deep/ [layout][start] {
   -ms-flex-align: start;
   -webkit-align-items: flex-start;
   align-items: flex-start;
 }
 
-html /deep/ [layout][center], html /deep/ [layout][center-center] {
+html /deep/ [layout][center],html /deep/ [layout][center-center] {
   -ms-flex-align: center;
   -webkit-align-items: center;
   align-items: center;
@@ -219,14 +220,14 @@ html /deep/ [layout][end] {
 }
 
 /* alignment in main axis */
-
 html /deep/ [layout][start-justified] {
   -ms-flex-pack: start;
   -webkit-justify-content: flex-start;
   justify-content: flex-start;
 }
 
-html /deep/ [layout][center-justified], html /deep/ [layout][center-center] {
+html /deep/ [layout][center-justified],html /deep/ [layout][center-center]
+  {
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
@@ -251,7 +252,6 @@ html /deep/ [layout][justified] {
 }
 
 /* self alignment */
-
 html /deep/ [self-start] {
   -ms-align-self: flex-start;
   -webkit-align-self: flex-start;
@@ -279,7 +279,6 @@ html /deep/ [self-stretch] {
 /*******************************
           Other Layout
 *******************************/
-
 html /deep/ [block] {
   display: block;
 }
@@ -309,8 +308,7 @@ body[fullbleed] {
 /*******************************
             Other
 *******************************/
-
-html /deep/ [segment], html /deep/ segment {
+html /deep/ [segment],html /deep/ segment {
   display: block;
   position: relative;
   -webkit-box-sizing: border-box;
@@ -323,7 +321,6 @@ html /deep/ [segment], html /deep/ segment {
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
   border-radius: 5px 5px 5px 5px;
 }
-
 </style>
 
 <script src="../packages/polymer/src/js/polymer/polymer.min.js"></script>
@@ -339,7 +336,7 @@ html /deep/ [segment], html /deep/ segment {
 -->
 
 
-<polymer-element name="chi-canvas" attributes="base transparent top left duration"> <template>
+<polymer-element name="chi-canvas" attributes="base transparent top left"> <template>
 <style>
 :host {
   width: 100%;
@@ -361,19 +358,20 @@ html /deep/ [segment], html /deep/ segment {
 </style>
 <div id="root_canvas_bg">
   <div id="root_canvas_container">
-    <canvas id="root_canvas"></canvas>
+    <canvas id="root_canvas" on-click="{{doClick}}"></canvas>
   </div>
 </div>
 </template></polymer-element>
 
 
 <polymer-element name="chi-frame" attributes="href order">
-  <template>
-    <div></div>
-  </template>
-  </polymer-element>
+  <template></template>
+</polymer-element>
 
 
+<polymer-element name="chi-default-animation">
+<template></template>
+</polymer-element>
 <polymer-element name="chi-controls"> <template>
 <p id="info"></p>
 <input type="button" on-click="{{doFeed}}" id="feed" value="Покормить">
@@ -427,6 +425,7 @@ html /deep/ [segment], html /deep/ segment {
       <chi-canvas base="6" top="20" left="20" duration="2000">
         <chi-frame href="../img/eye0-0.json" order="0"></chi-frame>
         <chi-frame href="../img/eye0-1.json" order="1"></chi-frame>
+        <chi-default-animation></chi-default-animation>
       </chi-canvas>
     </div>
   </div>

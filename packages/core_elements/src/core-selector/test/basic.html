@@ -9,44 +9,47 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>core-selector-basic</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta charset="UTF-8">
+<title>core-selector-basic</title>
+<meta name="viewport"
+  content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <script src="../../webcomponentsjs/webcomponents.js"></script>
-  <script src="../../web-component-tester/browser.js"></script>
+<script src="../../webcomponentsjs/webcomponents.js"></script>
+<script src="../../web-component-tester/browser.js"></script>
 
-  <link rel="import" href="../core-selector.html">
+<link rel="import" href="../core-selector.html">
 
-  <style>
-    .core-selected {
-      background: #ccc;
-    }
+<style>
+.core-selected {
+  background: #ccc;
+}
 
-    .my-selected {
-      background: red;
-    }
-  </style>
+.my-selected {
+  background: red;
+}
+</style>
 
 </head>
 <body>
 
   <core-selector id="selector1">
-    <div>Item 1</div>
-    <div>Item 2</div>
-    <div>Item 3</div>
-    <div>Item 4</div>
-    <div>Item 5</div>
+  <div>Item 1</div>
+  <div>Item 2</div>
+  <div>Item 3</div>
+  <div>Item 4</div>
+  <div>Item 5</div>
   </core-selector>
 
-  <br><br>
+  <br>
+  <br>
 
-  <core-selector id="selector2" selected="item3" selectedClass="my-selected" valueattr="id">
-    <div id="item1">Item 1</div>
-    <div id="item2">Item 2</div>
-    <div id="item3">Item 3</div>
-    <div id="item4">Item 4</div>
-    <div id="item5">Item 5</div>
+  <core-selector id="selector2" selected="item3"
+    selectedClass="my-selected" valueattr="id">
+  <div id="item1">Item 1</div>
+  <div id="item2">Item 2</div>
+  <div id="item3">Item 3</div>
+  <div id="item4">Item 4</div>
+  <div id="item5">Item 5</div>
   </core-selector>
 
   <script>

@@ -6,7 +6,6 @@ The complete set of contributors may be found at http://polymer.github.io/CONTRI
 Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 */
-
 :host {
   /* technical */
   display: block;
@@ -21,19 +20,189 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   background-color: #CFD8DC;
 }
 
-:host(.animate) {
-  /* transition */
-  transition: height 0.18s ease-in;
-}
+:host
 
-:host(.medium-tall) {
-  height: 128px;
-}
 
-:host(.tall) {
-  height: 192px;
-}
 
+
+ 
+
+
+
+
+(
+.animate
+
+
+
+
+ 
+
+
+
+
+)
+{
+/* transition */
+transition
+
+
+
+
+
+
+
+
+:
+
+
+
+
+ 
+
+
+
+
+height
+
+
+
+
+ 
+
+
+
+
+0
+.18s
+
+
+
+
+ 
+
+
+
+
+ease-in
+
+
+
+
+
+
+
+
+;
+}
+:host
+
+
+
+
+ 
+
+
+
+
+(
+.medium-tall
+
+
+
+
+ 
+
+
+
+
+)
+{
+height
+
+
+
+
+
+
+
+
+:
+
+
+
+
+ 
+
+
+
+
+128
+px
+
+
+
+
+
+
+
+
+;
+}
+:host
+
+
+
+
+ 
+
+
+
+
+(
+.tall
+
+
+
+
+ 
+
+
+
+
+)
+{
+height
+
+
+
+
+
+
+
+
+:
+
+
+
+
+ 
+
+
+
+
+192
+px
+
+
+
+
+
+
+
+
+;
+}
 .toolbar-tools {
   position: relative;
   height: 64px;
@@ -42,26 +211,312 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 }
 
 /* narrow layout */
-:host(.core-narrow),
-:host-context(.core-narrow) {
-  height: 56px;
+:host
+
+
+
+
+ 
+
+
+
+
+(
+.core-narrow
+
+
+
+
+ 
+
+
+
+
+),
+:host-context
+
+
+
+
+ 
+
+
+
+
+(
+.core-narrow
+
+
+
+
+ 
+
+
+
+
+)
+{
+height
+
+
+
+
+
+
+
+
+:
+
+
+
+
+ 
+
+
+
+
+56
+px
+
+
+
+
+
+
+
+
+;
+}
+polyfill-next-selector {
+  content: ':host.core-narrow.medium-tall, .core-narrow :host.medium-tall';
 }
 
-polyfill-next-selector { content: ':host.core-narrow.medium-tall, .core-narrow :host.medium-tall'; }
-:host(.core-narrow.medium-tall),
-:host-context(.core-narrow):host(.medium-tall) {
-  height: 112px;
+:host
+
+
+
+
+ 
+
+
+
+
+(
+.core-narrow
+
+
+
+
+
+
+
+
+.medium-tall
+
+
+
+
+ 
+
+
+
+
+),
+:host-context
+
+
+
+
+ 
+
+
+
+
+(
+.core-narrow
+
+
+
+
+ 
+
+
+
+
+)
+:host
+
+
+
+
+ 
+
+
+
+
+(
+.medium-tall
+
+
+
+
+
+  
+
+
+
+
+)
+{
+height
+
+
+
+
+
+
+
+
+:
+
+
+
+
+ 
+
+
+
+
+112
+px
+
+
+
+
+
+
+
+
+;
+}
+polyfill-next-selector {
+  content: ':host.core-narrow.tall, .core-narrow :host.tall';
 }
 
-polyfill-next-selector { content: ':host.core-narrow.tall, .core-narrow :host.tall'; }
-:host(.core-narrow.tall),
-:host-context(.core-narrow):host(.tall) {
-  height: 168px;
+:host
+
+
+
+
+ 
+
+
+
+
+(
+.core-narrow
+
+
+
+
+
+
+
+
+.tall
+
+
+
+
+ 
+
+
+
+
+),
+:host-context
+
+
+
+
+ 
+
+
+
+
+(
+.core-narrow
+
+
+
+
+ 
+
+
+
+
+)
+:host
+
+
+
+
+ 
+
+
+
+
+(
+.tall
+
+
+
+
+ 
+
+
+
+
+)
+{
+height
+
+
+
+
+
+
+
+
+:
+
+
+
+
+ 
+
+
+
+
+168
+px
+
+
+
+
+
+
+
+
+;
+}
+polyfill-next-selector {
+  content:
+    ':host.core-narrow .toolbar-tools, .core-narrow :host .toolbar-tools';
 }
 
-polyfill-next-selector { content: ':host.core-narrow .toolbar-tools, .core-narrow :host .toolbar-tools'; }
-:host(.core-narrow) .toolbar-tools,
-:host-context(.core-narrow) .toolbar-tools {
+:host      (.core-narrow      ) .toolbar-tools,:host-context      (.core-narrow  
+     ) .toolbar-tools {
   height: 56px;
   padding: 0;
 }
@@ -74,7 +529,7 @@ polyfill-next-selector { content: ':host.core-narrow .toolbar-tools, .core-narro
   left: 0;
 }
 
-:host(.tall, .medium-tall) #middleBar {
+:host      (.tall,.medium-tall      ) #middleBar {
   -webkit-transform: translateY(100%);
   transform: translateY(100%);
 }
@@ -88,20 +543,101 @@ polyfill-next-selector { content: ':host.core-narrow .toolbar-tools, .core-narro
 }
 
 /* make elements (e.g. buttons) respond to mouse/touch events */
-polyfill-next-selector { content: '.toolbar-tools > *:not([disabled])'; }
-::content > *:not([disabled]) {
-  pointer-events: auto;
+polyfill-next-selector {
+  content: '.toolbar-tools > *:not([disabled])';
+}
+
+:
+
+
+
+
+
+
+
+
+:content
+>
+*
+
+
+
+
+
+
+
+
+:not
+
+
+
+
+ 
+
+
+
+
+(
+[
+disabled
+]
+
+
+
+
+ 
+
+
+
+
+)
+{
+pointer-events
+
+
+
+
+
+
+
+
+:
+
+
+
+
+ 
+
+
+
+
+auto
+
+
+
+
+
+
+
+
+;
 }
 
 /* elements spacing */
-polyfill-next-selector { content: '.toolbar-tools > *'; }
-::content > * {
+polyfill-next-selector {
+  content: '.toolbar-tools > *';
+}
+
+::content>* {
   margin: 0 8px;
 }
 
 /* misc helpers */
-polyfill-next-selector { content: '.toolbar-tools > .fit'; }
-::content > .fit {
+polyfill-next-selector {
+  content: '.toolbar-tools > .fit';
+}
+
+::content>.fit {
   position: absolute;
   top: auto;
   right: 0;
@@ -111,7 +647,10 @@ polyfill-next-selector { content: '.toolbar-tools > .fit'; }
   margin: 0;
 }
 
-polyfill-next-selector { content: ':host .indent'; }
-::content > .indent {
+polyfill-next-selector {
+  content: ':host .indent';
+}
+
+::content>.indent {
   margin-left: 60px;
 }

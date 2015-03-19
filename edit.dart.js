@@ -6683,6 +6683,13 @@ var $$ = Object.create(null);
     $isEventTarget: true,
     "%": "HTMLInputElement"
   },
+  KeyboardEvent: {
+    "^": "UIEvent;",
+    get$keyCode: function(receiver) {
+      return receiver.keyCode;
+    },
+    "%": "KeyboardEvent"
+  },
   MediaElement: {
     "^": "HtmlElement;error=",
     "%": "HTMLAudioElement|HTMLMediaElement|HTMLVideoElement"
@@ -6726,7 +6733,7 @@ var $$ = Object.create(null);
   },
   UIEvent: {
     "^": "Event;",
-    "%": "CompositionEvent|FocusEvent|KeyboardEvent|SVGZoomEvent|TextEvent|TouchEvent;UIEvent"
+    "%": "CompositionEvent|FocusEvent|SVGZoomEvent|TextEvent|TouchEvent;UIEvent"
   },
   Window: {
     "^": "EventTarget;",
@@ -7442,12 +7449,14 @@ var $$ = Object.create(null);
     H.setRuntimeTypeInfo(new W._EventStreamSubscription(0, t2._target, t2._eventType, W._wrapZone(new T.run_closure2()), t2._useCapture), [H.getTypeArgumentByIndex(t2, 0)])._tryResume$0();
     t1 = t1.get$onMouseDown(div);
     H.setRuntimeTypeInfo(new W._EventStreamSubscription(0, t1._target, t1._eventType, W._wrapZone(new T.run_closure3()), t1._useCapture), [H.getTypeArgumentByIndex(t1, 0)])._tryResume$0();
-    t1 = H.setRuntimeTypeInfo(new W._ElementEventStreamImpl(via, "contextmenu", false), [null]);
+    t1 = H.setRuntimeTypeInfo(new W._EventStream(window, "keydown", false), [null]);
     H.setRuntimeTypeInfo(new W._EventStreamSubscription(0, t1._target, t1._eventType, W._wrapZone(new T.run_closure4()), t1._useCapture), [H.getTypeArgumentByIndex(t1, 0)])._tryResume$0();
-    t1 = J.get$onClick$x(document.querySelector("#root_save_button"));
+    t1 = H.setRuntimeTypeInfo(new W._ElementEventStreamImpl(via, "contextmenu", false), [null]);
     H.setRuntimeTypeInfo(new W._EventStreamSubscription(0, t1._target, t1._eventType, W._wrapZone(new T.run_closure5()), t1._useCapture), [H.getTypeArgumentByIndex(t1, 0)])._tryResume$0();
+    t1 = J.get$onClick$x(document.querySelector("#root_save_button"));
+    H.setRuntimeTypeInfo(new W._EventStreamSubscription(0, t1._target, t1._eventType, W._wrapZone(new T.run_closure6()), t1._useCapture), [H.getTypeArgumentByIndex(t1, 0)])._tryResume$0();
     t1 = J.get$onChange$x(document.querySelector("#file_path"));
-    H.setRuntimeTypeInfo(new W._EventStreamSubscription(0, t1._target, t1._eventType, W._wrapZone(new T.run_closure6(draw)), t1._useCapture), [H.getTypeArgumentByIndex(t1, 0)])._tryResume$0();
+    H.setRuntimeTypeInfo(new W._EventStreamSubscription(0, t1._target, t1._eventType, W._wrapZone(new T.run_closure7(draw)), t1._useCapture), [H.getTypeArgumentByIndex(t1, 0)])._tryResume$0();
     draw.call$1(null);
   },
   Point: {
@@ -7525,7 +7534,7 @@ var $$ = Object.create(null);
       }
     },
     front$0: function() {
-      var t1, h, y, t2, w, x, t3, tp, color, t4, t5, t6;
+      var t1, h, y, w, x, t2, tp, color, t3, t4, t5;
       this.img.save();
       this.img.setTransform(1, 0, 0, 1, 0, 0);
       this.img.clearRect(0, 0, this.width, this.height);
@@ -7533,43 +7542,42 @@ var $$ = Object.create(null);
       t1 = this.img;
       t1.strokeStyle = "rgba(255, 0, 0, 1)";
       t1.strokeRect(2, 2, J.$sub$n(J.$mul$ns(this.size.i1, 13), 2), J.$sub$n(J.$mul$ns(this.size.i2, 13), 2));
-      t1 = this.data;
       h = 0;
       y = 2;
       while (true) {
-        t2 = this.height;
-        if (typeof t2 !== "number")
-          return H.iae(t2);
-        if (!(y < t2))
+        t1 = this.height;
+        if (typeof t1 !== "number")
+          return H.iae(t1);
+        if (!(y < t1))
           break;
-        t2 = y + 1 + 1;
+        t1 = y + 1 + 1;
         w = 0;
         x = 2;
         while (true) {
-          t3 = this.width;
-          if (typeof t3 !== "number")
-            return H.iae(t3);
-          if (!(x < t3))
+          t2 = this.width;
+          if (typeof t2 !== "number")
+            return H.iae(t2);
+          if (!(x < t2))
             break;
-          tp = t1.$index(0, new U.Tuple2(w, h));
+          tp = this.data.$index(0, new U.Tuple2(w, h));
           if (tp != null) {
             color = tp.get$col();
-            t3 = this.img;
-            t4 = color.get$r(color);
-            t5 = color.get$g();
-            t6 = color.get$b();
-            t3.toString;
-            t3.fillStyle = "rgba(" + H.S(t4) + ", " + H.S(t5) + ", " + H.S(t6) + ", 1)";
-            t6 = this.img;
-            t5 = color.get$r(color);
+            t2 = this.img;
+            t3 = color.get$r(color);
             t4 = color.get$g();
-            t3 = color.get$b();
-            t6.toString;
-            t6.strokeStyle = "rgba(" + H.S(t5) + ", " + H.S(t4) + ", " + H.S(t3) + ", 1)";
+            t5 = color.get$b();
+            t2.toString;
+            t2.fillStyle = "rgba(" + H.S(t3) + ", " + H.S(t4) + ", " + H.S(t5) + ", 1)";
+            t5 = this.img;
+            t4 = color.get$r(color);
+            t3 = color.get$g();
+            t2 = color.get$b();
+            t5.toString;
+            t5.strokeStyle = "rgba(" + H.S(t4) + ", " + H.S(t3) + ", " + H.S(t2) + ", 1)";
             this.img.strokeRect(x, y, 11, 11);
-            t3 = x + 1 + 1;
-            this.img.fillRect(t3, t2, 7, 7);
-            this.img.strokeRect(t3, t2, 7, 7);
+            t2 = x + 1 + 1;
+            this.img.fillRect(t2, t1, 7, 7);
+            this.img.strokeRect(t2, t1, 7, 7);
           }
           ++w;
           x += 13;
@@ -7579,18 +7587,19 @@ var $$ = Object.create(null);
       }
     },
     put$3: function(x, y, col) {
-      var p, t1, tp, t2;
+      var p, tp, t1, t2;
       p = new U.Tuple2(x, y);
-      t1 = this.data;
-      tp = t1.$index(0, p);
+      tp = this.data.$index(0, p);
       if (tp == null && !J.$eq(col, $.get$SHADE_COLOR())) {
+        t1 = this.data;
         t2 = $.get$BLACK();
         t1.$indexSet(0, p, new T.Point(x, y, t2));
+        t1 = this.data;
         if (col != null)
           t1.$index(0, p).set$col(col);
         else
           t1.$index(0, p).set$col(t2);
-        this.lastPen = t1.$index(0, p).get$col();
+        this.lastPen = this.data.$index(0, p).get$col();
       } else if (col != null) {
         this.lastPen = col;
         if (col.$eq(0, $.get$SHADE_COLOR()))
@@ -7615,12 +7624,20 @@ var $$ = Object.create(null);
       this.data.remove$1(0, new U.Tuple2(x, y));
       this.lastPen = $.get$SHADE_COLOR();
     },
+    shift$2: function(dx, dy) {
+      var tmp, t1;
+      tmp = P.LinkedHashMap_LinkedHashMap(null, null, null, null, null);
+      t1 = this.data;
+      H.setRuntimeTypeInfo(new P.LinkedHashMapKeyIterable(t1), [H.getTypeArgumentByIndex(t1, 0)]).forEach$1(0, new T.Port_shift_closure(this, dx, dy, tmp));
+      this.data = tmp;
+    },
     export$0: function() {
       var t1, r, ret, $name;
       t1 = this.data;
       t1.get$values(t1);
       r = P.LinkedHashMap_LinkedHashMap(null, null, null, null, null);
       ret = [];
+      t1 = this.data;
       t1.get$values(t1).forEach$1(0, new T.Port_export_closure(ret));
       $name = H.interceptedTypeCast(document.querySelector("#root_name"), "$isInputElement").value;
       r.$indexSet(0, "name", $name == null || $name === "" ? "noname" : $name);
@@ -7656,6 +7673,18 @@ var $$ = Object.create(null);
       if (typeof y !== "number")
         return y.$add();
       return new U.Tuple2(t1, C.JSNumber_methods._tdivFast$1(y + 1, 13));
+    }
+  },
+  Port_shift_closure: {
+    "^": "Closure:10;this_0,dx_1,dy_2,tmp_3",
+    call$1: function(t) {
+      var p, t1, t2, np;
+      p = this.this_0.data.$index(0, t);
+      t1 = J.$add$ns(t.get$i1(), this.dx_1);
+      t2 = J.$add$ns(t.i2, this.dy_2);
+      np = new T.Point(t1, t2, $.get$BLACK());
+      np.col = p.get$col();
+      this.tmp_3.$indexSet(0, new U.Tuple2(t1, t2), np);
     }
   },
   Port_export_closure: {
@@ -7788,12 +7817,33 @@ var $$ = Object.create(null);
     }
   },
   run_closure4: {
+    "^": "Closure:27;",
+    call$1: function(e) {
+      switch (J.get$keyCode$x(e)) {
+        case 37:
+          $.port.shift$2(-1, 0);
+          break;
+        case 39:
+          $.port.shift$2(1, 0);
+          break;
+        case 40:
+          $.port.shift$2(0, 1);
+          break;
+        case 38:
+          $.port.shift$2(0, -1);
+          break;
+      }
+      $.port.front$0();
+      e.preventDefault();
+    }
+  },
+  run_closure5: {
     "^": "Closure:10;",
     call$1: function(e) {
       J.preventDefault$0$x(e);
     }
   },
-  run_closure5: {
+  run_closure6: {
     "^": "Closure:10;",
     call$1: function(e) {
       var data = [];
@@ -7801,7 +7851,7 @@ var $$ = Object.create(null);
       C.Window_methods.open$2(window, (self.URL || self.webkitURL).createObjectURL(W.Blob_Blob(data, "application/octet-stream", null)), "");
     }
   },
-  run_closure6: {
+  run_closure7: {
     "^": "Closure:10;draw_5",
     call$1: function(e) {
       var t1, fo, fi, t2, t3;
@@ -7898,7 +7948,7 @@ var $$ = Object.create(null);
     }
   },
   convertNativeToDart_AcceptStructuredClone_readSlot: {
-    "^": "Closure:27;copies_2",
+    "^": "Closure:28;copies_2",
     call$1: function(i) {
       var t1 = this.copies_2;
       if (i >= t1.length)
@@ -7907,7 +7957,7 @@ var $$ = Object.create(null);
     }
   },
   convertNativeToDart_AcceptStructuredClone_writeSlot: {
-    "^": "Closure:28;copies_3",
+    "^": "Closure:29;copies_3",
     call$2: function(i, x) {
       var t1 = this.copies_3;
       if (i >= t1.length)
@@ -7968,7 +8018,7 @@ var $$ = Object.create(null);
 ["tools", "package:chi/tools.dart", , U, {
   "^": "",
   Tuple2: {
-    "^": "Object;i1,i2",
+    "^": "Object;i1<,i2",
     toString$0: function(_) {
       return "[" + H.S(this.i1) + ", " + H.S(this.i2) + "]";
     },
@@ -8027,6 +8077,9 @@ $$ = null;
   H._IsolateContext.$isObject = TRUE;
   _ = W.MouseEvent;
   _.$isMouseEvent = TRUE;
+  _.$isObject = TRUE;
+  _ = W.KeyboardEvent;
+  _.$isKeyboardEvent = TRUE;
   _.$isObject = TRUE;
   _ = P.Symbol;
   _.$isSymbol = TRUE;
@@ -8230,6 +8283,9 @@ J.get$hashCode$ = function(receiver) {
 };
 J.get$iterator$ax = function(receiver) {
   return J.getInterceptor$ax(receiver).get$iterator(receiver);
+};
+J.get$keyCode$x = function(receiver) {
+  return J.getInterceptor$x(receiver).get$keyCode(receiver);
 };
 J.get$length$asx = function(receiver) {
   return J.getInterceptor$asx(receiver).get$length(receiver);
@@ -8590,6 +8646,7 @@ init.metadata = [{func: "dynamic__String", args: [P.String]},
 {func: "dynamic__Point", args: [T.Point]},
 {func: "dynamic__Map", args: [[P.Map, P.String, P.Object]]},
 {func: "dynamic__MouseEvent", args: [W.MouseEvent]},
+{func: "dynamic__KeyboardEvent", args: [W.KeyboardEvent]},
 {func: "dynamic__int", args: [P.$int]},
 {func: "dynamic__int_dynamic", args: [P.$int, null]},
 ];

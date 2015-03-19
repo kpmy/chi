@@ -69,47 +69,127 @@ you should ensure that the `aria-label` attribute is set.
 <link href="../paper-button/paper-button-base.html" rel="import">
 <link href="../paper-ripple/paper-ripple.html" rel="import">
 
-<polymer-element name="paper-icon-button" extends="paper-button-base" attributes="src icon" role="button">
+<polymer-element name="paper-icon-button" extends="paper-button-base"
+  attributes="src icon" role="button"> <template>
 
-  <template>
+<style>
+:host {
+  display: inline-block;
+  position: relative;
+  padding: 8px;
+  outline: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  z-index: 0;
+}
 
-    <style>
-      :host {
-        display: inline-block;
-        position: relative;
-        padding: 8px;
-        outline: none;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-        cursor: pointer;
-        z-index: 0;
-      }
+:host
 
-      :host([disabled]) {
-        color: #c9c9c9;
-        pointer-events: none;
-        cursor: auto;
-      }
 
-      #ripple {
-        pointer-events: none;
-        z-index: -1;
-      }
 
-      #icon {
-        display: block;
-        pointer-events: none;
-      }
-    </style>
+ 
 
-    <!-- to position to ripple behind the icon -->
-    <core-icon relative id="icon" src="{{src}}" icon="{{icon}}"></core-icon>
 
-  </template>
 
-  <script>
+(
+[
+disabled
+]
+
+
+
+ 
+
+
+
+)
+{
+color
+
+
+
+
+
+
+:
+
+
+
+ 
+
+
+
+#c9c9c9
+
+
+
+
+
+
+;
+pointer-events
+
+
+
+
+
+
+:
+
+
+
+ 
+
+
+
+none
+
+
+
+
+
+
+;
+cursor
+
+
+
+
+
+
+:
+
+
+
+ 
+
+
+
+auto
+
+
+
+
+
+
+;
+}
+#ripple {
+  pointer-events: none;
+  z-index: -1;
+}
+
+#icon {
+  display: block;
+  pointer-events: none;
+}
+</style>
+
+<!-- to position to ripple behind the icon --> <core-icon relative
+  id="icon" src="{{src}}" icon="{{icon}}"></core-icon> </template> <script>
     Polymer({
 
       publish: {
@@ -149,6 +229,4 @@ you should ensure that the `aria-label` attribute is set.
 
     });
 
-  </script>
-
-</polymer-element>
+  </script> </polymer-element>

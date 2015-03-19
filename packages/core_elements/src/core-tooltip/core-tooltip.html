@@ -74,19 +74,17 @@ You can customize this attribute with the `tipAttribute` attribute:
 <!-- TODO: detect mobile and apply the .large class, instead of manual
            control. -->
 <!-- TODO: possibly reuse core-overlay. -->
-<polymer-element name="core-tooltip" attributes="noarrow position label show tipAttribute" role="tooltip" tabindex="0">
-<template>
+<polymer-element name="core-tooltip"
+  attributes="noarrow position label show tipAttribute" role="tooltip"
+  tabindex="0"> <template>
 
-  <link rel="stylesheet" href="core-tooltip.css">
-  <div id="tooltip" hidden?="{{!hasTooltipContent}}"
-       class="core-tooltip {{position}} {{ {noarrow: noarrow, show: show && !disabled} | tokenList}}">
-    <content id="c" select="[{{tipAttribute}}]">{{label}}</content>
-  </div>
+<link rel="stylesheet" href="core-tooltip.css">
+<div id="tooltip" hidden?="{{!hasTooltipContent}}"
+  class="core-tooltip {{position}} {{ {noarrow: noarrow, show: show && !disabled} | tokenList}}">
+  <content id="c" select="[{{tipAttribute}}]">{{label}}</content>
+</div>
 
-  <content></content>
-
-</template>
-<script>
+<content></content> </template> <script>
 (function() {
 
   var proto = {
@@ -202,5 +200,4 @@ You can customize this attribute with the `tipAttribute` attribute:
     Polymer(proto);
   })();
 
-</script>
-</polymer-element>
+</script> </polymer-element>

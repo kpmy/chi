@@ -62,18 +62,12 @@ Examples:
 
 <link rel="import" href="../polymer/polymer.html">
 
-<polymer-element name="core-image">
-<template>
-  <link rel="stylesheet" href="core-image.css">
-  <template if="{{!sizing}}">
-    <img id="img">
-  </template>
-  <template if="{{preload && fade}}">
-    <div id="placeholder" fit></div>
-  </template>
-  <content></content>
-</template>
-<script>
+<polymer-element name="core-image"> <template>
+<link rel="stylesheet" href="core-image.css">
+<template if="{{!sizing}}"> <img id="img"> </template> <template
+  if="{{preload && fade}}">
+<div id="placeholder" fit></div>
+</template> <content></content> </template> <script>
 
   Polymer({
     
@@ -239,5 +233,4 @@ Examples:
 
   });
 
-</script>
-</polymer-element>
+</script> </polymer-element>

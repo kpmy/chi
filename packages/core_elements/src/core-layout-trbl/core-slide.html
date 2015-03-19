@@ -9,19 +9,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <link rel="import" href="../polymer/polymer.html">
 
-<polymer-element name="core-slide" attributes="open closed vertical target targetId">
+<polymer-element name="core-slide"
+  attributes="open closed vertical target targetId"> <template>
 
-  <template>
+<style>
+:host {
+  display: none;
+}
+</style>
 
-    <style>
-      :host {   
-        display: none;
-      }
-    </style>
-
-  </template>
-
-  <script>
+</template> <script>
 
     Polymer('core-slide', {
 
@@ -176,6 +173,4 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       return e;
     };
 
-  </script>
-  
-</polymer-element>
+  </script> </polymer-element>

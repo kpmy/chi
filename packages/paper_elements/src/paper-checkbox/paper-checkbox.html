@@ -54,23 +54,27 @@ To change the checbox unchecked color:
 
 <link rel="import" href="../paper-radio-button/paper-radio-button.html">
 
-<polymer-element name="paper-checkbox" extends="paper-radio-button" role="checkbox">
-<template>
+<polymer-element name="paper-checkbox" extends="paper-radio-button"
+  role="checkbox"> <template>
 
-  <link rel="stylesheet" href="paper-checkbox.css">
+<link rel="stylesheet" href="paper-checkbox.css">
 
-  <div id="checkboxContainer" class="{{ {labeled: label} | tokenList }}" >
-  
-    <paper-ripple id="ink" class="circle recenteringTouch" checked?="{{!checked}}"></paper-ripple>
-     
-    <div id="checkbox" on-animationend="{{checkboxAnimationEnd}}" on-webkitAnimationEnd="{{checkboxAnimationEnd}}"></div>
-    
-  </div>
-  
-  <div id="checkboxLabel" hidden?="{{!label}}">{{label}}<content></content></div>
+<div id="checkboxContainer" class="{{ {labeled: label} | tokenList }}">
 
-</template>
-<script>
+  <paper-ripple id="ink" class="circle recenteringTouch"
+    checked?="{{!checked}}"></paper-ripple>
+
+  <div id="checkbox" on-animationend="{{checkboxAnimationEnd}}"
+    on-webkitAnimationEnd="{{checkboxAnimationEnd}}"></div>
+
+</div>
+
+<div id="checkboxLabel" hidden?="{{!label}}">
+  {{label}}
+  <content></content>
+</div>
+
+</template> <script>
 
   Polymer('paper-checkbox', {
     
@@ -106,5 +110,4 @@ To change the checbox unchecked color:
 
   });
   
-</script>
-</polymer-element>
+</script> </polymer-element>

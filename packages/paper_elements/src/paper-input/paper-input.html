@@ -45,23 +45,19 @@ to submitting a `paper-input`.
 
 <link href="paper-input-decorator.html" rel="import">
 
-<polymer-element name="paper-input">
+<polymer-element name="paper-input"> <template>
 
-<template>
+<style>
+:host {
+  display: inline-block;
+}
+</style>
 
-  <style>
-    :host {
-      display: inline-block;
-    }
-  </style>
-
-  <paper-input-decorator id="decorator" label="{{label}}" floatingLabel="{{floatingLabel}}" value="{{value}}" disabled?="{{disabled}}">
-    <input is="core-input" value="{{value}}" committedValue="{{committedValue}}" on-change="{{changeAction}}" disabled?="{{disabled}}">
-  </paper-input-decorator>
-
-</template>
-
-<script>
+<paper-input-decorator id="decorator" label="{{label}}"
+  floatingLabel="{{floatingLabel}}" value="{{value}}"
+  disabled?="{{disabled}}"> <input
+  is="core-input" value="{{value}}" committedValue="{{committedValue}}"
+  on-change="{{changeAction}}" disabled?="{{disabled}}"> </paper-input-decorator> </template> <script>
 
   Polymer('paper-input', {
 
@@ -128,6 +124,4 @@ to submitting a `paper-input`.
 
   });
 
-</script>
-
-</polymer-element>
+</script> </polymer-element>

@@ -8,24 +8,70 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 <link rel="import" href="../polymer/polymer.html">
 
-<polymer-element name="core-overlay-layer">
-<template>
-  <style>
-    :host {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 1000;
-      display: none;
-    }
+<polymer-element name="core-overlay-layer"> <template>
+<style>
+:host {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  display: none;
+}
+:host
 
-    :host(.core-opened) {
-      display: block;
-    }
-  </style>
-  <content></content>
-</template>
-<script>
+
+
+
+ 
+
+
+
+
+(
+.core-opened
+
+
+
+
+ 
+
+
+
+
+)
+{
+display
+
+
+
+
+
+
+
+
+:
+
+
+
+
+ 
+
+
+
+
+block
+
+
+
+
+
+
+
+
+;
+}
+</style>
+<content></content> </template> <script>
 (function() {
 
   Polymer('core-overlay-layer', {
@@ -109,5 +155,4 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   });
   
 })();
-</script>
-</polymer-element>
+</script> </polymer-element>

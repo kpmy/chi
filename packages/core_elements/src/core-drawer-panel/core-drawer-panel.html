@@ -81,25 +81,25 @@ To position the drawer to the right, add `rightDrawer` attribute.
 <polymer-element name="core-drawer-panel" touch-action="auto">
 <template>
 
-  <link rel="stylesheet" href="core-drawer-panel.css">
+<link rel="stylesheet" href="core-drawer-panel.css">
 
-  <core-media-query query="max-width: {{forceNarrow ? '' : responsiveWidth}}" queryMatches="{{queryMatches}}"></core-media-query>
+<core-media-query
+  query="max-width: {{forceNarrow ? '' : responsiveWidth}}"
+  queryMatches="{{queryMatches}}"></core-media-query> <core-selector
+  class="{{ {'narrow-layout' : narrow, transition : transition, dragging : dragging, 'right-drawer': rightDrawer} | tokenList }}"
+  valueattr="id" selected="{{selected}}">
 
-  <core-selector class="{{ {'narrow-layout' : narrow, transition : transition, dragging : dragging, 'right-drawer': rightDrawer} | tokenList }}" valueattr="id" selected="{{selected}}">
+<div id="main"
+  _style="left: {{ narrow || rightDrawer ? '0' : drawerWidth }}; right: {{ rightDrawer ? (narrow ? '' : drawerWidth) : '' }};">
+  <content select="[main]"></content>
+  <div id="scrim" on-tap="{{togglePanel}}"></div>
+</div>
 
-    <div id="main" _style="left: {{ narrow || rightDrawer ? '0' : drawerWidth }}; right: {{ rightDrawer ? (narrow ? '' : drawerWidth) : '' }};">
-      <content select="[main]"></content>
-      <div id="scrim" on-tap="{{togglePanel}}"></div>
-    </div>
+<div id="drawer" _style="width: {{ drawerWidth }}">
+  <content select="[drawer]"></content>
+</div>
 
-    <div id="drawer" _style="width: {{ drawerWidth }}">
-      <content select="[drawer]"></content>
-    </div>
-
-  </core-selector>
-
-</template>
-<script>
+</core-selector> </template> <script>
 
   Polymer('core-drawer-panel', {
 
@@ -390,5 +390,4 @@ To position the drawer to the right, add `rightDrawer` attribute.
 
   });
 
-</script>
-</polymer-element>
+</script> </polymer-element>

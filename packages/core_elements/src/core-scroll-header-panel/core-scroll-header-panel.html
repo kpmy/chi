@@ -51,30 +51,29 @@ that represents a header by adding a `core-header` class to it.
 
 <link rel="import" href="../polymer/polymer.html">
 
-<polymer-element name="core-scroll-header-panel">
-<template>
+<polymer-element name="core-scroll-header-panel"> <template>
 
-  <link rel="stylesheet" href="core-scroll-header-panel.css">
+<link rel="stylesheet" href="core-scroll-header-panel.css">
 
-  <div id="mainContainer">
-  
-    <content id="mainContent" select=":not(core-toolbar):not(.core-header)"></content>
-    
+<div id="mainContainer">
+
+  <content id="mainContent"
+    select=":not(core-toolbar):not(.core-header)"></content>
+
+</div>
+
+<div id="headerContainer">
+
+  <div class="bg-container">
+    <div id="condensedHeaderBg"></div>
+    <div id="headerBg"></div>
   </div>
-  
-  <div id="headerContainer">
-  
-    <div class="bg-container">
-      <div id="condensedHeaderBg"></div>
-      <div id="headerBg"></div>
-    </div>
-    
-    <content id="headerContent" select="core-toolbar, .core-header"></content>
-    
-  </div>
-  
-</template>
-<script>
+
+  <content id="headerContent" select="core-toolbar, .core-header"></content>
+
+</div>
+
+</template> <script>
 (function() {
 
   Polymer('core-scroll-header-panel', {
@@ -345,5 +344,4 @@ that represents a header by adding a `core-header` class to it.
 
 })();
 
-</script>
-</polymer-element>
+</script> </polymer-element>

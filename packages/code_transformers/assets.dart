@@ -25,10 +25,12 @@ import 'src/messages.dart';
 /// message in [logger] if we know the reason why resolution failed. This
 /// happens, for example, when using incorrect paths to reach into another
 /// package, or when [errorsOnAbsolute] is true and the url seems to be
-/// absolute.
+/// absolute. If [span] is not `null` it is used to provide context for any
+/// warning message(s) generated.
 // TODO(sigmund): delete once this is part of barback (dartbug.com/12610)
-AssetId uriToAssetId(AssetId source, String url, TransformLogger logger,
-    SourceSpan span, {bool errorOnAbsolute: true}) {
+AssetId uriToAssetId(
+    AssetId source, String url, TransformLogger logger, SourceSpan span,
+    {bool errorOnAbsolute: true}) {
   if (url == null || url == '') return null;
   var uri = Uri.parse(url);
   var urlBuilder = path.url;
@@ -36,8 +38,8 @@ AssetId uriToAssetId(AssetId source, String url, TransformLogger logger,
     if (source.extension == '.dart' && uri.scheme == 'package') {
       var index = uri.path.indexOf('/');
       if (index != -1) {
-        return new AssetId(uri.path.substring(0, index),
-            'lib${uri.path.substring(index)}');
+        return new AssetId(
+            uri.path.substring(0, index), 'lib${uri.path.substring(index)}');
       }
     }
 
@@ -48,11 +50,11 @@ AssetId uriToAssetId(AssetId source, String url, TransformLogger logger,
     return null;
   }
 
-  var targetPath = urlBuilder.normalize(
-      urlBuilder.join(urlBuilder.dirname(source.path), url));
+  var targetPath = urlBuilder
+      .normalize(urlBuilder.join(urlBuilder.dirname(source.path), url));
   var segments = urlBuilder.split(targetPath);
   var sourceSegments = urlBuilder.split(source.path);
-  assert (sourceSegments.length > 0);
+  assert(sourceSegments.length > 0);
   var topFolder = sourceSegments[0];
   var entryFolder = topFolder != 'lib' && topFolder != 'asset';
 
@@ -85,8 +87,8 @@ AssetId uriToAssetId(AssetId source, String url, TransformLogger logger,
       fixedSegments.addAll(sourceSegments.map((_) => '..'));
       fixedSegments.addAll(segments.sublist(index));
       var fixedUrl = urlBuilder.joinAll(fixedSegments);
-      var msg = INVALID_URL_TO_OTHER_PACKAGE.create(
-          {'url': url, 'prefix': prefix, 'fixedUrl': fixedUrl});
+      var msg = INVALID_URL_TO_OTHER_PACKAGE
+          .create({'url': url, 'prefix': prefix, 'fixedUrl': fixedUrl});
       logger.warning(logger is BuildLogger ? msg : msg.snippet, span: span);
       return null;
     }
@@ -96,8 +98,8 @@ AssetId uriToAssetId(AssetId source, String url, TransformLogger logger,
   return new AssetId(source.package, targetPath);
 }
 
-AssetId _extractOtherPackageId(int index, List segments,
-    TransformLogger logger, SourceSpan span) {
+AssetId _extractOtherPackageId(
+    int index, List segments, TransformLogger logger, SourceSpan span) {
   if (index >= segments.length) return null;
   var prefix = segments[index];
   if (prefix != 'packages' && prefix != 'assets') return null;
@@ -109,4 +111,40 @@ AssetId _extractOtherPackageId(int index, List segments,
   }
   return new AssetId(segments[index + 1],
       path.url.join(folder, path.url.joinAll(segments.sublist(index + 2))));
+}
+
+/// Gets a URI which would be appropriate for importing the file represented by
+/// [assetId].
+///
+/// This function returns null if we cannot determine a uri for [assetId].
+///
+/// Note that [assetId] may represent a non-importable file such as a part.
+String assetIdToUri(AssetId assetId,
+    {TransformLogger logger, SourceSpan span, AssetId from}) {
+  if (!assetId.path.startsWith('lib/')) {
+    // Cannot do absolute imports of non lib-based assets.
+    if (from == null) {
+      if (logger != null) {
+        var msg = UNSPECIFIED_FROM_IN_NON_LIB_ASSET.create({'id': '$assetId'});
+        logger.warning(logger is BuildLogger ? msg : msg.snippet, span: span);
+      }
+      return null;
+    }
+
+    if (assetId.package != from.package) {
+      if (logger != null) {
+        var msg = IMPORT_FROM_DIFFERENT_PACKAGE
+            .create({'toId': '$assetId', 'fromId': '$from'});
+        logger.warning(logger is BuildLogger ? msg : msg.snippet, span: span);
+      }
+      return null;
+    }
+    return new Uri(
+            path: path.relative(assetId.path, from: path.dirname(from.path)))
+        .toString();
+  }
+
+  return Uri
+      .parse('package:${assetId.package}/${assetId.path.substring(4)}')
+      .toString();
 }
