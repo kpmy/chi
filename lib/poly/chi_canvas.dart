@@ -168,13 +168,14 @@ class ChiCanvas extends PolymerElement implements ChiEventListener {
   }
 
   void doClick(Event e, var detail, Node target){
-    e.preventDefault();
+    print(detail);
   }
 
   ChiCanvas.created() : super.created() {
     _div = ($['root_canvas_container'] as DivElement);
     _root = ($['root_canvas'] as CanvasElement);
     _ctx = _root.context2D;
+
     listenTo(this);
   }
 }
