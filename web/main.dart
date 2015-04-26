@@ -27,7 +27,7 @@ void init(){
 }
 
 void main() {
-  initPolymer().run(() {
+  initPolymer().then((z) {
     Polymer.onReady.then((_) {
       init();
     });

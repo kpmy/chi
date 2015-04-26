@@ -8,7 +8,7 @@ import 'package:chi/tools.dart';
 main() {
   initTools();
   if (window.sessionStorage.containsKey(SESSION)) {
-    initPolymer().run(() {
+    initPolymer().then((z) {
       Polymer.onReady.then((_) {
         bus.on().listen(loop.handle);
         bus.fire(new loop.AppStart());

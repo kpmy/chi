@@ -6,11 +6,10 @@ environment:
 dependencies:
   browser: any
   color: any
-  core_elements: any
   dartson: any
   event_bus: any
   paper_elements: any
-  polymer: '>=0.15.1 <0.16.0'
+  polymer: '>=0.15.1 <0.17.0'
   uuid: any
 transformers:
 - polymer
