@@ -9,29 +9,31 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 <html>
 <head>
-<meta charset="UTF-8">
-<title>core-localstorage-value-binding</title>
-<meta name="viewport"
-  content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta charset="UTF-8">
+  <title>core-localstorage-value-binding</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-<script src="../../webcomponentsjs/webcomponents.js"></script>
-<script src="../../web-component-tester/browser.js"></script>
-
-<link rel="import" href="../core-localstorage.html">
+  <script src="../../webcomponentsjs/webcomponents.js"></script>
+  <script src="../../web-component-tester/browser.js"></script>
+  
+  <link rel="import" href="../core-localstorage.html">
 
 </head>
 <body>
 
   <polymer-element name="x-foo" attributes="value" noscript>
-  <template>
-  <div>{{value.foo}}</div>
-  </template> </polymer-element>
+    <template>
+      <div>{{value.foo}}</div>
+    </template>
+  </polymer-element>
 
   <polymer-element name="x-test" attributes="value" noscript>
-  <template> <x-foo value="{{value}}"></x-foo> <core-localstorage
-    id="localstorage" name="core-localstorage-test" value="{{value}}"></core-localstorage>
-  </template> </polymer-element>
-
+    <template>
+      <x-foo value="{{value}}"></x-foo>
+      <core-localstorage id="localstorage" name="core-localstorage-test" value="{{value}}"></core-localstorage>
+    </template>
+  </polymer-element>
+  
   <x-test></x-test>
 
   <script>

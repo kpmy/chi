@@ -32,7 +32,11 @@ To change the radio checked color:
     paper-radio-button::shadow #onRadio {
       background-color: #4285f4;
     }
-    
+
+    paper-radio-button[checked]::shadow #offRadio {
+      border-color: #4285f4;
+    }
+
 To change the ink color for unchecked state:
 
     paper-radio-button::shadow #ink {
@@ -53,29 +57,26 @@ To change the radio unchecked color:
 <link rel="import" href="../paper-ripple/paper-ripple.html">
 <link rel="import" href="../core-a11y-keys/core-a11y-keys.html">
 
-<polymer-element name="paper-radio-button" role="radio" tabindex="0"
-  aria-checked="false"> <template>
+<polymer-element name="paper-radio-button" role="radio" tabindex="0" aria-checked="false">
+<template>
 
-<link rel="stylesheet" href="paper-radio-button.css">
+  <link rel="stylesheet" href="paper-radio-button.css">
 
-<core-a11y-keys target="{{}}" keys="space" on-keys-pressed="{{tap}}"></core-a11y-keys>
-
-<div id="radioContainer" class="{{ {labeled: label} | tokenList }}">
-
-  <div id="offRadio"></div>
-  <div id="onRadio"></div>
-
-  <paper-ripple id="ink" class="circle recenteringTouch"
-    checked?="{{!checked}}"></paper-ripple>
-
-</div>
-
-<div id="radioLabel" aria-hidden="true" hidden?="{{!label}}">
-  {{label}}
-  <content></content>
-</div>
-
-</template> <script>
+  <core-a11y-keys target="{{}}" keys="space" on-keys-pressed="{{tap}}"></core-a11y-keys>
+  
+  <div id="radioContainer" class="{{ {labeled: label} | tokenList }}">
+  
+    <div id="offRadio"></div>
+    <div id="onRadio"></div>
+    
+    <paper-ripple id="ink" class="circle recenteringTouch" checked?="{{!checked}}"></paper-ripple>
+    
+  </div>
+  
+  <div id="radioLabel" aria-hidden="true" hidden?="{{!label}}">{{label}}<content></content></div>
+  
+</template>
+<script>
 
   Polymer('paper-radio-button', {
     
@@ -136,6 +137,9 @@ To change the radio unchecked color:
     },
     
     tap: function() {
+      if (this.disabled) {
+        return;
+      }
       var old = this.checked;
       this.toggle();
       if (this.checked !== old) {
@@ -148,8 +152,7 @@ To change the radio unchecked color:
     },
     
     checkedChanged: function() {
-      this.$.onRadio.classList.toggle('fill', this.checked);
-      this.setAttribute('aria-checked', this.checked ? 'true': 'false');
+      this.setAttribute('aria-checked', this.checked ? 'true' : 'false');
       this.fire('core-change');
     },
     
@@ -159,4 +162,5 @@ To change the radio unchecked color:
     
   });
   
-</script> </polymer-element>
+</script>
+</polymer-element>

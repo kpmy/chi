@@ -45,94 +45,34 @@ Example:
 <link href="../core-icon/core-icon.html" rel="import">
 <link href="../core-icons/core-icons.html" rel="import">
 
-<polymer-element name="core-dropdown-menu" extends="core-dropdown-base"
-  relative layout inline horizontal center tabindex="0">
+<polymer-element name="core-dropdown-menu" extends="core-dropdown-base" relative layout inline horizontal center tabindex="0">
 <template>
 
-<style>
-:host {
-  background-color: #fff;
-}
+  <style>
+    :host {
+      background-color: #fff;
+    }
 
-:host
+    :host([disabled]) {
+      color: #a8a8a8;
+    }
 
+    #label {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  </style>
 
+  <core-a11y-keys target="{{}}" keys="enter space" on-keys-pressed="{{toggleOverlay}}"></core-a11y-keys>
 
+  <div flex auto id="label">{{selectedItemLabel || label}}</div>
+  <core-icon id="arrow" icon="{{opened ? openedIcon : closedIcon}}"></core-icon>
 
+  <content></content>
 
- 
-
-
-
-
-
-(
-[
-disabled
-]
-
-
-
-
-
- 
-
-
-
-
-
-)
-{
-color
-
-
-
-
-
-
-
-
-
-
-:
-
-
-
-
-
- 
-
-
-
-
-
-#a8a8a8
-
-
-
-
-
-
-
-
-
-
-;
-}
-#label {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-</style>
-
-<core-a11y-keys target="{{}}" keys="enter space"
-  on-keys-pressed="{{toggleOverlay}}"></core-a11y-keys>
-
-<div flex auto id="label">{{selectedItemLabel || label}}</div>
-<core-icon id="arrow" icon="{{opened ? openedIcon : closedIcon}}"></core-icon>
-
-<content></content> </template> <script>
+</template>
+<script>
 
 (function() {
 
@@ -197,4 +137,5 @@ color
 
 })();
 
-</script> </polymer-element>
+</script>
+</polymer-element>

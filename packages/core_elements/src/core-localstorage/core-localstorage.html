@@ -26,8 +26,7 @@ triggered only when value is a different instance.
 
 <link rel="import" href="../polymer/polymer.html">
 
-<polymer-element name="core-localstorage"
-  attributes="name value useRaw autoSaveDisabled" hidden>
+<polymer-element name="core-localstorage" attributes="name value useRaw autoSaveDisabled" hidden>
 <script>
 
   Polymer('core-localstorage', {
@@ -73,15 +72,14 @@ triggered only when value is a different instance.
      */
     autoSaveDisabled: false,
     
-    attached: function() {
-      // wait for bindings are all setup
-      this.async('load');
-    },
-    
     valueChanged: function() {
       if (this.loaded && !this.autoSaveDisabled) {
         this.save();
       }
+    },
+
+    nameChanged: function() {
+      this.load();
     },
     
     load: function() {
@@ -125,4 +123,5 @@ triggered only when value is a different instance.
     
   });
 
-</script> </polymer-element>
+</script>
+</polymer-element>

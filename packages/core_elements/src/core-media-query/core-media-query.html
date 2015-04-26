@@ -35,13 +35,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../polymer/polymer.html">
 
 <polymer-element name="core-media-query" attributes="query queryMatches">
-<template>
-<style>
-:host {
-  display: none;
-}
-</style>
-</template> <script>
+  <template>
+    <style>
+      :host {
+        display: none;
+      }
+    </style>
+  </template>
+  <script>
     Polymer('core-media-query', {
 
       /**
@@ -82,4 +83,5 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         this.asyncFire('core-media-change', mq);
       }
     });
-  </script> </polymer-element>
+  </script>
+</polymer-element>

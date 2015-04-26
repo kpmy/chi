@@ -9,16 +9,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <link href="../core-transition/core-transition-css.html" rel="import">
 
-<polymer-element name="paper-dialog-transition"
-  extends="core-transition-css"> <template>
-<link no-shim href="paper-dialog-transition.css" rel="stylesheet">
-</template> <script>
+<polymer-element name="paper-dialog-transition" extends="core-transition-css">
+
+<template>
+  <link no-shim href="paper-dialog-transition.css" rel="stylesheet">
+</template>
+
+<script>
   Polymer({
     baseClass: 'paper-dialog-transition'
   });
-</script> </polymer-element>
+</script>
 
-<paper-dialog-transition id="paper-dialog-transition-bottom"
-  transitionType="bottom"></paper-dialog-transition>
-<paper-dialog-transition id="paper-dialog-transition-center"
-  transitionType="center"></paper-dialog-transition>
+</polymer-element>
+
+<paper-dialog-transition id="paper-dialog-transition-bottom" transitionType="bottom"></paper-dialog-transition>
+<paper-dialog-transition id="paper-dialog-transition-center" transitionType="center"></paper-dialog-transition>

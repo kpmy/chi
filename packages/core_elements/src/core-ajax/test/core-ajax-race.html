@@ -9,21 +9,23 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 <html>
 <head>
-<title>core-ajax</title>
+  <title>core-ajax</title>
 
-<script src="../../webcomponentsjs/webcomponents.js"></script>
-<script src="../../web-component-tester/browser.js"></script>
+  <script src="../../webcomponentsjs/webcomponents.js"></script>
+  <script src="../../web-component-tester/browser.js"></script>
 
 
 
-<link rel="import" href="../core-ajax.html">
+  <link rel="import" href="../core-ajax.html">
 
 </head>
 <body>
 
-  <core-ajax handleAs="json" auto></core-ajax>
+  <core-ajax
+    handleAs="json"
+    auto></core-ajax>
 
-  <!--
+<!--
     Test that when core-ajax fires multiple times as requests are updated,
     only the response from the most recent request is used to update the response
     object.

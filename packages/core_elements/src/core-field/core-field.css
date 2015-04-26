@@ -4,24 +4,20 @@ The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
 The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
 Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt */
+
+
 :host {
   display: block;
   color: #333;
   font-size: 14px;
 }
 
-polyfill-next-selector {
-  content: ':host > core-icon';
-}
-
-::content>core-icon {
+polyfill-next-selector { content: ':host > core-icon'; }
+::content > core-icon {
   margin: 8px;
 }
 
-polyfill-next-selector {
-  content: ':host input';
-}
-
+polyfill-next-selector { content: ':host input'; }
 ::content input {
   background: transparent;
   border: 0;
@@ -31,18 +27,12 @@ polyfill-next-selector {
   font-size: 14px;
 }
 
-polyfill-next-selector {
-  content: ':host input:focus';
-}
-
+polyfill-next-selector { content: ':host input:focus'; }
 ::content input:focus {
   outline: none;
 }
 
-polyfill-next-selector {
-  content: ':host input::placeholder';
-}
-
+polyfill-next-selector { content: ':host input::placeholder'; }
 ::content input::placeholder {
   color: #b3b3b3;
 }

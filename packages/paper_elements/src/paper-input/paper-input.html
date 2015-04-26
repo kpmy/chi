@@ -36,6 +36,11 @@ Use `paper-input-decorator` directly, or see
 <a href="https://github.com/garstasio/ajax-form">`ajax-form`</a> for a possible solution
 to submitting a `paper-input`.
 
+Validation
+----------
+
+Use `paper-input-decorator` if you would like to implement validation.
+
 @group Paper Elements
 @element paper-input
 @homepage github.io
@@ -45,19 +50,23 @@ to submitting a `paper-input`.
 
 <link href="paper-input-decorator.html" rel="import">
 
-<polymer-element name="paper-input"> <template>
+<polymer-element name="paper-input">
 
-<style>
-:host {
-  display: inline-block;
-}
-</style>
+<template>
 
-<paper-input-decorator id="decorator" label="{{label}}"
-  floatingLabel="{{floatingLabel}}" value="{{value}}"
-  disabled?="{{disabled}}"> <input
-  is="core-input" value="{{value}}" committedValue="{{committedValue}}"
-  on-change="{{changeAction}}" disabled?="{{disabled}}"> </paper-input-decorator> </template> <script>
+  <style>
+    :host {
+      display: inline-block;
+    }
+  </style>
+
+  <paper-input-decorator id="decorator" label="{{label}}" floatingLabel="{{floatingLabel}}" value="{{value}}" disabled?="{{disabled}}">
+    <input is="core-input" id="input" value="{{value}}" committedValue="{{committedValue}}" on-change="{{changeAction}}" disabled?="{{disabled}}">
+  </paper-input-decorator>
+
+</template>
+
+<script>
 
   Polymer('paper-input', {
 
@@ -111,17 +120,26 @@ to submitting a `paper-input`.
 
     },
 
+    /**
+     * Focuses the `input`.
+     *
+     * @method focus
+     */
+    focus: function() {
+      this.$.input.focus();
+    },
+
     valueChanged: function() {
       this.$.decorator.updateLabelVisibility(this.value);
     },
 
     changeAction: function(e) {
-      if (!window.ShadowDOMPolyfill) {
-        // re-fire event that does not bubble across shadow roots
-        this.fire('change', null, this);
-      }
+      // re-fire event that does not bubble across shadow roots
+      this.fire('change', null, this);
     }
 
   });
 
-</script> </polymer-element>
+</script>
+
+</polymer-element>

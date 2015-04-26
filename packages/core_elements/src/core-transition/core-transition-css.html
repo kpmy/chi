@@ -104,10 +104,11 @@ Available transitions
 
 <link rel="import" href="core-transition.html">
 
-<polymer-element name="core-transition-css" extends="core-transition"
-  attributes="transitionType"> <template>
-<link no-shim rel="stylesheet" href="core-transition-overlay.css">
-</template> <script>
+<polymer-element name="core-transition-css" extends="core-transition" attributes="transitionType">
+<template>
+  <link no-shim rel="stylesheet" href="core-transition-overlay.css">
+</template>
+<script>
 
   Polymer('core-transition-css', {
 
@@ -208,7 +209,8 @@ Available transitions
     }
 
   });
-</script> </polymer-element>
+</script>
+</polymer-element>
 
 <core-transition-css id="core-transition-fade"></core-transition-css>
 <core-transition-css id="core-transition-center" transitionType="center"></core-transition-css>

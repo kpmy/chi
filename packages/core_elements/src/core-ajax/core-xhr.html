@@ -22,7 +22,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <link rel="import" href="../polymer/polymer.html">
 
-<polymer-element name="core-xhr" hidden> <script>
+<polymer-element name="core-xhr" hidden>
+
+  <script>
 
     Polymer('core-xhr', {
 
@@ -49,7 +51,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         var async = !options.sync;
         //
         var params = this.toQueryString(options.params);
-        if (params && method == 'GET') {
+        if (params && method.toUpperCase() == 'GET') {
           url += (url.indexOf('?') > 0 ? '&' : '?') + params;
         }
         var xhrParams = this.isBodyMethod(method) ? (options.body || params) : null;
@@ -109,4 +111,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     });
 
-  </script> </polymer-element>
+  </script>
+  
+</polymer-element>

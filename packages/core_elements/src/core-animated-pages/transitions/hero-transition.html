@@ -9,19 +9,30 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <link href="core-transition-pages.html" rel="import">
 
-<core-style id="hero-transition"> /* Hide heroes that are
-not currently transitioning */ polyfill-next-selector { content: ':host
-> [animate]:not(.core-selected) [hero]'; } ::content >
-[animate]:not(.core-selected) /deep/ [hero] { opacity: 0; }
+<core-style id="hero-transition">
+  /* Hide heroes that are not currently transitioning */
+  polyfill-next-selector { content: ':host > [animate]:not(.core-selected) [hero]'; }
+  ::content > [animate]:not(.core-selected) /deep/ [hero] {
+    opacity: 0;
+  }
 
-polyfill-next-selector { content: ':host > .core-selected[animate]
-[hero]'; } ::content > .core-selected[animate] /deep/ [hero] { opacity:
-1; z-index: 10000; } polyfill-next-selector { content: ':host > *
-[hero-p]'; } ::content > * /deep/ [hero-p] { -webkit-transition:
-box-shadow 100ms ease-out; transition: box-shadow 100ms ease-out; }
+  polyfill-next-selector { content: ':host > .core-selected[animate] [hero]'; }
+  ::content > .core-selected[animate] /deep/ [hero] {
+    opacity: 1;
+    z-index: 10000;
+  }
 
-polyfill-next-selector { content: ':host > [animate] [hero-p]'; }
-::content > [animate] /deep/ [hero-p] { box-shadow: none !important; } </core-style>
+  polyfill-next-selector { content: ':host > * [hero-p]'; }
+  ::content > * /deep/ [hero-p] {
+    -webkit-transition: box-shadow 100ms ease-out;
+    transition: box-shadow 100ms ease-out;
+  }
+
+  polyfill-next-selector { content: ':host > [animate] [hero-p]'; }
+  ::content > [animate] /deep/ [hero-p] {
+    box-shadow: none !important;
+  }
+</core-style>
 
 
 <!--
@@ -307,6 +318,7 @@ You can configure the duration of the hero transition with the global variable
   };
 
 })();
-</script> </polymer-element>
+</script>
+</polymer-element>
 
 <hero-transition id="hero-transition"></hero-transition>

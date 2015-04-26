@@ -44,7 +44,8 @@ Styling ripple effect:
   Note that CSS color property is inherited so it is not required to set it on
   the `paper-ripple` element directly.
 
-Apply `recenteringTouch` class to make the recentering rippling effect.
+By default, the ripple is centered on the point of contact.  Apply `recenteringTouch` 
+class to have the ripple grow toward the center of its container.
 
     <paper-ripple class="recenteringTouch"></paper-ripple>
 
@@ -66,98 +67,62 @@ animation finishes to perform some action.
 @param {Object} detail.node The animated node
 -->
 
-<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../polymer/polymer.html" >
 
-<polymer-element name="paper-ripple"
-  attributes="initialOpacity opacityDecayVelocity"> <template>
+<polymer-element name="paper-ripple" attributes="initialOpacity opacityDecayVelocity">
+<template>
 
-<style>
-:host {
-  display: block;
-  position: relative;
-  border-radius: inherit;
-  overflow: hidden;
-}
+  <style>
 
-:host-context
+    :host {
+      display: block;
+      position: relative;
+      border-radius: inherit;
+      overflow: hidden;
+    }
 
+    :host-context([noink]) {
+      pointer-events: none;
+    }
 
+    #bg, #waves, .wave-container, .wave {
+      pointer-events: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
 
- 
+    #bg, .wave {
+      opacity: 0;
+    }
 
+    #waves, .wave {
+      overflow: hidden;
+    }
 
+    .wave-container, .wave {
+      border-radius: 50%;
+    }
 
-(
-[
-noink
-]
+    :host(.circle) #bg,
+    :host(.circle) #waves {
+      border-radius: 50%;
+    }
 
+    :host(.circle) .wave-container {
+      overflow: hidden;
+    }
 
+  </style>
 
- 
+  <div id="bg"></div>
+  <div id="waves">
+  </div>
 
-
-
-)
-{
-pointer-events
-
-
-
-
-
-
-:
-
-
-
- 
-
-
-
-none
-
-
-
-
-
-
-;
-}
-#bg,#waves,.wave-container,.wave {
-  pointer-events: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-#bg,.wave {
-  opacity: 0;
-}
-
-#waves,.wave {
-  overflow: hidden;
-}
-
-.wave-container,.wave {
-  border-radius: 50%;
-}
-
-:host     (.circle     ) #bg,:host     (.circle     ) #waves {
-  border-radius: 50%;
-}
-
-:host     (.circle     ) .wave-container {
-  overflow: hidden;
-}
-</style>
-
-<div id="bg"></div>
-<div id="waves"></div>
-
-</template> <script>
+</template>
+<script>
 
   (function() {
 
@@ -508,4 +473,5 @@ none
 
   })();
 
-</script> </polymer-element>
+</script>
+</polymer-element>

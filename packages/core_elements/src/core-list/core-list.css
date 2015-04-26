@@ -4,22 +4,16 @@
   position: relative;
 }
 
-polyfill-next-selector {
-  content: '.core-list-viewport > *';
-}
-
-::content>* {
+polyfill-next-selector { content: '.core-list-viewport > *'; }
+::content > * {
   position: absolute;
   top: 0;
   box-sizing: border-box;
   opacity: 0;
 }
 
-polyfill-next-selector {
-  content: ':host(:not([grid])) .core-list-viewport > *';
-}
-
-:host      (:not      ([grid]      )) ::content>* {
+polyfill-next-selector { content: ':host(:not([grid])) .core-list-viewport > *'; }
+:host(:not([grid])) ::content > * {
   width: 100%;
 }
 
@@ -28,6 +22,6 @@ polyfill-next-selector {
   white-space: nowrap;
 }
 
-.core-list-items.horizontal>* {
+.core-list-items.horizontal > * {
   display: inline-block;
 }

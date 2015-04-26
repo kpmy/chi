@@ -65,51 +65,48 @@ To change the slider secondary progress bar color:
 <link rel="import" href="../paper-progress/paper-progress.html">
 <link rel="import" href="../paper-input/paper-input.html">
 
-<polymer-element name="paper-slider" extends="core-range"
-  attributes="snaps pin disabled secondaryProgress editable immediateValue"
-  role="slider" tabindex="0" aria-valuemin="0" aria-valuemax="100">
+<polymer-element name="paper-slider" extends="core-range" attributes="snaps pin disabled secondaryProgress editable immediateValue" role="slider" tabindex="0" aria-valuemin="0" aria-valuemax="100">
 <template>
 
-<link rel="stylesheet" href="paper-slider.css">
+  <link rel="stylesheet" href="paper-slider.css">
 
-<template if="{{!disabled}}"> <core-a11y-keys target="{{}}"
-  keys="left down pagedown home" on-keys-pressed="{{decrementKey}}"></core-a11y-keys>
-<core-a11y-keys target="{{}}" keys="right up pageup end"
-  on-keys-pressed="{{incrementKey}}"></core-a11y-keys> </template>
-
-<div id="sliderContainer"
-  class="{{ {disabled: disabled, pin: pin, snaps: snaps, ring: immediateValue <= min, expand: expand, dragging: dragging, transiting: transiting, editable: editable} | tokenList }}">
-
-  <div class="bar-container">
-    <paper-progress id="sliderBar" aria-hidden="true" min="{{min}}"
-      max="{{max}}" value="{{immediateValue}}"
-      secondaryProgress="{{secondaryProgress}}" on-down="{{bardown}}"
-      on-up="{{resetKnob}}" on-trackstart="{{trackStart}}"
-      on-trackx="{{trackx}}" on-trackend="{{trackEnd}}"></paper-progress>
-  </div>
-
-  <template if="{{snaps && !disabled}}">
-  <div class="slider-markers" horizontal layout>
-    <template repeat="{{markers}}">
-    <div flex class="slider-marker"></div>
-    </template>
-  </div>
+  <template if="{{!disabled}}">
+    <core-a11y-keys target="{{}}" keys="left down pagedown home" on-keys-pressed="{{decrementKey}}"></core-a11y-keys>
+    <core-a11y-keys target="{{}}" keys="right up pageup end" on-keys-pressed="{{incrementKey}}"></core-a11y-keys>
   </template>
 
-  <div id="sliderKnob" on-down="{{knobdown}}" on-up="{{resetKnob}}"
-    on-trackstart="{{trackStart}}" on-trackx="{{trackx}}"
-    on-trackend="{{trackEnd}}" on-transitionend="{{knobTransitionEnd}}"
-    center-justified center horizontal layout>
+  <div id="sliderContainer" class="{{ {disabled: disabled, pin: pin, snaps: snaps, ring: immediateValue <= min, expand: expand, dragging: dragging, transiting: transiting, editable: editable} | tokenList }}">
 
-    <div id="sliderKnobInner" value="{{immediateValue}}"></div>
+    <div class="bar-container">
+      <paper-progress id="sliderBar" aria-hidden="true" min="{{min}}" max="{{max}}" value="{{immediateValue}}" secondaryProgress="{{secondaryProgress}}"
+          on-down="{{bardown}}" on-up="{{resetKnob}}" 
+          on-trackstart="{{trackStart}}" on-trackx="{{trackx}}" on-trackend="{{trackEnd}}"></paper-progress>
+    </div>
+
+    <template if="{{snaps && !disabled}}">
+      <div class="slider-markers" horizontal layout>
+        <template repeat="{{markers}}">
+          <div flex class="slider-marker"></div>
+        </template>
+      </div>
+    </template>
+
+    <div id="sliderKnob" on-down="{{knobdown}}" on-up="{{resetKnob}}"
+        on-trackstart="{{trackStart}}" on-trackx="{{trackx}}" on-trackend="{{trackEnd}}"
+        on-transitionend="{{knobTransitionEnd}}"
+        center-justified center horizontal layout>
+
+      <div id="sliderKnobInner" value="{{immediateValue}}"></div>
+
+    </div>
 
   </div>
 
-</div>
+  <template if="{{editable}}">
+    <paper-input id="input" class="slider-input" value="{{immediateValue}}" disabled?="{{disabled}}" on-change="{{inputChange}}"></paper-input>
+  </template>
 
-<template if="{{editable}}"> <paper-input id="input"
-  class="slider-input" value="{{immediateValue}}"
-  disabled?="{{disabled}}" on-change="{{inputChange}}"></paper-input> </template> </template>
+</template>
 <script>
 
   Polymer('paper-slider', {
@@ -118,6 +115,12 @@ To change the slider secondary progress bar color:
      * Fired when the slider's value changes.
      *
      * @event core-change
+     */
+     
+    /**
+     * Fired when the slider's immediateValue changes.
+     *
+     * @event immediate-value-change
      */
 
     /**
@@ -186,9 +189,17 @@ To change the slider secondary progress bar color:
      * @type number
      * @default 0
      */
-
     maxMarkers: 100,
-     
+
+    /**
+     * True when the user is dragging the slider.
+     *
+     * @attribute dragging
+     * @type boolean
+     * @default false
+     */
+    dragging: false,
+
     observe: {
       'step snaps': 'update'
     },
@@ -230,6 +241,7 @@ To change the slider secondary progress bar color:
       if (!this.dragging) {
         this.value = this.immediateValue;
       }
+      this.fire('immediate-value-change');
     },
 
     expandKnob: function() {
@@ -300,7 +312,7 @@ To change the slider secondary progress bar color:
       var ratio = (e.x - rect.left) / this._w;
       this.positionKnob(ratio);
       this.expandJob = this.job(this.expandJob, this.expandKnob, 60);
-      this.fire('change');
+      this.asyncFire('change');
     },
 
     knobTransitionEnd: function(e) {
@@ -320,10 +332,18 @@ To change the slider secondary progress bar color:
       }
     },
 
+    /**
+     * Increases value by `step` but not above `max`.
+     * @method increment
+     */
     increment: function() {
       this.value = this.clampValue(this.value + this.step);
     },
 
+    /**
+     * Decreases value by `step` but not below `min`.
+     * @method decrement
+     */
     decrement: function() {
       this.value = this.clampValue(this.value - this.step);
     },
@@ -348,4 +368,5 @@ To change the slider secondary progress bar color:
 
   });
 
-</script> </polymer-element>
+</script>
+</polymer-element>

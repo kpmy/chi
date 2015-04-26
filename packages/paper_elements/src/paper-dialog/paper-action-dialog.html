@@ -11,7 +11,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 Material Design: <a href="http://www.google.com/design/spec/components/dialogs.html">Dialogs</a>
 
-`paper-action-dialog` is a `paper-dialog` a row of buttons at the bottom that
+`paper-action-dialog` is a `paper-dialog` with a row of buttons at the bottom that
 indicate user action. The action buttons do not scroll with the dialog body.
 
 The buttons should have either the `affirmative` or `dismissive` attribute. See
@@ -37,48 +37,53 @@ Example:
 
 <link href="paper-dialog-base.html" rel="import">
 
-<polymer-element name="paper-action-dialog" extends="paper-dialog-base"
-  role="dialog"> <template>
+<polymer-element name="paper-action-dialog" extends="paper-dialog-base" role="dialog" layout vertical>
 
-<style>
-:host {
-  background: #fff;
-  color: rgba(0, 0, 0, 0.87);
-  margin: 32px;
-  overflow: visible !important;
-}
+<template>
 
-h1 {
-  font-size: 20px;
-}
+  <style>
+    :host {
+      background: #fff;
+      color: rgba(0, 0, 0, 0.87);
+      margin: 32px;
+      overflow: visible !important;
+    }
 
-#scroller {
-  overflow: auto;
-  box-sizing: border-box;
-  padding: 24px 24px 0 24px;
-}
+    h1 {
+      font-size: 20px;
+    }
 
-#actions {
-  padding: 16px;
-}
-</style>
+    #scroller {
+      overflow: auto;
+      box-sizing: border-box;
+      padding: 24px 24px 0 24px;
+    }
 
-<paper-shadow z="3" fit></paper-shadow> <!-- need this because the host needs to be overflow: visible -->
-<div id="scroller" relative>
-  <template if="{{heading}}">
-  <h1>{{heading}}</h1>
-  </template>
+    #actions {
+      padding: 16px;
+    }
+  </style>
 
-  <content select=":not([affirmative]):not([dismissive])"></content>
-</div>
+  <paper-shadow z="3" fit></paper-shadow>
 
-<div id="actions" relative layout horizontal>
-  <content select="[dismissive]"></content>
-  <div flex></div>
-  <content select="[affirmative]"></content>
-</div>
+  <!-- need this because the host needs to be overflow: visible -->
+  <div id="scroller" relative flex auto>
+    <template if="{{heading}}">
+      <h1>{{heading}}</h1>
+    </template>
 
-</template> <script>
+    <content select=":not([affirmative]):not([dismissive])"></content>
+  </div>
+
+  <div id="actions" relative layout horizontal>
+    <content select="[dismissive]"></content>
+    <div flex></div>
+    <content select="[affirmative]"></content>
+  </div>
+
+</template>
+
+<script>
 
   Polymer({
 
@@ -94,4 +99,6 @@ h1 {
 
   });
 
-</script> </polymer-element>
+</script>
+
+</polymer-element>

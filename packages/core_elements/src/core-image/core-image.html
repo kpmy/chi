@@ -62,12 +62,18 @@ Examples:
 
 <link rel="import" href="../polymer/polymer.html">
 
-<polymer-element name="core-image"> <template>
-<link rel="stylesheet" href="core-image.css">
-<template if="{{!sizing}}"> <img id="img"> </template> <template
-  if="{{preload && fade}}">
-<div id="placeholder" fit></div>
-</template> <content></content> </template> <script>
+<polymer-element name="core-image">
+<template>
+  <link rel="stylesheet" href="core-image.css">
+  <template if="{{!sizing}}">
+    <img id="img">
+  </template>
+  <template if="{{preload && fade}}">
+    <div id="placeholder" fit></div>
+  </template>
+  <content></content>
+</template>
+<script>
 
   Polymer({
     
@@ -87,9 +93,9 @@ Examples:
        * shown.  This may be useful when a binding to the src property is known to
        * be invalid, to prevent 404 requests.
        *
-       * @attribute src
-       * @type string
-       * @default null
+       * @attribute load
+       * @type boolean
+       * @default true
        */
       load: true,
 
@@ -233,4 +239,5 @@ Examples:
 
   });
 
-</script> </polymer-element>
+</script>
+</polymer-element>

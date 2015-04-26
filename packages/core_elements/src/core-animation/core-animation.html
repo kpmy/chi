@@ -62,9 +62,8 @@ Elements that are targets to a `core-animation` are given the `core-animation-ta
 @status beta
 @homepage github.io
 -->
-<polymer-element name="core-animation" constructor="CoreAnimation"
-  attributes="target keyframes customEffect composite duration fill easing iterationStart iterationCount delay direction autoplay targetSelector">
-<script>
+<polymer-element name="core-animation" constructor="CoreAnimation" attributes="target keyframes customEffect composite duration fill easing iterationStart iterationCount delay direction autoplay targetSelector">
+  <script>
     (function() {
 
       function toNumber(value, allowInfinity) {
@@ -452,7 +451,8 @@ Elements that are targets to a `core-animation` are given the `core-animation-ta
 
       });
     })();
-  </script> </polymer-element>
+  </script>
+</polymer-element>
 
 <!--
 `core-animation-keyframe` represents a keyframe in a `core-animation`. Use them as children of
@@ -466,7 +466,7 @@ the animation.
 @homepage github.io
 -->
 <polymer-element name="core-animation-keyframe" attributes="offset">
-<script>
+  <script>
     Polymer({
       publish: {
         /**
@@ -489,7 +489,8 @@ the animation.
         return props;
       }
     });
-  </script> </polymer-element>
+  </script>
+</polymer-element>
 
 <!--
 `core-animation-prop` represents a CSS property and value pair to use with
@@ -500,7 +501,7 @@ the animation.
 @homepage github.io
 -->
 <polymer-element name="core-animation-prop" attributes="name value">
-<script>
+  <script>
     Polymer({
       publish: {
         /**
@@ -520,4 +521,5 @@ the animation.
         value: {value: '', reflect: true}
       }
     });
-  </script> </polymer-element>
+  </script>
+</polymer-element>

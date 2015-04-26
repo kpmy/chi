@@ -37,41 +37,54 @@ of the scaffold.
 <link rel="import" href="../core-menu/core-submenu.html">
 <link rel="import" href="../core-icon-button/core-icon-button.html">
 
-<polymer-element name="sampler-scaffold"
-  attributes="label responsiveWidth"> <template>
+<polymer-element name="sampler-scaffold" attributes="label responsiveWidth">
+<template>
 
-<link rel="stylesheet" href="sampler-scaffold.css">
+  <link rel="stylesheet" href="sampler-scaffold.css">
 
-<core-drawer-panel id="drawerPanel" narrow="{{narrow}}"
-  drawerWidth="320px" responsiveWidth="{{responsiveWidth}}">
+  <core-drawer-panel id="drawerPanel" narrow="{{narrow}}" drawerWidth="320px" responsiveWidth="{{responsiveWidth}}">
 
-<core-header-panel id="mainHeaderPanel" main
-  mode="{{narrow ? 'waterfall' : 'cover'}}" shadow>
+    <core-header-panel id="mainHeaderPanel" main mode="{{narrow ? 'waterfall' : 'cover'}}" shadow>
 
-<core-toolbar class="{{ {'medium-tall' : !narrow} | tokenList }}">
-<content select=".menuButton" on-tap="{{togglePanel}}"> <core-icon-button
-  class="menuButton fallback" icon="menu"></core-icon-button> </content>
-<div hidden?="{{!narrow}}">{{item.label}}</div>
-<content select=".sourceButton" on-tap="{{viewSourceAction}}">
-<core-icon-button class="sourceButton fallback" icon="launch"></core-icon-button>
-</content> </core-toolbar>
+      <core-toolbar class="{{ {'medium-tall' : !narrow} | tokenList }}">
+        <content select=".menuButton" on-tap="{{togglePanel}}">
+          <core-icon-button class="menuButton fallback" icon="menu"></core-icon-button>
+        </content>
+        <div hidden?="{{!narrow}}">{{item.label}}</div>
+        <content select=".sourceButton" on-tap="{{viewSourceAction}}">
+          <core-icon-button class="sourceButton fallback" icon="launch"></core-icon-button>
+        </content>
 
-<div id="card" on-transitionend="{{cardTransitionDone}}"
-  hidden?="{{!item}}">
+      </core-toolbar>
+      
+      <div id="card" on-transitionend="{{cardTransitionDone}}" hidden?="{{!item}}">
 
-  <div class="element-label" hidden?="{{narrow}}">{{item.label}}</div>
+        <div class="element-label" hidden?="{{narrow}}">{{item.label}}</div>
 
-  <div id="frameContainer">
-    <iframe id="frame" on-load="{{frameLoaded}}"></iframe>
-  </div>
+        <div id="frameContainer">
+          <iframe id="frame" on-load="{{frameLoaded}}"></iframe>
+        </div>
+        
+      </div>
+      
+    </core-header-panel>
 
-</div>
+    <core-header-panel drawer>
 
-</core-header-panel> <core-header-panel drawer> <core-toolbar
-  class="{{ {'medium-tall' : !narrow} | tokenList }}">
-<div class="bottom main-label fit">{{label}}</div>
-</core-toolbar> <core-menu id="menu" on-core-select="{{menuSelect}}"> <content></content>
-</core-menu> </core-header-panel> </core-drawer-panel> </template> <script>
+      <core-toolbar class="{{ {'medium-tall' : !narrow} | tokenList }}">
+        <div class="bottom main-label fit">{{label}}</div>
+      </core-toolbar>
+      
+      <core-menu id="menu" on-core-select="{{menuSelect}}">
+        <content></content>
+      </core-menu>
+
+    </core-header-panel>
+
+  </core-drawer-panel>
+
+</template>
+<script>
 
   Polymer('sampler-scaffold', {
     
@@ -207,4 +220,5 @@ of the scaffold.
     
   });
 
-</script> </polymer-element>
+</script>
+</polymer-element>

@@ -36,6 +36,7 @@ This example renders a drop-down menu with 4 options.
 @group Paper Elements
 @element paper-dropdown-menu
 @extends core-dropdown-base
+@mixins Polymer.CoreFocusable https://github.com/polymer/core-focusable
 @status unstable
 @homepage github.io
 -->
@@ -60,58 +61,59 @@ contains the selection state.
 <link href="../paper-shadow/paper-shadow.html" rel="import">
 
 <style shim-shadowdom>
-html /deep/ #paper-dropdown-menu-dropdown {
-  margin: 12px;
-  overflow: visible;
-}
+  html /deep/ #paper-dropdown-menu-dropdown {
+    margin: 12px;
+    overflow: visible;
+  }
 
-html /deep/ #paper-dropdown-menu-dropdown #menu {
-  padding: 8px 0;
-  margin: 0;
-}
+  html /deep/ #paper-dropdown-menu-dropdown #menu {
+    padding: 8px 0;
+    margin: 0;
+  }
 
-html /deep/ #paper-dropdown-menu-dropdown .menu-container {
-  overflow: auto;
-  max-height: 100%;
-  max-width: 100%;
-}
+  html /deep/ #paper-dropdown-menu-dropdown .menu-container {
+    overflow: auto;
+    max-height: 100%;
+    max-width: 100%;
+  }
 </style>
 
-<polymer-element name="paper-dropdown-menu" extends="core-dropdown-base"
-  relative layout inline horizontal center tabindex="0">
+<polymer-element name="paper-dropdown-menu" extends="core-dropdown-base" relative layout inline horizontal center tabindex="0">
 <template>
 
-<style>
-:host {
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -webkit-user-select: none;
-  user-select: none;
-  cursor: pointer;
-  padding: 0.5em 0 0.25em;
-  margin: 0.75em 0;
-  border-bottom: 1px solid #757575;
-  outline: none;
-}
+  <style>
+    :host {
+      -moz-user-select: none;
+      -ms-user-select: none;
+      -webkit-user-select: none;
+      user-select: none;
+      cursor: pointer;
+      padding: 0.5em 0 0.25em;
+      margin: 0.75em 0;
+      border-bottom: 1px solid #757575;
+      outline: none;
+    }
 
-#label,#arrow {
-  color: #757575;
-}
+    #label:not(.selectedItem), #arrow {
+      color: #757575;
+    }
 
-#label {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-</style>
+    #label {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  </style>
 
-<core-a11y-keys target="{{}}" keys="enter space"
-  on-keys-pressed="{{toggleOverlay}}"></core-a11y-keys>
+  <core-a11y-keys target="{{}}" keys="enter space" on-keys-pressed="{{toggleOverlay}}"></core-a11y-keys>
 
-<div flex auto id="label">{{selectedItemLabel || label}}</div>
-<core-icon id="arrow" icon="{{opened ? openedIcon : closedIcon}}"></core-icon>
+  <div flex auto id="label">{{selectedItemLabel || label}}</div>
+  <core-icon id="arrow" icon="{{opened ? openedIcon : closedIcon}}"></core-icon>
 
-<content></content> </template> <script>
+  <content></content>
+
+</template>
+<script>
 
 (function() {
 
@@ -163,8 +165,10 @@ html /deep/ #paper-dropdown-menu-dropdown .menu-container {
     selectAction: function(e) {
       var detail = e.detail;
       if (detail.isSelected) {
+        this.$.label.classList.add('selectedItem');
         this.selectedItemLabel = detail.item.label || detail.item.textContent;
       } else {
+        this.$.label.classList.remove('selectedItem');
         this.selectedItemLabel = '';
       }
     }
@@ -176,4 +180,5 @@ html /deep/ #paper-dropdown-menu-dropdown .menu-container {
 
 })();
 
-</script> </polymer-element>
+</script>
+</polymer-element>

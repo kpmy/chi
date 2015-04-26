@@ -6,6 +6,7 @@ The complete set of contributors may be found at http://polymer.github.io/CONTRI
 Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 */
+
 :host {
   position: relative;
   overflow: hidden;
@@ -13,30 +14,25 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 }
 
 .tab-content {
-  transition: opacity .1s cubic-bezier(0.4, 0.0, 1, 1), color .1s
-    cubic-bezier(0.4, 0.0, 1, 1);
+  transition: opacity .1s cubic-bezier(0.4, 0.0, 1, 1), color .1s cubic-bezier(0.4, 0.0, 1, 1);
   height: 100%;
   margin: 0 12px;
 }
 
-:host-context     (#tabsContainer.scrollable     ) .tab-content {
+:host-context(#tabsContainer.scrollable) .tab-content {
   margin: 0 24px;
 }
 
-:host-context     (paper-tabs[link]     ) .tab-content {
+:host-context(paper-tabs[link]) .tab-content {
   margin: 0 !important;
 }
 
-polyfill-next-selector {
-  content: '.core-narrow #tabsContainer.scrollable :host .tab-content';
-}
-
-:host-context     (.core-narrow     ):host-context     (#tabsContainer.scrollable 
-     ) .tab-content {
+polyfill-next-selector { content: '.core-narrow #tabsContainer.scrollable :host .tab-content'; }
+:host-context(.core-narrow):host-context(#tabsContainer.scrollable) .tab-content {
   margin: 0 12px;
 }
 
-:host     (:not     (.core-selected     )) .tab-content {
+:host(:not(.core-selected)) .tab-content {
   opacity: 0.6;
 }
 
@@ -50,11 +46,8 @@ polyfill-next-selector {
   pointer-events: none;
 }
 
-polyfill-next-selector {
-  content: '.tab-content > a';
-}
-
-::content>a {
+polyfill-next-selector { content: '.tab-content > a'; }
+::content > a {
   height: 100%;
   padding: 0 12px;
   /* flex */

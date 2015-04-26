@@ -6,15 +6,13 @@ The complete set of contributors may be found at http://polymer.github.io/CONTRI
 Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 */
+
 :host {
   display: block;
   margin: 12px;
 }
 
-polyfill-next-selector {
-  content: ':host > core-item';
-}
-
-::content>core-item {
+polyfill-next-selector { content: ':host > core-item'; }
+::content > core-item {
   cursor: default;
 }

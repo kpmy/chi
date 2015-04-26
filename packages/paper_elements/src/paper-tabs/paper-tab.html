@@ -34,17 +34,16 @@ To change the ink color:
 
 <link rel="import" href="../paper-ripple/paper-ripple.html">
 
-<polymer-element name="paper-tab" attributes="noink" role="tab" inline
-  flex center-center horizontal layout> <template>
+<polymer-element name="paper-tab" attributes="noink" role="tab" inline flex center-center horizontal layout>
+<template>
 
-<link rel="stylesheet" href="paper-tab.css">
-
-<div class="tab-content" flex auto center-center horizontal layout>
-  <content></content>
-</div>
-<paper-ripple id="ink" initialOpacity="0.95" opacityDecayVelocity="0.98"></paper-ripple>
-
-</template> <script>
+  <link rel="stylesheet" href="paper-tab.css">
+  
+  <div class="tab-content" flex auto center-center horizontal layout><content></content></div>
+  <paper-ripple id="ink" initialOpacity="0.95" opacityDecayVelocity="0.98"></paper-ripple>
+  
+</template>
+<script>
 
   Polymer('paper-tab', {
     
@@ -79,4 +78,5 @@ To change the ink color:
     
   });
   
-</script> </polymer-element>
+</script>
+</polymer-element>

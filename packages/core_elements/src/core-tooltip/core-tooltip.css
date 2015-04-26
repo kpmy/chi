@@ -4,6 +4,7 @@ The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
 The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
 Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt */
+
 :host {
   box-sizing: border-box;
   position: relative;
@@ -11,83 +12,25 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   outline: none;
 }
 
-:host      (:hover:not      ([disabled]      )) .core-tooltip {
+:host(:hover:not([disabled])) .core-tooltip {
   visibility: visible !important;
 }
 
-:host      ([focused]      ) .core-tooltip {
+:host([focused]) .core-tooltip {
   visibility: visible !important;
 }
 
-.core-tooltip
-
-
-
-
-
-
-
-
-:not
-
-
-
-
- 
-
-
-
-
-(
-.show
-
-
-
-
- 
-
-
-
-
-)
-{
-visibility
-
-
-
-
-
-
-
-
-:
-
-
-
-
- 
-
-
-
-
-hidden
-
-
-
-
-
-
-
-
-;
+.core-tooltip:not(.show) {
+  visibility: hidden;
 }
+
 .core-tooltip {
   position: absolute;
   font-size: 10px;
-  font-family: sans-serif;
+  font-weight: 500;
   padding: 8px;
   color: white;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.9);
   box-sizing: border-box;
   border-radius: 3px; /* TODO: not in spec. */
   white-space: nowrap;
@@ -97,7 +40,7 @@ hidden
   user-select: none;
 }
 
-:host      ([large]      ) .core-tooltip {
+:host([large]) .core-tooltip {
   line-height: 14px;
   font-size: 14px;
   padding: 16px;
@@ -138,24 +81,24 @@ hidden
 
 .core-tooltip.bottom::after {
   bottom: 100%;
-  left: calc(50% -             4px);
-  border-bottom-color: rgba(0, 0, 0, 0.8);
+  left: calc(50% - 4px);
+  border-bottom-color: rgba(0,0,0,0.8);
 }
 
 .core-tooltip.left::after {
   left: 100%;
-  top: calc(50% -             4px);
-  border-left-color: rgba(0, 0, 0, 0.8);
+  top: calc(50% - 4px);
+  border-left-color: rgba(0,0,0,0.8);
 }
 
 .core-tooltip.top::after {
   top: 100%;
-  left: calc(50% -             4px);
-  border-top-color: rgba(0, 0, 0, 0.8);
+  left: calc(50% - 4px);
+  border-top-color: rgba(0,0,0,0.8);
 }
 
 .core-tooltip.right::after {
   right: 100%;
-  top: calc(50% -             4px);
-  border-right-color: rgba(0, 0, 0, 0.8);
+  top: calc(50% - 4px);
+  border-right-color: rgba(0,0,0,0.8);
 }

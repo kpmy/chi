@@ -6,6 +6,7 @@ The complete set of contributors may be found at http://polymer.github.io/CONTRI
 Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 */
+
 :host {
   display: inline-block;
   width: 200px;
@@ -19,7 +20,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   overflow: hidden;
 }
 
-#activeProgress,#secondaryProgress {
+#activeProgress,
+#secondaryProgress {
   -webkit-transform-origin: left center;
   transform-origin: left center;
   -webkit-transform: scaleX(0);
@@ -41,202 +43,26 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   animation: indeterminate-bar 1s linear infinite;
 }
 
-@
--webkit-keyframes indeterminate-bar { 0% {
-  -webkit-transform: translate(-50%) scaleX(0);
+@-webkit-keyframes indeterminate-bar {
+  0% {
+    -webkit-transform: translate(-50%) scaleX(0);
+  }
+  50% {
+    -webkit-transform: translate(0%) scaleX(0.3);
+  }
+  100% {
+    -webkit-transform: translate(50%) scaleX(0);
+  }
 }
 
-50%
-{
--webkit-transform
-
-
-
-
-
-
-
-
-:
-
-
-
-
- 
-
-
-
-
-translate
-
-
-
-
-
-
-
-
-(0%)
-scaleX
-
-
-
-
-
-
-
-
-(0
-.3
-
-
-
-
-
-
-
-
-);
-}
-100%
-{
--webkit-transform
-
-
-
-
-
-
-
-
-:
-
-
-
-
- 
-
-
-
-
-translate
-
-
-
-
-
-
-
-
-(50%)
-scaleX
-
-
-
-
-
-
-
-
-(0);
-}
-}
-@
-keyframes indeterminate-bar { 0% {
-  transform: translate(-50%) scaleX(0);
-}
-50%
-{
-transform
-
-
-
-
-
-
-
-
-:
-
-
-
-
- 
-
-
-
-
-translate
-
-
-
-
-
-
-
-
-(0%)
-scaleX
-
-
-
-
-
-
-
-
-(0
-.3
-
-
-
-
-
-
-
-
-);
-}
-100%
-{
-transform
-
-
-
-
-
-
-
-
-:
-
-
-
-
- 
-
-
-
-
-translate
-
-
-
-
-
-
-
-
-(50%)
-scaleX
-
-
-
-
-
-
-
-
-(0);
-}
+@keyframes indeterminate-bar {
+  0% {
+    transform: translate(-50%) scaleX(0);
+  }
+  50% {
+    transform: translate(0%) scaleX(0.3);
+  }
+  100% {
+    transform: translate(50%) scaleX(0);
+  }
 }

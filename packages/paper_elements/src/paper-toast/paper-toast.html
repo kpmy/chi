@@ -86,28 +86,28 @@ Fired when the `paper-toast` has completely closed.
 <link rel="import" href="../core-transition/core-transition-css.html">
 <link rel="import" href="../core-media-query/core-media-query.html">
 
-<polymer-element name="paper-toast"
-  attributes="text duration opened responsiveWidth swipeDisabled autoCloseDisabled"
-  role="status"> <template>
+<polymer-element name="paper-toast" attributes="text duration opened responsiveWidth swipeDisabled autoCloseDisabled" role="status">
 
-<link rel="stylesheet" href="paper-toast.css">
+<template>
 
-<core-overlay id="overlay" autoFocusDisabled
-  autoCloseDisabled="{{autoCloseDisabled}}" opened="{{opened}}"
-  target="{{}}" transition="core-transition-bottom"></core-overlay>
+  <link rel="stylesheet" href="paper-toast.css" >
 
-<div class="toast-container" horizontal layout>
+  <core-overlay id="overlay" autoFocusDisabled autoCloseDisabled="{{autoCloseDisabled}}" opened="{{opened}}" target="{{}}" transition="core-transition-bottom"></core-overlay>
 
-  <div class="toast-text" flex>{{text}}</div>
+  <div class="toast-container" horizontal layout>
 
-  <div class="toast-text toast-action" on-tap="{{dismiss}}">
-    <content></content>
+    <div class="toast-text" flex>{{text}}</div>
+    
+    <div class="toast-text toast-action" on-tap="{{dismiss}}">
+      <content></content>
+    </div>
+
   </div>
+  
+  <core-media-query query="max-width: {{responsiveWidth}}" queryMatches="{{narrowMode}}"></core-media-query>
 
-</div>
-
-<core-media-query query="max-width: {{responsiveWidth}}"
-  queryMatches="{{narrowMode}}"></core-media-query> </template> <script>
+</template>
+<script>
 
   (function() {
   
@@ -292,4 +292,5 @@ Fired when the `paper-toast` has completely closed.
     
   })();
 
-</script> </polymer-element>
+</script>
+</polymer-element>

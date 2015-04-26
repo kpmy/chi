@@ -3,6 +3,7 @@ Copyright 2013 The Polymer Authors. All rights reserved.
 Use of this source code is governed by a BSD-style
 license that can be found in the LICENSE file.
 */
+
 :host {
   display: inline-block;
   padding: 8px;
@@ -14,51 +15,10 @@ license that can be found in the LICENSE file.
   cursor: pointer;
 }
 
-:host
-
-
-
- 
-
-
-
-(
-[
-disabled
-]
-
-
-
- 
-
-
-
-)
-{
-cursor
-
-
-
-
-
-
-:
-
-
-
- 
-
-
-
-auto
-
-
-
-
-
-
-;
+:host([disabled]) {
+  cursor: auto;
 }
+
 core-icon {
   position: relative;
 }
@@ -70,17 +30,17 @@ core-icon::shadow svg {
   -webkit-transform-origin: 50% 50%;
 }
 
-:host     (:hover     ) core-icon::shadow svg {
+:host(:hover) core-icon::shadow svg {
   transform: scale(1.2);
   -webkit-transform: scale(1.2);
 }
 
-:host     ([disabled]:hover     ) core-icon::shadow svg {
+:host([disabled]:hover) core-icon::shadow svg {
   transform: none;
   -webkit-transform: none;
 }
 
-:host     ([disabled]     ) core-icon::shadow path {
+:host([disabled]) core-icon::shadow path {
   fill: #c9c9c9;
 }
 
@@ -109,12 +69,12 @@ core-icon::shadow svg {
   -webkit-transform: scale(0);
 }
 
-:host     ([halign="right"]     ) .paper-menu-button-overlay-ink {
+:host([halign="right"]) .paper-menu-button-overlay-ink {
   left: auto;
   right: 0;
 }
 
-:host     ([valign="bottom"]     ) .paper-menu-button-overlay-ink {
+:host([valign="bottom"]) .paper-menu-button-overlay-ink {
   top: auto;
   bottom: 0;
 }
@@ -130,7 +90,7 @@ core-icon::shadow svg {
   z-index: -1;
 }
 
-:host     ([noTransition]     ) .paper-menu-button-overlay-bg {
+:host([noTransition]) .paper-menu-button-overlay-bg {
   opacity: 1;
 }
 

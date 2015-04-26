@@ -84,11 +84,11 @@ not scroll with its container.
 <link href="../core-overlay/core-overlay.html" rel="import">
 
 <style shim-shadowdom>
-html /deep/ core-dropdown {
-  position: absolute;
-  overflow: auto;
-  background-color: #fff;
-}
+  html /deep/ core-dropdown {
+    position: absolute;
+    overflow: auto;
+    background-color: #fff;
+  }
 </style>
 
 <polymer-element name="core-dropdown" extends="core-overlay">
@@ -140,9 +140,11 @@ html /deep/ core-dropdown {
        * The horizontal alignment of the popup relative to `relatedTarget`. `left`
        * means the left edges are aligned together. `right` means the right edges
        * are aligned together.
+       * 
+       * Accepted values: 'left', 'right'
        *
        * @attribute halign
-       * @type 'left' | 'right'
+       * @type String
        * @default 'left'
        */
       halign: 'left',
@@ -152,8 +154,10 @@ html /deep/ core-dropdown {
        * the top edges are aligned together. `bottom` means the bottom edges are
        * aligned together.
        *
+       * Accepted values: 'top', 'bottom'
+       *
        * @attribute valign
-       * @type 'top' | 'bottom'
+       * @type String
        * @default 'top'
        */
       valign: 'top',
@@ -191,6 +195,8 @@ html /deep/ core-dropdown {
         style[dims.position.v] = null;
         dims.position.v_by = null;
       }
+      style.width = null;
+      style.height = null;
       this.super();
     },
 
@@ -301,4 +307,5 @@ html /deep/ core-dropdown {
 
 })();
 
-</script> </polymer-element>
+</script>
+</polymer-element>

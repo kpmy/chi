@@ -9,20 +9,18 @@
   margin: 18px;
   border-collapse: separate;
 }
-
 .target td {
   background-color: white;
   border: 1px solid orange;
   width: 10px;
   height: 10px;
 }
-
 .replica {
   background-color: green;
 }
 </style>
 <body>
-  <template id="target-template">
+<template id="target-template">
   <table>
     <tbody>
       <tr>
@@ -31,11 +29,11 @@
       </tr>
     </tbody>
   </table>
-  </template>
-  <script src="../testharness/testharness.js"></script>
-  <script src="../testharness/testharnessreport.js"></script>
-  <script src="resources/interpolation-test.js"></script>
-  <script>
+</template>
+<script src="../testharness/testharness.js"></script>
+<script src="../testharness/testharnessreport.js"></script>
+<script src="resources/interpolation-test.js"></script>
+<script>
 assertInterpolation({
   property: 'border-spacing',
   from: '0px',

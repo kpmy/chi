@@ -41,12 +41,13 @@ All taps on the `core-label` will be forwarded to the "target" element.
 
 <!-- Native <label> has cursor: default -->
 <style>
-html /deep/ core-label {
-  cursor: default;
-}
+  html /deep/ core-label {
+    cursor: default;
+  }
 </style>
 
-<polymer-element name="core-label"> <script>
+<polymer-element name="core-label">
+  <script>
     (function() {
 
       var ID = 0;
@@ -119,4 +120,5 @@ html /deep/ core-label {
         }
       });
     })();
-  </script> </polymer-element>
+  </script>
+</polymer-element>
